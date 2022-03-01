@@ -7,10 +7,12 @@ import { UsComponent } from './features/pages/us/us.component';
 
 const routes: Routes = [
   
+    { path:'', component:LandingPageComponent},
     { path:'landing-page', component:LandingPageComponent},
     { path:'about', component:AboutComponent},
     { path:'us', component:UsComponent},
     { path:'login', component:LoginComponent},
+    
 
 ];
 

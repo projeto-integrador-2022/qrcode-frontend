@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'; 
 
 
 @Component({
@@ -8,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 
 
+
+
 export class LandingPageComponent implements OnInit {  
-  public isMenuCollapsed = true;
+
+  constructor(
+    private router:Router
+  ) { }
+
+
   readonly jumbotronContent = [
     { 
       title: 'Realidade Aumentada no seu negócio.',
@@ -30,6 +38,10 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  public navigateTo() {
+    this.router.navigate(['/about']);
   }
   
 

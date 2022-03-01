@@ -1,5 +1,11 @@
-
-
 <div class="container">
-    <p>about works!</p>
+    <div *ngFor="let jumbotronContent of jumbotronContent; index as i">
+
+        <div class="jumbotron">
+            <h1 class="display-4">{{ jumbotronContent.title }}</h1>
+            <p class="lead">{{ jumbotronContent.description }}</p>
+
+        </div>
+        <hr class="my-4">
+    </div>
 </div>
