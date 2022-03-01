@@ -5,7 +5,9 @@
                 <h1 class="display-4">{{jumbotronContent.title}}</h1>
                 <p class="lead">{{jumbotronContent.description}}</p>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg start-button" href="#" role="button">Saiba mais</a>
+                    <a class="btn btn-primary btn-lg start-button" 
+                    [routerLink]="'./about'" routerLinkActive="activebutton"
+                    (click)="isMenuCollapsed = true">Saiba mais</a>
                 </p>
 
             </div>

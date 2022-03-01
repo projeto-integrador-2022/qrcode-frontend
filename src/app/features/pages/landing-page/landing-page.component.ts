@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class LandingPageComponent implements OnInit {  
-
+  public isMenuCollapsed = true;
   readonly jumbotronContent = [
     { 
       title: 'Realidade Aumentada no seu negócio.',
@@ -30,8 +30,6 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     
-  
-
   }
   
 

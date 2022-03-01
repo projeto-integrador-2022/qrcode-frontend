@@ -12,8 +12,6 @@ const routes: Routes = [
     { path:'us', component:UsComponent},
     { path:'login', component:LoginComponent},
 
-   
-
 ];
 
 @NgModule({
