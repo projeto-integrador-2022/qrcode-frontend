@@ -8,6 +8,7 @@ import { NavBarComponent } from './features/components/nav-bar/nav-bar.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './features/pages/about/about.component';
 import { UsComponent } from './features/pages/us/us.component';
+import { LoginComponent } from './features/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UsComponent } from './features/pages/us/us.component';
     LandingPageComponent,
     NavBarComponent,
     AboutComponent,
-    UsComponent
+    UsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

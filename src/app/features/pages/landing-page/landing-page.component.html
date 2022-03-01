@@ -1,4 +1,18 @@
-
 <div class="container">
-    <p>landing-page works!</p>
+    <div class="row" *ngFor="let jumbotronContent of jumbotronContent; index as i">
+        <div class="col-sm">
+            <div class="jumbotron">
+                <h1 class="display-4">{{jumbotronContent.title}}</h1>
+                <p class="lead">{{jumbotronContent.description}}</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg start-button" href="#" role="button">Saiba mais</a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-sm">
+            <img class="img-responsive" src='{{jumbotronContent.image}}' alt="">
+        </div>
+        <hr class="my-4">
+    </div>
 </div>

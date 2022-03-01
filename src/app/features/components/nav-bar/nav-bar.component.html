@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light mb-3 custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" [routerLink]="'./landing-page'"> QR Costumer Tracker </a>
+        <a class="navbar-brand" [routerLink]="'./landing-page' " routerLinkActive="activebutton"> QR Costumer Tracker </a>
 
 
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
@@ -17,7 +17,7 @@
                     <a class="nav-link" [routerLink]="'./us'" routerLinkActive="activebutton" (click)="isMenuCollapsed = true">Sobre nós</a>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link btn btn-primary start-button" type="button" [routerLink]="'.'" (click)="isMenuCollapsed = true">Começar</button>
+                    <button class="nav-link btn btn-primary start-button" type="button" [routerLink]="'./login'" routerLinkActive="activebutton" (click)="isMenuCollapsed = true">Começar</button>
                 </li>
             </ul>
         </div>
