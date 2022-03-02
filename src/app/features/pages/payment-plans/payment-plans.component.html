@@ -1,1 +1,24 @@
-<p>payment-plans works!</p>
+<div class="container">
+    <p class="text-center display-4 mb-5">Assine Já!</p>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto" *ngFor="let cardContent of cardsContents; index as i">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-3">{{cardContent.title}}</h5>
+                    
+                    <div class="text-fixture lh-0 mb-5 mt-5">
+                        <p class="card-text text-center">{{cardContent.description1}}</p>
+                        <p class="card-text text-center">{{cardContent.description2}}</p>
+                        <p class="card-text text-center">{{cardContent.description3}}</p>
+                        <p class="card-text text-center">{{cardContent.value}}</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a class="btn btn-primary btn-lg start-button mt-3" [routerLink]="'./about'"
+                            routerLinkActive="activebutton" (click)="navigateTo()">Inscreva</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
   }
 
   public navigateTo() {
-    this.router.navigate(['/about']);
+    this.router.navigate(['/payment-plans']);
   }
 
 }

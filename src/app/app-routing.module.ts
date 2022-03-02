@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './features/pages/about/about.component';
 import { LandingPageComponent } from './features/pages/landing-page/landing-page.component';
 import { LoginComponent } from './features/pages/login/login.component';
+import { PaymentPlansComponent } from './features/pages/payment-plans/payment-plans.component';
 import { UsComponent } from './features/pages/us/us.component';
 
 const routes: Routes = [
@@ -12,9 +13,8 @@ const routes: Routes = [
     { path:'about', component:AboutComponent},
     { path:'us', component:UsComponent},
     { path:'login', component:LoginComponent},
-    
-
-];
+    { path:'payment-plans', component:PaymentPlansComponent},
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
