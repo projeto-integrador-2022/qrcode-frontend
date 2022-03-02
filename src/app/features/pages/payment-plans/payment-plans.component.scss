@@ -19,24 +19,32 @@
     
 }
 
+.fix-margin {
+    margin-top: 150px;
+}
+
+.box-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.jumbotron {
+    height: 100%;
+    min-height: 20rem;
+}
 
 @media (max-width:991px) {
     .card {
         width: 100%;
-    }
+    };
     .column-fixture {
         width: 100%;
         
-    }
+    };
 
-    .row {
-        align-content: center;
-
-    }
     .featured-card {
         margin: 0;
         transform:translateY(30px);
         margin-bottom: 60px;
-    }
+    };
 
 }
+
