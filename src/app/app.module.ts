@@ -11,6 +11,7 @@ import { UsComponent } from './features/pages/us/us.component';
 import { LoginComponent } from './features/pages/login/login.component';
 import { FooterComponent } from './features/components/footer/footer.component';
 import { PaymentPlansComponent } from './features/pages/payment-plans/payment-plans.component';
+import { ContactUsFormComponent } from './features/components/contact-us-form/contact-us-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PaymentPlansComponent } from './features/pages/payment-plans/payment-pl
     UsComponent,
     LoginComponent,
     FooterComponent,
-    PaymentPlansComponent
+    PaymentPlansComponent,
+    ContactUsFormComponent
   ],
   imports: [
     BrowserModule,
