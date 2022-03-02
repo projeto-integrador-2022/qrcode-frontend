@@ -1,27 +1,45 @@
-# QrcodeFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+## Angular
+Esse projeto foi gerado em [Angular CLI](https://github.com/angular/angular-cli) versão 13.2.5.
 
-## Development server
+## Yarn
+Esse projeto foi gerado em [Yarn](https://yarnpkg.com) version 1.22.17.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```sh
+npm install --global yarn
 
-## Code scaffolding
+# na pasta do projeto:
+yarn
+yarn build
+yarn start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Node
+Esse projeto usa o [Node](https://nodejs.org) versão 14.17.4.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Git
+Esse projeto está sendo versionado em [Git](https://git-scm.com) versão 2.25.1.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+# front-end
+git clone git@github.com:projeto-integrador-2022/qrcode-frontend.git
+git clone git@github.com:projeto-integrador-2022/qrcode-backend.git
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## GitHub
+Esse projeto usa o GitHub [Github](https://github.com/projeto-integrador-2022)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Git Tools
+
+## Bootstrap
+```sh
+ng add @ng-bootstrap/ng-bootstrap
+npm install --save jquery
+npm install --save bootstrap
+npm install bootstrap@latest
+
+```
