@@ -5,3 +5,38 @@
     font-style: italic;
     font-size: 20px;
 }
+
+.column-fixture {
+    padding: 0;
+
+
+}
+
+.featured-card {
+    margin: -20px;
+    transform:translateY(-30px);
+    z-index: 1;
+    
+}
+
+
+@media (max-width:991px) {
+    .card {
+        width: 100%;
+    }
+    .column-fixture {
+        width: 100%;
+        
+    }
+
+    .row {
+        align-content: center;
+
+    }
+    .featured-card {
+        margin: 0;
+        transform:translateY(30px);
+        margin-bottom: 60px;
+    }
+
+}
