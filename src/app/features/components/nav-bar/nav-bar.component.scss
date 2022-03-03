@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 150px;
+    height: 100px;
     z-index: 999;
 
     .navbar-brand {
@@ -25,5 +25,10 @@
 }
 
 
-
+.img {
+    height: 30px !important;
+    width: 30px !important;
+    transform: translateY(-2px);
+    margin-right: 30px;
+}
 

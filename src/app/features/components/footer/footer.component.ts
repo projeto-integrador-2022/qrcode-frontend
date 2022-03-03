@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
+  isRedirectToPaymentAvaliable: boolean = false;
 
-  isRedirectToPaymentAvaliable: boolean = false
-  
-  constructor(
-    private router:Router
-  ) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public navigateTo() {
     this.router.navigate(['/payment-plans']);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
-
 }
