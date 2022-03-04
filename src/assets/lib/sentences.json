@@ -1,83 +1,103 @@
 {
-    "ABOUT": {
-        "1": {
+    "ABOUT": [
+        {
             "TITLE": "Realidade Aumentada no seu negócio",
             "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan, augue et consequat gravida, velit tellus porttitor felis, nec accumsan quam arcu at turpis. Aenean congue arcu ex, in elementum felis tristique quis. Sed in tortor in odio fringilla consequat. Duis finibus elementum euismod. Donec vestibulum scelerisque eros ac varius. Nulla venenatis dignissim risus, non vestibulum lectus tristique et. Phasellus porta ac urna quis vehicula. Maecenas eget bibendum tortor. Praesent laoreet, sem ac iaculis interdum, metus libero convallis nisl, non lacinia nibh augue nec neque. Curabitur condimentum sapien ut nisi consequat, a efficitur neque lacinia. Fusce accumsan, massa a vehicula luctus, metus mauris posuere metus, quis tempor augue lorem in orci. Nam in congue eros, et accumsan justo."
         },
-        "2": {
+        {
             "TITLE": "Quem são seus clientes?",
             "DESCRIPTION": "hasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu. Suspendisse potenti. Aliquam erat volutpat. Quisque sed rutrum lacus. Donec blandit tortor et consectetur dignissim. Phasellus porta, diam a tincidunt commodo, orci ligula dictum sapien, ac sollicitudin justo nulla vitae magna. Phasellus euismod suscipit dui nec pretium. Donec sed risus quis quam cursus semper eu non sem. Donec quis dolor at elit blandit luctus quis ac felis. Aenean ac lobortis ligula. Nullam nec metus arcu."
         },
-        "3": {
+        {
             "TITLE": "Donos de Gráficas",
-            "DESCRIPTION": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget orci vitae, scelerisque hendrerit mauris. Fusce id condimentum dui. Nullam sed sapien vitae erat mattis iaculis. Aliquam interdum interdum iaculis. Aenean consequat sit amet odio vitae lobortis. Donec ullamcorper elit nec turpis egestas, vel laoreet quam vehicula. Quisque vel arcu interdum, pulvinar quam at, dignissim eros. Integer volutpat pulvinar nisi ac faucibus. Aliquam elit augue, pretium et lorem a, condimentum maximus eros.",
+            "DESCRIPTION": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget orci vitae, scelerisque hendrerit mauris. Fusce id condimentum dui. Nullam sed sapien vitae erat mattis iaculis. Aliquam interdum interdum iaculis. Aenean consequat sit amet odio vitae lobortis. Donec ullamcorper elit nec turpis egestas, vel laoreet quam vehicula. Quisque vel arcu interdum, pulvinar quam at, dignissim eros. Integer volutpat pulvinar nisi ac faucibus. Aliquam elit augue, pretium et lorem a, condimentum maximus eros."
         }
-    },
-    "LANDING-PAGE": {
-        "1": {
+    ],
+    "LANDING-PAGE": [
+        {
             "TITLE": "Realidade Aumentada no seu negócio.",
             "DESCRIPTION": "Incremente seu negócio usando Q.R Code e fique sabendo mais sobre seu cliente!",
             "IMAGE": "../../../assets/images/image-example.png"
         },
-        "2": {
+        {
             "TITLE": "Quem são seus clientes?",
             "DESCRIPTION": "Descubra os hábitos de consumo da sua clientela, onde e quando estiveram em sua loja. Saiba quem é seu freguês!",
             "IMAGE": "../../../assets/images/image-example.png"
         },
-        "3": {
+        {
             "TITLE": "Donos de Gráficas",
             "DESCRIPTION": "Além de gerar o QR Code, agregue valor ao seu negócio e ofereça nosso serviço de rastreamento de clientela.",
             "IMAGE": "../../../assets/images/image-example.png"
         }
-    },
-    "LOGIN": {},
-    "PAYMENT-PLANS": {
-        "STARTER": {
+    ],
+    "LOGIN": [],
+    "PAYMENT-PLANS": [
+        {
             "TITLE": "Starter",
             "REPORTS": "Relatórios Mensais",
             "USERS": "Até 2 Usuários",
             "THIRD-PARTYS": "Até 10 Clientes",
             "PRICE": "R$ 350,00 /mês"
         },
-        "PROFESSIONAL": {
+        {
             "TITLE": "Professional",
             "REPORTS": "Relatórios em Tempo Real",
             "USERS": "Multiplos Usuários",
             "THIRD-PARTYS": "Até 20 Clientes",
             "PRICE": "R$ 750,00 /mês"
         },
-        "ENTERPRISE": {
+        {
             "TITLE": "Enterprise",
             "REPORTS": "Relatórios em Tempo Real",
             "USERS": "Até 2 Usuários",
             "THIRD-PARTYS": "Quantidade Fixa de Clientes",
             "PRICE": "R$ 150,00 /mês /usuário"
         }
-    },
-    "FAQ": {
-        "1": {
+    ],
+    "FAQ": [
+        {
             "TITLE": "Quais cartões de créditos aceitos?",
             "DESCRIPTION": "Nullam mauris nulla, placerat egestas elit et, venenatis porttitor nisl. Nulla vel velit eu lectus bibendum blandit eu molestie nisl. Mauris sed cursus sem. "
         },
-        "2": {
+        {
             "TITLE": "Posso pagar por Pix?",
             "DESCRIPTION": "Vivamus venenatis erat ullamcorper auctor congue. Nunc varius, odio id maximus congue, velit diam elementum dolor, at eleifend est dui non nisl."
         },
-        "3": {
+        {
             "TITLE": "Posso cancelar a qualquer momento?",
             "DESCRIPTION": "Sed neque tellus, finibus sed rhoncus a, vehicula eu enim. Cras condimentum lorem vel nisl interdum, ac placerat augue semper. Quisque iaculis dictum ex."
         },
-        "4": {
+        {
             "TITLE": "Posso dividir minha assinatura?",
             "DESCRIPTION": "Nunc a pretium massa. Donec nulla turpis, rutrum eget metus ultricies, eleifend sagittis diam. Donec fringilla erat enim. Integer luctus nisl tortor, at lacinia."
         },
-        "5": {
+        {
             "TITLE": "Posso trocar o plano?",
             "DESCRIPTION": "lectus cursus tincidunt. Nullam lobortis ornare commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
         },
-        "6": {
+        {
             "TITLE": "Como são entregues os relatórios mensais? E como funciona os Relatórios em Tempo Real?",
             "DESCRIPTION": "Quisque suscipit aliquet egestas. Etiam euismod placerat quam et rhoncus. Nunc mollis dolor at mi gravida ornare. Sed hendrerit egestas ultrices."
         }
-    }
+    ],
+    "US": [
+        {
+            "TITLE": "A Big Hiccups Soluções",
+            "TEXT1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur",
+            "TEXT2": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT3": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu."
+        },
+        {
+            "TITLE": "Nossa Equipe",
+            "TEXT1": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur.",
+            "TEXT3": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu."
+        },
+        {
+            "TITLE": "Fale Conosco!",
+            "TEXT1": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu.",
+            "TEXT2": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur."
+        }
+    ]
 }

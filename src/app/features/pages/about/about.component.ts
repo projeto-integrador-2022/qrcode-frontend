@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+import sentences from '../../../../assets/lib/sentences.json';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
+  aboutSentences: any;
+  constructor() {
+    this.aboutSentences = sentences.ABOUT;
+  }
+  
 
-  constructor() { }
-
+  /*
   readonly jumbotronContent = [
     { 
       title: 'Realidade Aumentada no seu negócio',
@@ -23,8 +27,8 @@ export class AboutComponent implements OnInit {
       description: 'Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget orci vitae, scelerisque hendrerit mauris. Fusce id condimentum dui. Nullam sed sapien vitae erat mattis iaculis. Aliquam interdum interdum iaculis. Aenean consequat sit amet odio vitae lobortis. Donec ullamcorper elit nec turpis egestas, vel laoreet quam vehicula. Quisque vel arcu interdum, pulvinar quam at, dignissim eros. Integer volutpat pulvinar nisi ac faucibus. Aliquam elit augue, pretium et lorem a, condimentum maximus eros.',
     },
   ];
-
+*/
   ngOnInit(): void {
+    console.log(this.aboutSentences);
   }
-
 }
