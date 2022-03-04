@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,30 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-  constructor(private router: Router) {}
+  LANDING_PAGE_SENTENCES: any;
+  constructor(private router: Router) {
+    this.LANDING_PAGE_SENTENCES = SENTENCES.LANDING_PAGE;
+  }
 
-  readonly jumbotronContent = [
-    {
-      title: 'Realidade Aumentada no seu negócio.',
-      description:
-        'Incremente seu negócio usando Q.R Code e fique sabendo mais sobre seu cliente!',
-      image: '../../../assets/images/image-example.png',
-    },
-    {
-      title: 'Quem são seus clientes?',
-      description:
-        'Descubra os hábitos de consumo da sua clientela, onde e quando estiveram em sua loja. Saiba quem é seu freguês!',
-      image: '../../../assets/images/image-example.png',
-    },
-    {
-      title: 'Donos de gráficas',
-      description:
-        'Além de gerar o QR Code, agregue valor ao seu negócio e ofereça nosso serviço de rastreamento de clientela.',
-      image: '../../../assets/images/image-example.png',
-    },
-  ];
-
-  ngOnInit(): void {}
+  ngOnInit(): void {    
+  }
 
   public navigateTo() {
     this.router.navigate(['/about']);

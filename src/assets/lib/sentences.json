@@ -13,7 +13,7 @@
             "DESCRIPTION": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget orci vitae, scelerisque hendrerit mauris. Fusce id condimentum dui. Nullam sed sapien vitae erat mattis iaculis. Aliquam interdum interdum iaculis. Aenean consequat sit amet odio vitae lobortis. Donec ullamcorper elit nec turpis egestas, vel laoreet quam vehicula. Quisque vel arcu interdum, pulvinar quam at, dignissim eros. Integer volutpat pulvinar nisi ac faucibus. Aliquam elit augue, pretium et lorem a, condimentum maximus eros."
         }
     ],
-    "LANDING-PAGE": [
+    "LANDING_PAGE": [
         {
             "TITLE": "Realidade Aumentada no seu negócio.",
             "DESCRIPTION": "Incremente seu negócio usando Q.R Code e fique sabendo mais sobre seu cliente!",
@@ -31,26 +31,26 @@
         }
     ],
     "LOGIN": [],
-    "PAYMENT-PLANS": [
+    "PAYMENT_PLANS": [
         {
             "TITLE": "Starter",
             "REPORTS": "Relatórios Mensais",
             "USERS": "Até 2 Usuários",
-            "THIRD-PARTYS": "Até 10 Clientes",
+            "THIRD_PARTYS": "Até 10 Clientes",
             "PRICE": "R$ 350,00 /mês"
         },
         {
             "TITLE": "Professional",
             "REPORTS": "Relatórios em Tempo Real",
             "USERS": "Multiplos Usuários",
-            "THIRD-PARTYS": "Até 20 Clientes",
+            "THIRD_PARTYS": "Até 20 Clientes",
             "PRICE": "R$ 750,00 /mês"
         },
         {
             "TITLE": "Enterprise",
             "REPORTS": "Relatórios em Tempo Real",
             "USERS": "Até 2 Usuários",
-            "THIRD-PARTYS": "Quantidade Fixa de Clientes",
+            "THIRD_PARTYS": "Quantidade Fixa de Clientes",
             "PRICE": "R$ 150,00 /mês /usuário"
         }
     ],

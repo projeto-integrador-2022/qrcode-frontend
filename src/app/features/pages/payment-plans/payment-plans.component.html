@@ -1,16 +1,16 @@
 <div class="container">
     <p class="text-center display-4 mb-5">Assine Já!</p>
     <div class="row justify-content-md-center ">
-        <div class="col-md-auto mt-5 column-fixture" *ngFor="let cardContent of cardsContents; index as i">
+        <div class="col-md-auto mt-5 column-fixture" *ngFor="let ITEM of PAYMENT_PLANS_SENTENCES; index as i">
             <div class="card featured-card" *ngIf="i == cardContentSize - 2; else anotherStyle">
                 <div class="">
                     <div class="card-body text-center">
-                        <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{cardContent.title}}</h4>
+                        <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{ITEM.TITLE}}</h4>
                         <div class="text-fixture mb-5 mt-5">
-                            <p class="card-text">{{cardContent.description1}}</p>
-                            <p class="card-text">{{cardContent.description2}}</p>
-                            <p class="card-text">{{cardContent.description3}}</p>
-                            <p class="card-text">{{cardContent.value}}</p>
+                            <p class="card-text">{{ITEM.REPORTS}}</p>
+                            <p class="card-text">{{ITEM.USERS}}</p>
+                            <p class="card-text">{{ITEM.THIRD_PARTYS}}</p>
+                            <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
                         <a class="btn btn-primary btn-lg start-button mt-3      text-center" [routerLink]="'./about'"
@@ -22,12 +22,12 @@
             <ng-template class="card" #anotherStyle>
                 <div class="card">
                     <div class="card-body text-center">
-                        <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{cardContent.title}}</h4>
+                        <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{ITEM.TITLE}}</h4>
                         <div class="text-fixture mb-5 mt-5">
-                            <p class="card-text">{{cardContent.description1}}</p>
-                            <p class="card-text">{{cardContent.description2}}</p>
-                            <p class="card-text">{{cardContent.description3}}</p>
-                            <p class="card-text">{{cardContent.value}}</p>
+                            <p class="card-text">{{ITEM.REPORTS}}</p>
+                            <p class="card-text">{{ITEM.USERS}}</p>
+                            <p class="card-text">{{ITEM.THIRD_PARTYS}}</p>
+                            <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
                         <a class="btn btn-primary btn-lg start-button mt-3      text-center" [routerLink]="'./about'"
@@ -42,10 +42,10 @@
 <div class="container fix-margin mb-5">
     <p class="display-4 mb-2 text-center">FAQ</p>
     <div class="row ">
-        <div class="col-6 mt-5 " *ngFor="let faqQuestions of faqQuestions; index as i">
+        <div class="col-6 mt-5 " *ngFor="let ITEM of FAQ_SENTENCES; index as i">
             <div class="jumbotron box-shadow p-5">
-                <h4 class="mb-5 text-center">{{ faqQuestions.title }}</h4>
-                <p class="lead float-left mb-5">{{ faqQuestions.description }}</p>  
+                <h4 class="mb-5 text-center">{{ ITEM.TITLE }}</h4>
+                <p class="lead float-left mb-5">{{ ITEM.DESCRIPTION }}</p>  
                 
             </div>
             

@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="row" *ngFor="let jumbotronContent of jumbotronContent; index as i">
+    <div class="row" *ngFor="let ITEM of LANDING_PAGE_SENTENCES; index as i">
         <div class="col-sm">
             <div class="jumbotron">
-                <h1 class="display-4">{{ jumbotronContent.title }}</h1>
-                <p class="lead">{{ jumbotronContent.description }}</p>
+                <h1 class="display-4">{{ ITEM.TITLE }}</h1>
+                <p class="lead">{{ ITEM.DESCRIPTION }}</p>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg start-button" [routerLink]="'./about'"
                         routerLinkActive="activebutton" (click)="navigateTo()">Saiba mais</a>
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-sm">
-            <img class="img-responsive" src='{{ jumbotronContent.image }}' alt="">
+            <img class="img-responsive" src='{{ ITEM.IMAGE }}' alt="">
         </div>
         <hr class="my-4">
     </div>
