@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs'
 
 
@@ -14,12 +15,13 @@ export class PaymentMethodsComponent implements OnInit {
   titleAlert: string = 'Preenchimento necessário';
   post: any = '';
   hide: boolean = true;
+  hide2: boolean = false;
   option: number = 0;
   planTitle: string ='';
   price: any;
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router : Router) { }
 
   ngOnInit() {
     this.option = history.state.index;
@@ -46,7 +48,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   createForm() {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    let cardregex: RegExp = /((?!0000)\d{4}[ -]){3}(?!0000)\d{4}$/
+    let cardregex: RegExp = /(\d{4}[-.\s]?){4}|\d{4}[-.\s]?\d{6}[-.\s]?\d{5}$/
     let phoneregex: RegExp = /^\(?[1-9]{2}\)?\s?\d{4,5}(\-|\s)?\d{4}$/
     let securitycoderegex : RegExp = /^\d{3}$/
     let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/
@@ -57,6 +59,7 @@ export class PaymentMethodsComponent implements OnInit {
       'name': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
       'address': [null, [Validators.required, Validators.minLength(5)]],
       'password': [null, [Validators.required, this.checkPassword]],
+      'passwordConfirmation': [null, [Validators.required, this.checkPassword]],
       'surname': [null, [Validators.required, Validators.minLength(5)]],
       'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
@@ -104,6 +107,7 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   get passwordInput() { return this.formGroup.get('password'); }  
+  get passwordConfirmationInput() { return this.formGroup.get('passwordConfirmation'); }  
 
   getErrorName() {
     return this.formGroup.get('name').hasError('required') ? 'Preenchimento necessário' :
@@ -150,11 +154,15 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   getErrorSamePassword() {
-    return this.formGroup.get('password').hasError('samePassword') ? 'As senhas não coincidem' : '';
+    let isSame = this.formGroup.get('password').value === this.formGroup.get('passwordConfirmation').value;
+    return isSame ? null : {'samePassword': true} ? 'As senhas não são iguais' : '';
+
   }
   onSubmit(post : any) {
     this.post = post;
-    console.log(post);
-    
+    this.post.price = this.price.toString();
+    this.post.planTitle = this.planTitle.toString();
+    console.log(this.post);
+    this.router.navigate(['/login'], {state: {email: `${this.post.email}`, password: `${this.post.password}`}});
   }
 }

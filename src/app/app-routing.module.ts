@@ -13,7 +13,7 @@ const routes: Routes = [
     { path:'landing-page', component:LandingPageComponent },
     { path:'about', component:AboutComponent },
     { path:'us', component:UsComponent },
-    { path:'login', component:LoginComponent },
+    { path:'login', component:LoginComponent, data: { email: '', password: '' } },
     { path:'payment-plans', component:PaymentPlansComponent },
     { path:'payment-methods', component:PaymentMethodsComponent, data: { index:''} },
   ];
