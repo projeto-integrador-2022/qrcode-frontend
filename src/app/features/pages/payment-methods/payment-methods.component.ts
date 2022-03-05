@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs'
 
 
@@ -13,13 +13,35 @@ export class PaymentMethodsComponent implements OnInit {
   formGroup: any;
   titleAlert: string = 'Preenchimento necessário';
   post: any = '';
-  hide = true;
+  hide: boolean = true;
+  option: number = 0;
+  planTitle: string ='';
+  price: any;
+
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.option = history.state.index;
+    this.populateTitle(this.option);
     this.createForm();
     this.setChangeValidate()
+    
+  }
+
+  populateTitle(state: number) {
+    if (state == 0) {
+      this.planTitle = 'Starter';
+      this.price = 350;
+    }
+    if (state == 1) {
+      this.planTitle = 'Professional';
+      this.price = 750;
+    }
+    if (state == 2) {
+      this.planTitle = 'Enterprise';
+      this.price = 150
+    }
   }
 
   createForm() {
@@ -135,5 +157,4 @@ export class PaymentMethodsComponent implements OnInit {
     console.log(post);
     
   }
-
 }

@@ -1,6 +1,5 @@
 <div class="container">
-    <p class="text-center display-4 mb-5">Plano
-        <!-- choosen plan -->
+    <p class="text-center display-4 mb-5">Plano {{planTitle}}
 
     <h2 class="text-center mt-5 mb-5">Dados de Acesso </h2>
 
@@ -153,6 +152,13 @@
                             {{ getErrorExpirationDate() }}
                         </mat-error>
                     </mat-form-field>
+
+                    <div class="text-center mt-5 ">
+                        <mat-label class=" text-center btn btn-success">Valor a Pagar:  R${{price}},00</mat-label>
+                    </div>
+                    
+
+
 
 
                 </div>
