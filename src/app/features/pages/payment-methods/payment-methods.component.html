@@ -2,14 +2,10 @@
     <p class="text-center display-4 mb-5">Plano
         <!-- choosen plan -->
 
-        <h2 class="text-center mt-5 mb-5">Dados de Acesso
-        </h2>
-
+    <h2 class="text-center mt-5 mb-5">Dados de Acesso </h2>
 
     <div class="form-layout" *ngIf="!post; else forminfo" novalidate>
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-
-
             <div class="row">
                 <div class="col">
 
@@ -24,17 +20,17 @@
                         <div class="col">
                             <mat-form-field class="form-element">
                                 <input matInput placeholder="Nome" formControlName="name">
-                                <mat-error *ngIf="!name.valid && name.touched">
-                                    {{ titleAlert }}
+                                <mat-error
+                                    *ngIf="!formGroup.controls['name'].valid && formGroup.controls['name'].touched">
+                                    {{ getErrorName() }}
                                 </mat-error>
                             </mat-form-field>
                         </div>
 
-
                         <div class="col">
                             <mat-form-field class="form-element">
                                 <textarea matInput placeholder="Sobrenome" matTextareaAutosize matAutosizeMinRows="1"
-                                matAutosizeMaxRows="5" formControlName="surname"></textarea>
+                                    matAutosizeMaxRows="5" formControlName="surname"></textarea>
                                 <mat-error *ngIf="!name.valid && name.touched">
                                     {{ titleAlert }}
                                 </mat-error>
@@ -48,7 +44,40 @@
                             <mat-option value="option">Goiás</mat-option>
                             <!-- *ngIf de array do estado -->
                         </mat-select>
+                    </mat-form-field>
 
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'"
+                            formControlName="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-hint *ngIf="!passwordInput.value">Senha precisa ter no mínimo 8 digitos, pelo menos uma
+                            letra maiúscula e um número</mat-hint>
+
+                        <mat-error
+                            *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+                            {{ getErrorPassword() }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <div class="col">
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Telefone" formControlName="phone">
+                            <mat-error
+                                *ngIf="!formGroup.controls['phone'].valid && formGroup.controls['phone'].touched">
+                                {{ getErrorPhoneNumber() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="form-element">
+                        <textarea matInput placeholder="Endereço" matTextareaAutosize matAutosizeMinRows="1"
+                            matAutosizeMaxRows="5" formControlName="address"></textarea>
+                        <mat-error
+                            *ngIf="!formGroup.controls['surname'].valid && formGroup.controls['surname'].touched">
+                            Campo precisa de preenchimendo no mínimo 5 caracteres
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="form dropdown-fixture">
@@ -59,57 +88,34 @@
                         </mat-select>
                     </mat-form-field>
 
-                    
-                </div>
-
-                <div class="col">
-                    <div class="col">
-                        <mat-form-field class="form-element">
-                            <textarea matInput placeholder="Telefone" matTextareaAutosize matAutosizeMinRows="1" 
-                            matAutosizeMaxRows="5" formControlName="phone"></textarea>
-                            <mat-error *ngIf="!formGroup.controls['phone'].valid && formGroup.controls['phone'].touched">
-                                {{ getErrorPhoneNumber() }}
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <mat-form-field class="form-element">
-                        <textarea matInput placeholder="Endereço" matTextareaAutosize matAutosizeMinRows="1"
-                            matAutosizeMaxRows="5" formControlName="address"></textarea>
-                        <mat-error
-                            *ngIf="!formGroup.controls['surname'].valid && formGroup.controls['surname'].touched">
-                            Campo precisa de preenchimendo no mínimo 5 caracteres
-                        </mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="form-element">
-                        <input matInput placeholder="Senha" formControlName="password">
-                        <mat-hint> Senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número
+                    <mat-form-field class="form-element margin-fixture">
+                        <input matInput placeholder="Repita sua senha" [type]="hide ? 'password' : 'text'"
+                            formControlName="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-hint *ngIf="!passwordInput.value">A senha precisa ser igual a que foi digitada ao lado
                         </mat-hint>
+
                         <mat-error
                             *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-                            {{ getErrorPassword() }}
+                            {{ getErrorSamePassword() }}
                         </mat-error>
                     </mat-form-field>
-
-                    <mat-form-field class="form-element">
-                        <input matInput placeholder="Repita sua senha" formControlName="password">
-                        <mat-hint>
-                        </mat-hint>
-                        <mat-error
-                            *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-                            {{ getSamePassword() }}
-                        </mat-error>
-                    </mat-form-field>
-
-                    
                 </div>
             </div>
             <hr class="my-4">
-
             <h2 class="text-center mt-5 mb-5">Dados do cartão </h2>
 
             <div class="row">
                 <div class="col">
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Nome" formControlName="cardname">
+                        <mat-error
+                            *ngIf="!formGroup.controls['cardname'].valid && formGroup.controls['cardname'].touched">
+                            {{ getErrorCardName() }}
+                        </mat-error>
+                    </mat-form-field>
+
                     <mat-form-field appearance="fill" class="form dropdown-fixture">
                         <mat-label>Tarja do Cartão</mat-label>
                         <mat-select>
@@ -119,12 +125,32 @@
                             <mat-option value="option">American Express</mat-option>
                         </mat-select>
                     </mat-form-field>
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Código de Segurança" formControlName="securitycode">
+                        <mat-error
+                            *ngIf="!formGroup.controls['securitycode'].valid && formGroup.controls['securitycode'].touched">
+                            {{ getErrorSecurityCode() }}
+                        </mat-error>
+                    </mat-form-field>
+
+
                 </div>
                 <div class="col">
+
                     <mat-form-field class="form-element">
                         <input matInput placeholder="Número do Cartão" formControlName="cardNumber">
-                        <mat-error *ngIf="!formGroup.controls['cardNumber'].valid && formGroup.controls['cardNumber'].touched">
+                        <mat-error
+                            *ngIf="!formGroup.controls['cardNumber'].valid && formGroup.controls['cardNumber'].touched">
                             {{ getErrorCardNumber() }}
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-element">
+                        <input matInput placeholder="Expira em" formControlName="expirationdate">
+                        <mat-error
+                            *ngIf="!formGroup.controls['expirationdate'].valid && formGroup.controls['expirationdate'].touched">
+                            {{ getErrorExpirationDate() }}
                         </mat-error>
                     </mat-form-field>
 
@@ -138,7 +164,7 @@
             </div>
         </form>
     </div>
-    
+
     <ng-template #forminfo>
         <div class="container">
             {{ post | json }}

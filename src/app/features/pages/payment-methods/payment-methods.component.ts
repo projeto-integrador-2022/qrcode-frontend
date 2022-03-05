@@ -13,6 +13,7 @@ export class PaymentMethodsComponent implements OnInit {
   formGroup: any;
   titleAlert: string = 'Preenchimento necessário';
   post: any = '';
+  hide = true;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -25,15 +26,21 @@ export class PaymentMethodsComponent implements OnInit {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     let cardregex: RegExp = /((?!0000)\d{4}[ -]){3}(?!0000)\d{4}$/
     let phoneregex: RegExp = /^\(?[1-9]{2}\)?\s?\d{4,5}(\-|\s)?\d{4}$/
+    let securitycoderegex : RegExp = /^\d{3}$/
+    let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/
+    let cardnameregex: RegExp = /^[a-zA-Z\s]+$/
 
     this.formGroup = this.formBuilder.group({
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'name': [null, Validators.required, Validators.minLength(5)],
-      'address': [null, Validators.required, Validators.minLength(5)],
+      'name': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
+      'address': [null, [Validators.required, Validators.minLength(5)]],
       'password': [null, [Validators.required, this.checkPassword]],
       'surname': [null, [Validators.required, Validators.minLength(5)]],
       'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
+      'securitycode': [null, [Validators.required, Validators.pattern(securitycoderegex)]],
+      'expirationdate': [null, [Validators.required, Validators.pattern(expirationdateregex)]],
+      'cardname': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
       'validate': ''
     });
   }
@@ -74,15 +81,35 @@ export class PaymentMethodsComponent implements OnInit {
     })
   }
 
+  get passwordInput() { return this.formGroup.get('password'); }  
+
+  getErrorName() {
+    return this.formGroup.get('name').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('name').hasError('minlength') ? 'Deve ter no mínimo de 3 caracteres' : '';
+  }
   getErrorEmail() {
     return this.formGroup.get('email').hasError('required') ? 'Preenchimento necessário' :
       this.formGroup.get('email').hasError('pattern') ? 'Não é um email válido' :
         this.formGroup.get('email').hasError('alreadyInUse') ? 'Esse email já está sendo usado' : '';
   }
 
+  getErrorSecurityCode() {
+    return this.formGroup.get('securitycode').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('securitycode').hasError('pattern') ? 'Não é um número de segurança válido' :'';
+  }
   getErrorCardNumber() {
     return this.formGroup.get('cardNumber').hasError('required') ? 'Preenchimento necessário' :
       this.formGroup.get('cardNumber').hasError('pattern') ? 'Não é um número de cartão válido' :'';
+  }
+
+  getErrorExpirationDate() {
+    return this.formGroup.get('expirationdate').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('expirationdate').hasError('pattern') ? 'Não é uma data válida' :'';
+  }
+
+  getErrorCardName() {
+    return this.formGroup.get('cardname').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('cardname').hasError('minlength') ? 'Deve ter no mínimo 5 caracteres' : '';
   }
 
   getErrorPhoneNumber() {
@@ -100,11 +127,13 @@ export class PaymentMethodsComponent implements OnInit {
       this.formGroup.get('password').hasError('requirements') ? 'A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número' : '';
   }
 
-  getSamePassword() {
+  getErrorSamePassword() {
     return this.formGroup.get('password').hasError('samePassword') ? 'As senhas não coincidem' : '';
   }
   onSubmit(post : any) {
     this.post = post;
+    console.log(post);
+    
   }
 
 }
