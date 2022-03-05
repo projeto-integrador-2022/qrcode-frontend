@@ -1,41 +1,52 @@
-@import '/src/app/app.component.scss';
+@import "/src/app/app.component.scss";
 
 .form-control {
-    width: 50%;
+  width: 50%;
 }
 
 .large-input {
-    width: 350px;
+  width: 350px;
 }
 
-
 .fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
+  /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-  }
-  
-  .container {
-    padding: 10px;
-  }
-  
-  .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .form-element {
-    padding: 5px 0px 25px 2px;
-    width: 100%;
-  }
-  
-  .button {
-    width: 100%;
-  }
+  flex: 1 1 auto;
+}
 
-  .form {
-    min-width: none !important;    
-    max-width: none !important;
-  }
+.container {
+  padding: 10px;
+}
 
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-element {
+  padding: 5px 0px 25px 2px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}
+
+.form {
+  min-width: none !important;
+  max-width: none !important;
+}
+
+textarea {
+  height: 10px;
+}
+
+.dropdown-fixture {
+  transform: translateY(-7px);
+
+}
+
+h2 {
+  color: rgb(109, 109, 109);  
+}

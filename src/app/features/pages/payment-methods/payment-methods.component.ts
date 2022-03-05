@@ -23,11 +23,17 @@ export class PaymentMethodsComponent implements OnInit {
 
   createForm() {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let cardregex: RegExp = /((?!0000)\d{4}[ -]){3}(?!0000)\d{4}$/
+    let phoneregex: RegExp = /^\(?[1-9]{2}\)?\s?\d{4,5}(\-|\s)?\d{4}$/
+
     this.formGroup = this.formBuilder.group({
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'name': [null, Validators.required],
+      'name': [null, Validators.required, Validators.minLength(5)],
+      'address': [null, Validators.required, Validators.minLength(5)],
       'password': [null, [Validators.required, this.checkPassword]],
-      'surname': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      'surname': [null, [Validators.required, Validators.minLength(5)]],
+      'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
+      'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
       'validate': ''
     });
   }
@@ -72,6 +78,21 @@ export class PaymentMethodsComponent implements OnInit {
     return this.formGroup.get('email').hasError('required') ? 'Preenchimento necessário' :
       this.formGroup.get('email').hasError('pattern') ? 'Não é um email válido' :
         this.formGroup.get('email').hasError('alreadyInUse') ? 'Esse email já está sendo usado' : '';
+  }
+
+  getErrorCardNumber() {
+    return this.formGroup.get('cardNumber').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('cardNumber').hasError('pattern') ? 'Não é um número de cartão válido' :'';
+  }
+
+  getErrorPhoneNumber() {
+    return this.formGroup.get('phone').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('phone').hasError('pattern') ? 'Não é um número de telefone válido' :'';
+  }
+
+  getAddressError() {
+    return this.formGroup.get('address').hasError('required') ? 'Preenchimento necessário' :
+      this.formGroup.get('address').hasError('minlength') ? 'Deve ter no mínimo 5 caracteres' : '';
   }
 
   getErrorPassword() {
