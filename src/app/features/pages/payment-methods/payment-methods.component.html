@@ -68,7 +68,7 @@
                             <textarea matInput placeholder="Telefone" matTextareaAutosize matAutosizeMinRows="1" 
                             matAutosizeMaxRows="5" formControlName="phone"></textarea>
                             <mat-error *ngIf="!formGroup.controls['phone'].valid && formGroup.controls['phone'].touched">
-                                {{ titleAlert }}
+                                {{ getErrorPhoneNumber() }}
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -77,7 +77,7 @@
                             matAutosizeMaxRows="5" formControlName="address"></textarea>
                         <mat-error
                             *ngIf="!formGroup.controls['surname'].valid && formGroup.controls['surname'].touched">
-                            Campo precisa de preenchimendo entre 5 a 10 caracteres
+                            Campo precisa de preenchimendo no mínimo 5 caracteres
                         </mat-error>
                     </mat-form-field>
 
