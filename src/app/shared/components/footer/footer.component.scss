@@ -1,17 +1,18 @@
-@import '/src/app/app.component.scss';
+@import "/src/app/app.component.scss";
 
 .customized-footer {
-    align-items: center;
-    height: 100px !important;
-    padding: 0;
-    margin: 0;
-    background-color: #f5f5f5;
-    border-top: 1px solid #e5e5e5;
-    color: #777;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+  align-items: center;
+  height: 120px !important;
+  padding: 0;
+  margin: 0;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  color: #777;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  top: 50%;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
 }

@@ -1,0 +1,7 @@
+<div class="container">     
+    <div class="label-and-input mt-5 mb-5" *ngFor="let ITEM of FORM_SENTENCES;index as i">
+        <label class="form-label" for="name"> {{FORM_SENTENCES[i]}}</label>
+        <input class="form-control" id="name" type="text" [formControl]="name">
+    </div>
+
+</div>

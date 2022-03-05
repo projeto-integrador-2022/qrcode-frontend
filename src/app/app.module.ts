@@ -12,6 +12,8 @@ import { LoginComponent } from './features/pages/login/login.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { PaymentPlansComponent } from './features/pages/payment-plans/payment-plans.component';
 import { ContactUsFormComponent } from './shared/components/contact-us-form/contact-us-form.component';
+import { PaymentMethodsComponent } from './features/pages/payment-methods/payment-methods.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { ContactUsFormComponent } from './shared/components/contact-us-form/cont
     LoginComponent,
     FooterComponent,
     PaymentPlansComponent,
-    ContactUsFormComponent
+    ContactUsFormComponent,
+    PaymentMethodsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,10 +3,19 @@
 .img-responsive {
     display: block;
     max-width: 100%;
-    height: 100%;
+    height: auto;
     max-height: 360px;
 }
 
 .start-button {
     margin-top: 100px;
+}
+
+@media (max-width: 991px) { 
+    .start-button {
+        margin-top: 0;
+    }
+    .display-after-media {
+        font-size: 32px;
+    }
 }

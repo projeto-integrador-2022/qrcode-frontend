@@ -99,5 +99,22 @@
             "TEXT2": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
             "TEXT3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur."
         }
+    ],
+    "PAYMENT_METHODS_FORM": [
+        {
+            "NAME": "Nome",
+            "ADDRESS": "Endereço",
+            "ESTADO": "Estado",
+            "CIDADE": "Cidade",
+            "EMAIL": "E-mail",
+            "PHONE": "Telefone",
+            "CARD": "Cartão de Crédito",
+            "CARD_NUMBER": "Número do Cartão",
+            "CARD_NAME": "Nome do Titular",
+            "CARD_EXPIRATION": "Validade",
+            "CARD_CVV": "Código de Segurança",
+            "PAYMENT_METHOD": "Método de Pagamento",
+            "PASSWORD": "Senha"
+        }
     ]
 }
