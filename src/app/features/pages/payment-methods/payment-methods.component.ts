@@ -11,7 +11,7 @@ import { Observable } from 'rxjs'
 export class PaymentMethodsComponent implements OnInit {
 
   formGroup: any;
-  titleAlert: string = 'This field is required';
+  titleAlert: string = 'Preenchimento necessário';
   post: any = '';
 
   constructor(private formBuilder: FormBuilder) { }
@@ -37,7 +37,7 @@ export class PaymentMethodsComponent implements OnInit {
       (validate: any) => {
         if (validate == '1') {
           this.formGroup.get('name').setValidators([Validators.required, Validators.minLength(3)]);
-          this.titleAlert = "You need to specify at least 3 characters";
+          this.titleAlert = "Deve ter no mínimo de 3 caracteres";
         } else {
           this.formGroup.get('name').setValidators(Validators.required);
         }
@@ -75,10 +75,13 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'Preenchimento necessário (at least eight characters, one uppercase letter and one number)' :
+    return this.formGroup.get('password').hasError('required') ? 'Preenchimento necessário (no mínimo 8 digitos, pelo menos uma letra maiúscula e um número)' :
       this.formGroup.get('password').hasError('requirements') ? 'A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número' : '';
   }
 
+  getSamePassword() {
+    return this.formGroup.get('password').hasError('samePassword') ? 'As senhas não coincidem' : '';
+  }
   onSubmit(post : any) {
     this.post = post;
   }
