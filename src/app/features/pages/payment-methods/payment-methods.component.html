@@ -1,7 +1,61 @@
-<div class="container">     
-    <div class="label-and-input mt-5 mb-5" *ngFor="let ITEM of FORM_SENTENCES;index as i">
-        <label class="form-label" for="name"> {{FORM_SENTENCES[i]}}</label>
-        <input class="form-control" id="name" type="text" [formControl]="name">
+<div class="container">
+    <p class="text-center display-4 mb-5">Plano
+        <!-- choosen plan -->
+    </p>
+    <div class="row justify-content-center">
+        <div class="" *ngIf="!post; else forminfo" novalidate>
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+                <mat-form-field class="form-element">
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+                        {{ getErrorEmail() }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                    <input matInput placeholder="Nome" formControlName="name">
+                    <mat-error *ngIf="!name.valid && name.touched">
+                        {{ titleAlert }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                    <textarea matInput placeholder="Sobrenome" matTextareaAutosize matAutosizeMinRows="2"
+                        matAutosizeMaxRows="5" formControlName="surname"></textarea>
+                    <mat-error
+                        *ngIf="!formGroup.controls['surname'].valid && formGroup.controls['surname'].touched">
+                        Campo precisa de preenchimendo entre 5 a 10 caracteres
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                    <input matInput placeholder="Senha" formControlName="password">
+                    <mat-hint> Senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número
+                    </mat-hint>
+                    <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+                        {{ getErrorPassword() }}
+                    </mat-error>
+                </mat-form-field>
+
+
+                <div class="form-element">
+                    <button mat-raised-button color="primary" type="submit" class="button"
+                        [disabled]="!formGroup.valid">Confirmar</button>
+                </div>
+
+            </form>
+        </div>
+
+        <ng-template #forminfo>
+            <div class="container">
+                {{ post | json }}
+            </div>
+        </ng-template>
+
     </div>
 
+    <div class="col-4">
+
+    </div>
 </div>

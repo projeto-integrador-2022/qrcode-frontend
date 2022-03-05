@@ -14,6 +14,9 @@ import { PaymentPlansComponent } from './features/pages/payment-plans/payment-pl
 import { ContactUsFormComponent } from './shared/components/contact-us-form/contact-us-form.component';
 import { PaymentMethodsComponent } from './features/pages/payment-methods/payment-methods.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '../app/shared/modules/material-module';
+
 
 @NgModule({
   declarations: [
@@ -32,9 +35,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

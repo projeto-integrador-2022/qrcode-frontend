@@ -135,6 +135,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/cdk@^13.2.5":
+  version "13.2.5"
+  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-13.2.5.tgz"
+  integrity sha512-kYya2Zd+tK5CmzNcxNADqILVZYEb5CKsOnr4DXPmRJ55IwlHiBZJKUdmSaavb7SCdyNOFP3e1dSwOrIIRLeCuQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~13.2.5":
   version "13.2.5"
   resolved "https://registry.npmjs.org/@angular/cli/-/cli-13.2.5.tgz"
@@ -212,6 +221,13 @@
     "@babel/core" "7.8.6"
     glob "7.2.0"
     yargs "^17.2.1"
+
+"@angular/material@^13.2.5":
+  version "13.2.5"
+  resolved "https://registry.npmjs.org/@angular/material/-/material-13.2.5.tgz"
+  integrity sha512-9rkB8/3o+kSjvKJYBCA8YJoTW54BGiqLrtan6Qn/Qv4pqDl6zwiHtk8EcM26N9Zmv7LzJf0mdNsy2XxfX4/agQ==
+  dependencies:
+    tslib "^2.3.0"
 
 "@angular/platform-browser-dynamic@~13.2.0":
   version "13.2.4"
@@ -4725,6 +4741,11 @@ parse5-sax-parser@^6.0.1:
   dependencies:
     parse5 "^6.0.1"
 
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/parse5/-/parse5-5.1.1.tgz"
+  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
+
 parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz"
@@ -5381,9 +5402,16 @@ rxjs@6.6.7:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^7.2.0, rxjs@~7.5.0:
+rxjs@^7.2.0:
   version "7.5.4"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-7.5.4.tgz"
+  integrity sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==
+  dependencies:
+    tslib "^2.1.0"
+
+rxjs@^7.5.4:
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.4.tgz#3d6bd407e6b7ce9a123e76b1e770dc5761aa368d"
   integrity sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==
   dependencies:
     tslib "^2.1.0"
