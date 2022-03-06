@@ -19,16 +19,21 @@ export class PaymentMethodsComponent implements OnInit {
   option: number = 0;
   planTitle: string ='';
   price: any;
+  isProgressBarActivated: boolean = false;
+  progressMessage: string = '';
 
 
   constructor(private formBuilder: FormBuilder, private router : Router) { }
+
+  get name() { return this.formGroup.get('name') as FormControl }
+  get passwordInput() { return this.formGroup.get('password'); }  
+  get passwordConfirmationInput() { return this.formGroup.get('passwordConfirmation'); } 
 
   ngOnInit() {
     this.option = history.state.index;
     this.populateTitle(this.option);
     this.createForm();
-    this.setChangeValidate()
-    
+    this.setChangeValidate();   
   }
 
   populateTitle(state: number) {
@@ -56,11 +61,11 @@ export class PaymentMethodsComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'name': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
-      'address': [null, [Validators.required, Validators.minLength(5)]],
+      'name': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'address': [null, [Validators.required, Validators.minLength(3)]],
       'password': [null, [Validators.required, this.checkPassword]],
       'passwordConfirmation': [null, [Validators.required, this.checkPassword]],
-      'surname': [null, [Validators.required, Validators.minLength(5)]],
+      'surname': [null, [Validators.required, Validators.minLength(3)]],
       'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
       'securitycode': [null, [Validators.required, Validators.pattern(securitycoderegex)]],
@@ -84,10 +89,6 @@ export class PaymentMethodsComponent implements OnInit {
     )
   }
 
-  get name() {
-    return this.formGroup.get('name') as FormControl
-  }
-
   checkPassword(control : any) {
     let enteredPassword = control.value
     let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
@@ -105,9 +106,6 @@ export class PaymentMethodsComponent implements OnInit {
       }, 4000)
     })
   }
-
-  get passwordInput() { return this.formGroup.get('password'); }  
-  get passwordConfirmationInput() { return this.formGroup.get('passwordConfirmation'); }  
 
   getErrorName() {
     return this.formGroup.get('name').hasError('required') ? 'Preenchimento necessário' :
@@ -160,9 +158,11 @@ export class PaymentMethodsComponent implements OnInit {
   }
   onSubmit(post : any) {
     this.post = post;
-    this.post.price = this.price.toString();
-    this.post.planTitle = this.planTitle.toString();
-    console.log(this.post);
-    this.router.navigate(['/login'], {state: {email: `${this.post.email}`, password: `${this.post.password}`}});
+    this.post.price = '' + this.price;
+    this.post.planTitle = '' + this.planTitle;
+    this.isProgressBarActivated = true;
+    //this.router.navigate(['/login'], {state: {email: `${this.post.email}`, password: `${this.post.password}`}});
+    
   }
+
 }
