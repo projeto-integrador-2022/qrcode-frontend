@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  qrcode-frontend:
+    image: piads2022/qrcode-frontend:1.0
+    container_name: qrcode_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
