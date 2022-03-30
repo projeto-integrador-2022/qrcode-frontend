@@ -116,5 +116,32 @@
             "PAYMENT_METHOD": "Método de Pagamento",
             "PASSWORD": "Senha"
         }
+    ],
+    "PROCESSING_SOLICITATION": [
+        {
+            "PROCESSING_PAYMENT": "Sua compra está sendo processada junto ao banco, aguarde um momento...",
+            "CREDIT_CARD_ACCEPTED": "Solicitação aceita pela administradora do cartão",
+            "CREDIT_CARD_NOT_ACCEPTED": "Solicitação rejeitada pela administradora do cartão",
+            "CREATING_ACCOUNT": "Sua conta está sendo criada, aguarde um momento...",
+            "OK": "Conta criada com sucesso! Redirecionando...."
+        }
+    ],
+    "FORM_ERROR": [
+        {
+            "REQUIRED": "Preenchimento necessário",
+            "NAME_IN_USE": "Este nome já está sendo usado",
+            "FILL_CRITERIA": "Nome deve conter mais de 3 letras",
+            "INVALID_EMAIL": "E-mail inválido",
+            "EMAIL_IN_USE": "Este e-mail já está sendo usado",
+            "CVC_NOT_VALID": "Código de segurança inválido",
+            "CARD_NUMBER_NOT_VALID": "Número do cartão inválido",
+            "CARD_EXPIRATION_NOT_VALID": "Data inválida, precisa estar em formato mm/aa",
+            "PHONE_NOT_VALID": "Não é um número de telefone válido",
+            "PASSWORD_NOT_VALID": "A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número",
+            "PASSWORD_NOT_MATCH": "As senhas não conferem"
+
+
+        }
     ]
+    
 }

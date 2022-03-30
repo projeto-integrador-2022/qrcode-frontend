@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.input-size-fixture {
+  width: 48% !important;
+}
+
 .form-element {
   padding: 5px 0px 25px 2px;
   width: 100%;
@@ -53,7 +57,7 @@ h2 {
 }
 
 .margin-fixture {
-  margin-top: 6px;
+  margin-top: 9px;
 }
 
 .btn-success {
@@ -61,7 +65,33 @@ h2 {
 }
 
 .progress-group-border {
-  border-bottom: 1px solid #e3e3e3;
   padding: 10px 0px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.col-ajustment {
+  margin-top: 87px;
+}
+
+.elementToFadeInAndOut {
+
+  -webkit-animation: fadeinout 4s linear infinite;
+  animation: fadeinout 4s linear infinite;
+}
+
+@-webkit-keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+.failed-payment-method {
+  color: red;
+}
+
+.success-payment-method {
+  color: green;
 }
