@@ -16,5 +16,10 @@ export class UsComponent implements OnInit {
 
   ngOnInit(): void {
     this.size = this.US_SENTENCES.length;
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 }

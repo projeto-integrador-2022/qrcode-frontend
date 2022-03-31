@@ -1,10 +1,13 @@
+<div class="text-center">
+    <button mat-fab color="basic"><img  class="img" src={{imageUrl}} alt=""> </button>
+</div>
 
 <div class="container">
     <div *ngFor="let ITEM of ABOUT_SENTENCES; index as i">
 
-        <div class="jumbotron">
-            <h1 class="display-4 mb-5">{{ ITEM.TITLE }}</h1>
-            <p class="lead">{{ ITEM.DESCRIPTION }}</p>
+        <div class="jumbotron  margin-fixture">
+            <h1 class="display-4 mb-5 ">{{ ITEM.TITLE }}</h1>
+            <p class="lead  ">{{ ITEM.DESCRIPTION }}</p>
 
         </div>
         <hr class="my-4">

@@ -28,6 +28,7 @@ export class PaymentMethodsComponent implements OnInit {
   processingMessage: string = '';
   isPaymentSuccessful: boolean = false;
 
+
   states: any;
   cities: any;
 
@@ -285,15 +286,18 @@ export class PaymentMethodsComponent implements OnInit {
     }
   }
 
+  startProgressBar() {
+    this.isProgressBarActivated = true;
+    this.delay(0, SENTENCES.PROCESSING_SOLICITATION[0].PROCESSING_PAYMENT); 
+  }
+
   processingCreditCard(creditCardDetails : CreditCard) {
     this.isPaymentSuccessful = this.validadeCreditCard(creditCardDetails);
 
     //credit card api logic
 
     if (this.isPaymentSuccessful == false) { 
-
       return false;
-
     } else {
       return true;
     }    
@@ -315,23 +319,16 @@ export class PaymentMethodsComponent implements OnInit {
     this.delay(8000, SENTENCES.PROCESSING_SOLICITATION[0].CREATING_ACCOUNT); 
   }
 
-  startProgressBar() {
-    this.isProgressBarActivated = true;
-    this.delay(0, SENTENCES.PROCESSING_SOLICITATION[0].PROCESSING_PAYMENT); 
-  }
-
   setSelectedPlan() {
     this.post.price = '' + this.price;
     this.post.planTitle = '' + this.planTitle;
     
   }
 
-
   delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
     setTimeout(() => {     
       this.processingMessage = message;
       if (isPaymentSuccessful) this.router.navigate(['/login'], {state: {username: `${this.post.username}`, password: `${this.post.password}`}});
     }, mms);
-
   }
 }

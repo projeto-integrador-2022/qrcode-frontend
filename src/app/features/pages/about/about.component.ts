@@ -7,9 +7,15 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
 })
 export class AboutComponent implements OnInit {
   ABOUT_SENTENCES: any;
+  imageUrl: string = '../../../assets/images/qr-code-color.png';
   constructor() {
     this.ABOUT_SENTENCES = SENTENCES.ABOUT;
   }
   ngOnInit(): void {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 }

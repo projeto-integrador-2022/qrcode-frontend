@@ -13,15 +13,16 @@ export class LandingPageComponent implements OnInit {
     this.LANDING_PAGE_SENTENCES = SENTENCES.LANDING_PAGE;
   }
 
-  ngOnInit(): void {    
-  }
-
-  public navigateTo() {
-    this.router.navigate(['/about']);
+  ngOnInit(): void {  
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth',
-    });
+    });  
+  }
+
+  public navigateTo() {
+    this.router.navigate(['/about']);
+    
   }
 }

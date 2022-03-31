@@ -1,5 +1,14 @@
 @import '/src/app/app.component.scss';
 
+p {
+    font-size: 17px;
+    line-height: 1.5rem;
+    color: #505050;
+}
+
+.margin-fixture {
+    margin-bottom: 150px !important; 
+}
 .text-fixture {
     line-height: 10px;
     font-style: italic;
@@ -13,9 +22,22 @@
 .featured-card {
     margin: -20px;
     transform:translateY(-30px);
-    z-index: 1;
-    
+    z-index: 1;   
 }
+
+.card-body {
+    background-color: #f8f8f8;
+}
+
+.btn {
+    background-color: #ffffff !important;
+    font-weight: 500;
+}
+.btn:hover {
+    color: #0d6efd !important;
+
+}
+
 
 .fix-margin {
     margin-top: 150px;

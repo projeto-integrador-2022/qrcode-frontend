@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   public isMenuCollapsed = true;
-  public imageUrl = '../../../assets/images/qr-code.png'
+  public imageUrl = '../../../assets/images/qr-code-color.png'
 
   constructor() { }
 

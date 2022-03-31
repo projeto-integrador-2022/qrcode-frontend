@@ -5,9 +5,8 @@
         <a class="navbar-brand ml-5 display-after-media" [routerLink]="'./landing-page' "
             routerLinkActive="activebutton">
 
-            <img class="img" src={{imageUrl}} alt="">
-            QR Costumer Tracker
-
+            <button mat-mini-fab color="basic"><img  class="img" src={{imageUrl}} alt="">
+                <span>QR Costumer Tracker</span> </button>
             
             <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
                 &#9776;

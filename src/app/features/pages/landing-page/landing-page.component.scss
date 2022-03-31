@@ -1,7 +1,6 @@
 @import '/src/app/app.component.scss';
 
 .img-responsive {
-
     display: block;
     max-width: 100%;
     height: auto;
@@ -12,8 +11,10 @@
     margin-left: 12px;
     transform: translateY(-237px);
     width: 180px;
+}
 
-
+.margin-fixture {
+    margin: 0 0 200px 0 !important; 
 }
 
 

@@ -1,1 +1,16 @@
 @import '/src/app/app.component.scss';
+
+.margin-fixture {
+    margin-top: 200px !important;
+    margin-bottom: 200px !important;
+}
+
+.text-center {
+    margin-top: 200px;
+}
+
+button {
+    width: 600px;
+    height:600px;
+    cursor: default;
+}

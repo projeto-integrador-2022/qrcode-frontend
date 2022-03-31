@@ -1,5 +1,5 @@
 <div class="container">
-    <p class="text-center display-4 mb-5">Assine Já!</p>
+    <h1 class="text-center display-4 margin-fixture">Assine Já!</h1>
     <div class="row justify-content-md-center ">
         <div class="col-md-auto mt-5 column-fixture" *ngFor="let ITEM of PAYMENT_PLANS_SENTENCES; index as i">
             <div class="card featured-card" *ngIf="i == cardContentSize - 2; else anotherStyle">
@@ -40,9 +40,9 @@
     </div>
 </div>
 
-<div class="container fix-margin mb-5">
-    <p class="display-4 mb-2 text-center">FAQ</p>
-    <div class="row ">
+<div class="container fix-margin mb-5 ">
+    <h1 class="display-4 mb-2 text-center margin-fixture">FAQ</h1>
+    <div class="row margin-fixture">
         <div class="col-6 mt-5 " *ngFor="let ITEM of FAQ_SENTENCES; index as i">
             <div class="jumbotron box-shadow p-5">
                 <h4 class="mb-5 text-center">{{ ITEM.TITLE }}</h4>

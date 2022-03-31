@@ -14,6 +14,12 @@ export class LoginComponent implements OnInit {
     this.email = history.state.email;
     this.password = history.state.password;
     console.log(this.email, ' ', this.password);
+
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     
 
   }
