@@ -13,8 +13,9 @@
                             <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
-                        <a class="btn btn-primary btn-lg start-button text-center" [routerLink]="'./about'"
-                            routerLinkActive="activebutton" (click)="navigateTo(i)">Assinar</a>
+                        <a mat-raised-button color="default" class="btn mb-3" type="button" [routerLink]="'./about'"
+                        (click)="navigateTo(i)">Assinar</a>
+
                     </div>
                 </div>
             </div>
@@ -30,8 +31,8 @@
                             <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
-                        <a class="btn btn-primary btn-lg start-button mt-3 text-center" [routerLink]="'./about'"
-                            routerLinkActive="activebutton" (click)="navigateTo(i)">Assinar</a>
+                        <a mat-raised-button color="default" class="btn mb-3" type="button" [routerLink]="'./about'"
+                        (click)="navigateTo(i)">Assinar</a>
                     </div>
                 </div>
             </ng-template>
