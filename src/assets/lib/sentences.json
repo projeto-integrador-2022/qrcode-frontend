@@ -116,7 +116,7 @@
             "PAYMENT_METHOD": "Método de Pagamento",
             "PASSWORD": "Senha"
         }
-    ],
+    ], 
     "PROCESSING_SOLICITATION": [
         {
             "PROCESSING_PAYMENT": "Sua compra está sendo processada junto ao banco, aguarde um momento...",

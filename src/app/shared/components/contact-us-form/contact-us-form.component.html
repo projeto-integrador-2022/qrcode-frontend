@@ -1,37 +1,78 @@
-<form class="container">
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Seu Email: </label>
-        <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
+<div class="form-layout">
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 column-fixture">
+                    <div class="row">
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Email" formControlName="email">
+                            <mat-error
+                                *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+                                {{ getErrorEmail() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="fill" class="form dropdown-fixture mb-2">
+                            <mat-label>Qual área deseja falar? </mat-label>
+                            <mat-select (selectionChange)="onStateOptionChange($event)" formControlName="field">
+                                <mat-option *ngFor="let field of fields" [value]="field.name"> {{field.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="!formGroup.controls['field'].valid && formGroup.controls['field'].touched">
+                                {{ getErrorFields() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Assunto" formControlName="subject">
+                            <mat-error
+                                *ngIf="!formGroup.controls['subject'].valid && formGroup.controls['subject'].touched">
+                                {{ getErrorSubject() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
 
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <mat-form-field class="form-element ">
+                            <textarea class="text-area-fixture" matInput placeholder="Mensagem"
+                                formControlName="message"></textarea>
+                            <mat-error
+                                *ngIf="!formGroup.controls['message'].valid && formGroup.controls['message'].touched">
+                                {{ getErrorMessage() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
 
-    
+                <div class="container button-fixture">
 
-
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Qual área deseja Falar?</label>
-        <select class="form-control mb-3" id="exampleFormControlSelect1">
-            <option>Administrativo</option>
-            <option>Recursos Humanos</option>
-            <option>Suporte</option>
-            <option>Desenvolvimento de Softwares</option>
-            <option>Marketing</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Qual assunto? </label>
-        <input type="email" class="form-control mb-3" id="exampleFormControlInput1"
-            placeholder="">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Qual sua mensagem? </label>
-        <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"
-        placeholder=""></textarea>
-    </div>
-
-    <div class="row justify-content-md-center">
-        <a class="btn btn-primary btn-lg large-button mt-3">Enviar</a>
-    </div>
-</form>
+                    <div class="row text-center mt-5 g-0">
+                        <div class="col">
+                            <button 
+                                mat-raised-button 
+                                color="primary" 
+                                type="submit" 
+                                class="button" 
+                                [disabled]="!formGroup.valid"
+                                >Enviar Solicitação</button>
+                        </div>
+                        <div class="col">
+                            <button 
+                                mat-raised-button 
+                                color="warn" 
+                                type="clear" 
+                                class="btn button"
+                                (click)="onClear()"
+                                >Limpar Campos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

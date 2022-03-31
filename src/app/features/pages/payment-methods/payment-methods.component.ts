@@ -6,6 +6,8 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
 import { CreditCard } from 'src/app/shared/models/creditcard.model';
 import { BillingDetails } from 'src/app/shared/models/billingDetails.model';
 
+import { Time } from '@angular/common';
+
 @Component({
   selector: 'app-payment-methods',
   templateUrl: './payment-methods.component.html',
@@ -151,6 +153,7 @@ export class PaymentMethodsComponent implements OnInit {
   populateCities(event:any) {   
     console.log(event);
     
+    
   }
 
   onCityOptionChange (event: any) { 
@@ -264,60 +267,71 @@ export class PaymentMethodsComponent implements OnInit {
       data.price
     )
 
+    this.start(creditCardDetails, billingDetails);
+    
+  }
+  start(creditCardDetails : CreditCard, billingDetails : BillingDetails) {
     this.startProgressBar();
+
+
     let isPaymentSuccessful = this.processingCreditCard(creditCardDetails);
 
     if (isPaymentSuccessful) {
       this.createAccount(billingDetails);
+      this.redirecting();
+      
+    } else {
+      this.delay(5000, SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_NOT_ACCEPTED);
     }
-  }
-
-  createAccount(billingDetails: BillingDetails) {
-    console.log(billingDetails);
-    this.delayTime(3000, SENTENCES.PROCESSING_SOLICITATION[0].CREATING_ACCOUNT); 
-    
-    // to DB logic
-    //this.router.navigate(['/login'], {state: {username: `${this.post.username}`, password: `${this.post.password}`}});
-  }
-
-  startProgressBar() {
-    this.isProgressBarActivated = true;
-    this.delayTime(0, SENTENCES.PROCESSING_SOLICITATION[0].PROCESSING_PAYMENT); 
   }
 
   processingCreditCard(creditCardDetails : CreditCard) {
     this.isPaymentSuccessful = this.validadeCreditCard(creditCardDetails);
 
+    //credit card api logic
+
     if (this.isPaymentSuccessful == false) { 
-      creditCardDetails.isValid = false;  
-      this.delayTime(5000, SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_NOT_ACCEPTED);
+
       return false;
 
     } else {
-      creditCardDetails.isValid = true;
-      this.delayTime(5000, SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_ACCEPTED);      
       return true;
     }    
   }
 
-  validadeCreditCard(creditCardDetails : CreditCard) {
+  validadeCreditCard(billingDetails : CreditCard) {
     // logica para checar se cartão foi aceito pela operadora
     return true;
   }
+  
+  redirecting() {
+    this.delay(5000, SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_ACCEPTED); 
+    this.delay(10000, SENTENCES.PROCESSING_SOLICITATION[0].OK);
+    this.delay(15000,'',true); 
+  }
+
+  createAccount(billingDetails: BillingDetails) {
+    console.log(billingDetails);
+    this.delay(8000, SENTENCES.PROCESSING_SOLICITATION[0].CREATING_ACCOUNT); 
+  }
+
+  startProgressBar() {
+    this.isProgressBarActivated = true;
+    this.delay(0, SENTENCES.PROCESSING_SOLICITATION[0].PROCESSING_PAYMENT); 
+  }
+
   setSelectedPlan() {
     this.post.price = '' + this.price;
     this.post.planTitle = '' + this.planTitle;
+    
   }
 
 
-  delayTime(mms: number, message: string, isPaymentSuccessful?: boolean) {
-    setTimeout(() => {
+  delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
+    setTimeout(() => {     
       this.processingMessage = message;
       if (isPaymentSuccessful) this.router.navigate(['/login'], {state: {username: `${this.post.username}`, password: `${this.post.password}`}});
     }, mms);
 
   }
-
-
-
 }

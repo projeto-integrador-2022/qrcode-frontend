@@ -1,5 +1,17 @@
 @import '/src/app/app.component.scss';
 
 .container {
-    margin-top: 100px;
+    margin-top: 50px;
+}
+
+.text-area-fixture {
+    height: 168px;
+}
+
+.column-fixture {
+    margin-top: 16px;
+}
+
+.button-fixture {
+    width: 30%;
 }
