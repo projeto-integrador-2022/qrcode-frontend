@@ -2,18 +2,20 @@
     <div class="row" *ngFor="let ITEM of LANDING_PAGE_SENTENCES; index as i">
         <div class="col-sm">
             <div class="jumbotron">
-                <h1 class="display-4 display-after-media" >{{ ITEM.TITLE }}</h1>
-                <p class="lead">{{ ITEM.DESCRIPTION }}</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg start-button" [routerLink]="'./about'"
-                        routerLinkActive="activebutton" (click)="navigateTo()">Saiba mais</a>
-                </p>
+                <h1 class="display-4 display-after-media">{{ ITEM.TITLE }}</h1>
+                <p class="">{{ ITEM.DESCRIPTION }}</p>
+
 
             </div>
         </div>
         <div class="col-sm">
             <img class="img-responsive" src='{{ ITEM.IMAGE }}' alt="">
+
         </div>
+
         <hr class="my-4">
+        <a mat-raised-button color="default" class="button-bottom ml-5" type="button" [routerLink]="'./about'"
+        (click)="navigateTo()"> Saiba mais </a>
     </div>
+
 </div>

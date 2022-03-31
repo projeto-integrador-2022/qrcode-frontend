@@ -1,16 +1,22 @@
 @import '/src/app/app.component.scss';
 
 .img-responsive {
+
     display: block;
     max-width: 100%;
     height: auto;
     max-height: 360px;
 }
 
-.start-button {
-    margin-top: 100px;
-    padding: 10px !important;
+.button-bottom {
+    margin-left: 30px;
+    transform: translateY(-237px);
+    width: 180px;
+
+
 }
+
+
 
 @media (max-width: 991px) { 
     .start-button {
@@ -19,4 +25,27 @@
     .display-after-media {
         font-size: 32px;
     }
+}
+
+@media (max-width: 767px) {
+    .button-bottom {
+        transform: translateY(-200px);
+    }
+    .img-responsive {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 570px) {
+    .button-bottom {
+        transform: translateY(-160px);
+        margin-left: 12px;
+        
+        
+    }
+    .img-responsive {
+        min-height: 150px;
+        max-height: 300px;
+    }
+
 }

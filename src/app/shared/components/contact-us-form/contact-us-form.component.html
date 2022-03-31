@@ -12,6 +12,17 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
+                    
+                    <div class="row">
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Assunto" formControlName="subject">
+                            <mat-error
+                                *ngIf="!formGroup.controls['subject'].valid && formGroup.controls['subject'].touched">
+                                {{ getErrorSubject() }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    
                     <div class="row">
                         <mat-form-field appearance="fill" class="form dropdown-fixture mb-2">
                             <mat-label>Qual área deseja falar? </mat-label>
@@ -25,16 +36,6 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="row">
-                        <mat-form-field class="form-element">
-                            <input matInput placeholder="Assunto" formControlName="subject">
-                            <mat-error
-                                *ngIf="!formGroup.controls['subject'].valid && formGroup.controls['subject'].touched">
-                                {{ getErrorSubject() }}
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-
                 </div>
                 <div class="col-sm-6">
                     <div class="row">
