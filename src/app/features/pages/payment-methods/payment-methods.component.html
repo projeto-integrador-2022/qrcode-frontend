@@ -1,7 +1,7 @@
 <div class="container">
     <p class="text-center display-4 mb-5">Plano {{planTitle}}
 
-    <h2 class="text-center mt-5 mb-5">Dados de Acesso </h2>
+    <p class="text-center mt-5 mb-5 text-fixture " >Dados de Acesso </p>
 
     <div class="form-layout" novalidate>
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <hr class="my-4">
-            <h2 class="text-center mt-5 mb-5">Dados do cartão </h2>
+            <p class="text-center mt-5 mb-5 text-fixture ">Dados do cartão </p>
 
             <div class="row">
                 <div class="col">
@@ -167,9 +167,12 @@
                         </mat-error>
                     </mat-form-field>
 
-                    <div class="text-center mt-5 ">
-                        <mat-label class=" text-center label"><span>Valor a Pagar: R${{price}},00</span></mat-label>
-                    </div>
+
+                        <div class="text-center mt-5 ">
+                            <mat-card> <span>Valor a Pagar: R$ {{price}},00</span> </mat-card>
+                        </div>
+
+                    
 
                 </div>
             </div>
