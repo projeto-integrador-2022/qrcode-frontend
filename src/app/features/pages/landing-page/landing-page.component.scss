@@ -1,5 +1,7 @@
 @import '/src/app/app.component.scss';
-
+h1, h4 {
+    width: 90%;
+}
 .img-responsive {
     display: block;
     max-width: 100%;
@@ -7,9 +9,7 @@
     max-height: 360px;
 }
 
-.button-bottom {
-    margin-left: 12px;
-    transform: translateY(-237px);
+.bottom-button {
     width: 180px;
 }
 
@@ -34,7 +34,7 @@
 
 @media (max-width: 767px) {
     .button-bottom {
-        transform: translateY(-200px);
+        margin-bottom: 20px;
     }
     .img-responsive {
         min-height: 200px;
@@ -42,12 +42,7 @@
 }
 
 @media (max-width: 570px) {
-    .button-bottom {
-        transform: translateY(-160px);
-        margin-left: 12px;
-        
-        
-    }
+
     .img-responsive {
         min-height: 150px;
         max-height: 300px;

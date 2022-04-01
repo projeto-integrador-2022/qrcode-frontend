@@ -34,3 +34,19 @@
 .btn:hover{
     color: rgb(255, 255, 255) !important;
 }
+
+@media (max-width: 991px) {
+    button {
+        margin: 10px 0 10px 0;
+    }
+}
+@media (max-width: 575px) {
+    .button-fixture {
+        width: 80%;
+    }
+}
+@media (max-width: 414px) {
+    .button-fixture {
+        width: 100%;
+    }
+}

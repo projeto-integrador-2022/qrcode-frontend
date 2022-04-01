@@ -4,18 +4,16 @@
             <div class="jumbotron">
                 <h1 class="display-4 display-after-media mb-5">{{ ITEM.TITLE }}</h1>
                 <p class="">{{ ITEM.DESCRIPTION }}</p>
-
-
+                <a mat-raised-button color="default" class="bottom-button btn mt-5 ml-0" type="button"
+                    [routerLink]="'./about'" (click)="navigateTo()"> Saiba mais </a>
             </div>
         </div>
         <div class="col-sm">
             <img class="img-responsive" src='{{ ITEM.IMAGE }}' alt="">
-
         </div>
-
-        <hr class="my-4">
-        <a mat-raised-button color="default" class="button-bottom btn" type="button" [routerLink]="'./about'"
-        (click)="navigateTo()"> Saiba mais </a>
+        
+        <hr class="my-4"  *ngIf="i != size - 1">
+        
     </div>
-
+    <div class="margin-fixture"></div>
 </div>
