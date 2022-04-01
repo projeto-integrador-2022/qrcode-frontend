@@ -1,1 +1,38 @@
-@import '/src/app/app.component.scss';
+@import "/src/app/app.component.scss";
+
+mat-card {
+  max-height: 64.5vh;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 15px !important;
+}
+
+mat-form-field {
+  width: 200px;
+}
+
+.welcome {
+  line-height: 20px;;
+}
+
+
+.btn:hover {
+  background-color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255) !important;
+}
+
+.container {
+  border: 1px solid rgb(160, 160, 160);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  margin-top: 160px;
+  height: 100%;
+  width: 40vh;;
+  display: flex;
+  height: 68vh;
+  background-color: rgb(255, 174, 0) !important;
+}
+
+.button-fixture {
+  margin: 70px;
+}

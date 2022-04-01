@@ -61,7 +61,7 @@ export class ContactUsFormComponent implements OnInit {
   }
 
   onSubmit(data: any) {
-    console.log('>>>>',data);
+    console.log(data);
   }
 
   onClear() {

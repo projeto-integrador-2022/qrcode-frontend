@@ -2,8 +2,8 @@
     <p class="text-center display-4 mb-5">Plano {{planTitle}}
 
     <p class="text-center mt-5 mb-5 text-fixture " >Dados de Acesso </p>
-
-    <div class="form-layout" novalidate>
+<!-- remove novalidate after tests -->
+    <div class="form-layout" novalidate> 
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
             <div class="row">
                 <div class="col">

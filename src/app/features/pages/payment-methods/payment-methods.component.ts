@@ -228,12 +228,8 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   getErrorPasswordMissmatch() {
-    const password = this.formGroup.get('password').value;
-    console.log(password);
-    
+    const password = this.formGroup.get('password').value;    
     let passwordConfirmation = this.formGroup.get('passwordconfirmation').value
-    console.log(passwordConfirmation);
-
 
     if (password !== passwordConfirmation) {
     return password !== passwordConfirmation ? SENTENCES.FORM_ERROR[0].PASSWORD_MISMATCH : 'test';

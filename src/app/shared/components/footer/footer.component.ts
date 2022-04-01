@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
 
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        if (event.url !== '/payment-plans' && event.url !== '/login') {
+        if (event.url !== '/payment-plans') {
           this.hide = true;
         } else this.hide = false;
       }
