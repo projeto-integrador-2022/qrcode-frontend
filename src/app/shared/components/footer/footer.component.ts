@@ -8,14 +8,12 @@ import { NavigationStart, Router, Event } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
   hide!: boolean;
-  currentRoute: any;
-  event: any;
 
   constructor(private router: Router) {
-    this.currentRoute = '';
+
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        if (event.url !== '/payment-plans') {
+        if (event.url !== '/payment-plans' && event.url !== '/login') {
           this.hide = true;
         } else this.hide = false;
       }
@@ -26,9 +24,12 @@ export class FooterComponent implements OnInit {
 
   public navigateTo() {
     this.router.navigate(['/payment-plans']);
+    this.scrollUp();
+  }
+  
+  scrollUp() {
     window.scroll({
       top: 0,
-      left: 0,
       behavior: 'smooth',
     });
   }

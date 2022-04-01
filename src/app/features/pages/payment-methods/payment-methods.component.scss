@@ -33,10 +33,28 @@
   width: 100%;
 }
 
-.button {
-  width: 300px;
-
+.label {
+  font-size: 18px;
+  -webkit-text-stroke: 1px rgb(41, 41, 41);
+  -webkit-text-fill-color: white;
+  height:36px !important;
+  width: 250px !important;
+  font-weight: bold;
+  border: solid 1px rgb(41, 41, 41);
+  border-radius: 4px;
+  padding: 6px 40px 6px 40px;
+  background-color: rgb(80, 80, 80);
+  color: whitesmoke; 
+  cursor: default;
 }
+
+
+.span {
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+
 
 .form {
   min-width: none !important;
@@ -49,11 +67,10 @@ textarea {
 
 .dropdown-fixture {
   transform: translateY(-7px);
-
 }
 
 h2 {
-  color: rgb(109, 109, 109);  
+  color: rgb(109, 109, 109);
 }
 
 .margin-fixture {
@@ -73,25 +90,35 @@ h2 {
 }
 
 .elementToFadeInAndOut {
-
   -webkit-animation: fadeinout 4s linear infinite;
   animation: fadeinout 4s linear infinite;
 }
 
 @-webkit-keyframes fadeinout {
-0%,100% { opacity: 0; }
-50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeinout {
-0%,100% { opacity: 0; }
-50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-.failed-payment-method {
-  color: red;
+.btn:hover {
+  background-color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255) !important;
 }
 
-.success-payment-method {
-  color: green;
+.btn {
+  width: 180px;
 }
