@@ -5,6 +5,7 @@
   height: 120px !important;
   padding: 0;
   margin: 0;
+  width: 100%;
   background-color: #f5f5f5;
   border-top: 1px solid #e5e5e5;
   color: #777;
@@ -31,4 +32,14 @@
 small:hover {
   cursor: default;
   color: rgb(255, 174, 0);
+}
+
+@media (max-width: 769px) {
+  a {
+    width: 100% !important;
+    height: 50px;
+    .customized-footer {
+      margin-top: 20px !important;
+    }
+  }
 }

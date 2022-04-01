@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
 
+.page-size {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .container {
   margin-top: 250px;
+  width: 100%;
 }
 
 .my-4 {
@@ -42,3 +48,4 @@ h4 {
   font-weight: normal;
   margin-bottom: 0.75rem;
 }
+

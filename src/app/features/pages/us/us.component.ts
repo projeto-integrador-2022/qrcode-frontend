@@ -10,6 +10,7 @@ export class UsComponent implements OnInit {
   imageUrl: string = '../../../assets/images/ppl-working-cropped.jpg'; 
   US_SENTENCES: any;
   size: number = 0;
+  
   constructor() {
     this.US_SENTENCES = SENTENCES.US;
   }
