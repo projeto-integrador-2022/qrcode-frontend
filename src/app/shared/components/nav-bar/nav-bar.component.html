@@ -5,8 +5,8 @@
         <a class="navbar-brand ml-5 display-after-media" [routerLink]="'./landing-page' "
             routerLinkActive="activebutton">
 
-            <button mat-mini-fab color="basic"><img  class="img" src={{imageUrl}} alt="">
-                <span>QR Costumer Tracker</span> </button>
+            <button mat-mini-fab color="basic" class="round-highlight"><img  class="img" src={{imageUrl}} alt="">
+                <span class="highlight">QR Costumer Tracker</span> </button>
             
             <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
                 &#9776;
@@ -21,7 +21,7 @@
                     <a class="nav-link" [routerLink]="'./us'">Sobre nós</a>
                 </li>
                 <li class="nav-item">
-                    <a mat-raised-button href="" color="default" class="text-center" type="button" [routerLink]="'./login'"> Começar</a>
+                    <a mat-raised-button href="" color="default" class="text-center btn" type="button" [routerLink]="'./login'"> Começar</a>
                 </li>
             </ul>
         </div>

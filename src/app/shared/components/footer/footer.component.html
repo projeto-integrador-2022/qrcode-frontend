@@ -1,18 +1,16 @@
 <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-light customized-footer">
-    <!-- implementação abaixo faltando passagem de valores para instanciar componente de footer com boleano vindo do clique no botao de saiba mais-->
-    <div class=" text-center" *ngIf="isRedirectToPaymentAvaliable == true; else paymentVisible">
+    <div *ngIf="hide === false; else paymentVisible">
         <small>Big Hiccups &copy; Soluções</small>
     </div>
     <ng-template #paymentVisible>
-        <div class="text-center">
-            <div class="row">
-                <small>Ainda não é nosso Cliente?</small>
-            </div>
 
-            <div class="row justify-content-md-center">
-                <a mat-raised-button color="default" class="btn-lg" type="button" [routerLink]="'./about'"
-                    (click)="navigateTo()"> Ver Planos </a>
-            </div>
+        <div class="row">
+            <span>Ainda não é nosso Cliente?</span>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <a mat-raised-button color="default" class="btn btn-lg" type="button" [routerLink]="'./about'"
+                (click)="navigateTo();"> Ver Planos </a>
         </div>
 
     </ng-template>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router, Event } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  isRedirectToPaymentAvaliable: boolean = false;
+  hide!: boolean;
+  currentRoute: any;
+  event: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.currentRoute = '';
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url !== '/payment-plans') {
+          this.hide = true;
+        } else this.hide = false;
+      }
+    });
+  }
 
   ngOnInit(): void {}
 

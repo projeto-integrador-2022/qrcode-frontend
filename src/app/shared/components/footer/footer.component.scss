@@ -21,3 +21,14 @@
   margin-top: 20px;
   width: 250px;
 }
+
+.btn:hover {
+  background-color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255) !important;
+
+}
+
+small:hover {
+  cursor: default;
+  color: rgb(255, 174, 0);
+}
