@@ -9,6 +9,13 @@ h1, h4 {
     max-height: 360px;
 }
 
+.position-fixture {
+    transform:translateX(5%)!important;
+}
+.my-4 {
+    transform:translateX(-5%)!important;
+}
+
 .bottom-button {
     width: 180px;
 }
@@ -42,7 +49,9 @@ h1, h4 {
 }
 
 @media (max-width: 570px) {
-
+    .bottom-button {
+        margin-bottom: 30px;
+    }
     .img-responsive {
         min-height: 150px;
         max-height: 300px;
