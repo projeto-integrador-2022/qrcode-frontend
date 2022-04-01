@@ -328,7 +328,10 @@ export class PaymentMethodsComponent implements OnInit {
   delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
     setTimeout(() => {     
       this.processingMessage = message;
-      if (isPaymentSuccessful) this.router.navigate(['/login'], {state: {username: `${this.post.username}`, password: `${this.post.password}`}});
+      if (isPaymentSuccessful) {
+        // this.router.navigate(['/login'], {state: {username: `${this.post.username}`, password: `${this.post.password}`}});
+      }
+      
     }, mms);
   }
 }
