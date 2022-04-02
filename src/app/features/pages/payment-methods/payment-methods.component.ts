@@ -78,66 +78,26 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   createForm() {
-    let username: RegExp = /[a-zA-Z][a-zA-Z0-9-_]{4,32}/;
-    let emailregex: RegExp = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
-    let cardregex: RegExp = /(\d{4}[-.\s]?){4}|\d{4}[-.\s]?\d{6}[-.\s]?\d{5}$/;
-    let phoneregex: RegExp = /^\(?[1-9]{2}\)?\s?\d{4,5}(\-|\s)?\d{4}$/;
-    let securitycoderegex: RegExp = /^\d{3}$/;
-    let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
-    let ownernameregex: RegExp = /^[a-zA-Z\s]+$/;
-    let passwordregex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+    let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    let cardregex: RegExp = /(\d{4}[-.\s]?){4}|\d{4}[-.\s]?\d{6}[-.\s]?\d{5}$/
+    let phoneregex: RegExp = /^\(?[1-9]{2}\)?\s?\d{4,5}(\-|\s)?\d{4}$/
+    let securitycoderegex : RegExp = /^\d{3}$/
+    let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/
+    let cardnameregex: RegExp = /^[a-zA-Z\s]+$/
 
     this.formGroup = this.formBuilder.group({
-      username: [
-        null,
-        [Validators.required, Validators.pattern(username)],
-        this.checkInUseUsername,
-      ],
-      email: [
-        null,
-        [Validators.required, Validators.pattern(emailregex)],
-        this.checkInUseEmail,
-      ],
-      name: [
-        null,
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(ownernameregex),
-        ],
-      ],
-      surname: [
-        null,
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.pattern(ownernameregex),
-        ],
-      ],
-      address: [null, [Validators.required, Validators.minLength(3)]],
-      city: [null, [Validators.required, Validators.minLength(3)]],
-      state: [null, [Validators.required, Validators.minLength(2)]],
-      password: [
-        null,
-        [Validators.required, Validators.pattern(passwordregex)],
-      ],
-      passwordconfirmation: [null, [Validators.required]],
-      cardnumber: [null, [Validators.required, Validators.pattern(cardregex)]],
-      phone: [null, [Validators.required, Validators.pattern(phoneregex)]],
-      securitycode: [
-        null,
-        [Validators.required, Validators.pattern(securitycoderegex)],
-      ],
-      expirationdate: [
-        null,
-        [Validators.required, Validators.pattern(expirationdateregex)],
-      ],
-      cardflag: [null, [Validators.required]],
-      ownername: [
-        null,
-        [Validators.required, Validators.pattern(ownernameregex)],
-      ],
-      validate: '',
+      'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
+      'name': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'address': [null, [Validators.required, Validators.minLength(3)]],
+      'password': [null, [Validators.required, this.checkPassword]],
+      'passwordConfirmation': [null, [Validators.required, this.checkPassword]],
+      'surname': [null, [Validators.required, Validators.minLength(3)]],
+      'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
+      'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
+      'securitycode': [null, [Validators.required, Validators.pattern(securitycoderegex)]],
+      'expirationdate': [null, [Validators.required, Validators.pattern(expirationdateregex)]],
+      'cardname': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
+      'validate': ''
     });
   }
 
