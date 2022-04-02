@@ -1,0 +1,26 @@
+{
+    "account": [
+        {
+            "name": "Nucky ",
+            "surname": "Thompson",
+            "email": "cine.astro@gmail.com",
+            "phone": "32995530338",
+            "address": "Villa Imperial",
+            "city": "goiania",
+            "stateDistrict": "Madrid",
+            "login": {
+                "username": "cine-astro",
+                "password": "1abcdefgH"
+            },
+            "creditCard": {
+                "ownerName": "Nucky L Thompson",
+                "cardNumber": "1929 1929 1929 1929",
+                "securityCode": "123",
+                "expirationDate": "12/30",
+                "cardFlag": "amex"
+            },
+            "paymentPlan": {},
+            "id": 2
+        }
+    ]
+}

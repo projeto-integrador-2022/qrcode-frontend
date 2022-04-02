@@ -49,7 +49,7 @@
                     <mat-form-field appearance="fill" class="form dropdown-fixture mb-2">
                         <mat-label>Estado</mat-label>
                         <mat-select (selectionChange)="onStateOptionChange($event)" formControlName="state">
-                            <mat-option *ngFor="let state of states" [value]="state.name"> {{state.name}}
+                            <mat-option *ngFor="let state of states" [value]="state.nome"> {{state.nome}}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="!formGroup.controls['state'].valid && formGroup.controls['state'].touched">
@@ -91,7 +91,7 @@
                     <mat-form-field appearance="fill" class="form dropdown-fixture">
                         <mat-label>Cidade</mat-label>
                         <mat-select (selectionChange)="onCityOptionChange($event)" formControlName="city">
-                            <mat-option value="goiania">Goiânia</mat-option>
+                            <mat-option value="goiania">El Dorado</mat-option>
                             <!-- *ngIf de array de cidades do estado escolhido -->
 
                         </mat-select>
@@ -119,23 +119,23 @@
                 <div class="col">
 
                     <mat-form-field class="form-element">
-                        <input matInput placeholder="Nome" formControlName="cardname">
+                        <input matInput placeholder="Nome" formControlName="ownername">
                         <mat-error
-                            *ngIf="!formGroup.controls['cardname'].valid && formGroup.controls['cardname'].touched">
-                            {{ getErrorCardName() }}
+                            *ngIf="!formGroup.controls['ownername'].valid && formGroup.controls['ownername'].touched">
+                            {{ getErrorOwnerName() }}
                         </mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="form dropdown-fixture">
                         <mat-label>Tarja do Cartão</mat-label>
-                        <mat-select (selectionChange)="onCardTypeChange($event)" formControlName="cardType">
+                        <mat-select (selectionChange)="onCardFlagChange($event)" formControlName="cardflag">
                             <mat-option value="visa">Visa</mat-option>
                             <mat-option value="master">MasterCard</mat-option>
                             <mat-option value="elo">Elo</mat-option>
                             <mat-option value="amex">American Express</mat-option>
                         </mat-select>
                         <mat-error
-                            *ngIf="!formGroup.controls['cardType'].valid && formGroup.controls['cardType'].touched">
+                            *ngIf="!formGroup.controls['cardflag'].valid && formGroup.controls['cardflag'].touched">
                             {{ getErrorCity() }}
                         </mat-error>
                     </mat-form-field>
@@ -152,9 +152,9 @@
                 <div class="col">
 
                     <mat-form-field class="form-element">
-                        <input matInput placeholder="Número do Cartão" formControlName="cardNumber">
+                        <input matInput placeholder="Número do Cartão" formControlName="cardnumber">
                         <mat-error
-                            *ngIf="!formGroup.controls['cardNumber'].valid && formGroup.controls['cardNumber'].touched">
+                            *ngIf="!formGroup.controls['cardnumber'].valid && formGroup.controls['cardnumber'].touched">
                             {{ getErrorCardNumber() }}
                         </mat-error>
                     </mat-form-field>

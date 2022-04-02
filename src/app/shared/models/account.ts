@@ -1,7 +1,7 @@
 import { CreditCard } from './creditcard';
 import { Login } from './login';
 import { PaymentPlan } from './payment-plan';
-import { Permission } from './permission';
+
 
 export interface Account {
     id?: number;
@@ -13,8 +13,7 @@ export interface Account {
     city: string;
     stateDistrict: string;
 
-    permission?: Permission;
-    paymentPlan?: PaymentPlan
+    paymentPlan?: PaymentPlan;
     creditCard?: CreditCard;
     login?: Login
 }
