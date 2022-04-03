@@ -10,7 +10,8 @@ import { Account } from 'src/app/shared/models/account';
 import { PaymentPlan } from 'src/app/shared/models/payment-plan';
 import { Login } from 'src/app/shared/models/login';
 import { LocationService } from 'src/app/shared/services/location-api.service';
-import { StateDistrict } from 'src/app/shared/models/state_district.model';
+import { StateDistrict } from 'src/app/shared/models/state-district.model';
+import { City } from 'src/app/shared/models/city.model';
 
 @Component({
   selector: 'app-payment-methods',
@@ -38,7 +39,8 @@ export class PaymentMethodsComponent implements OnInit {
   isPaymentSuccessful: boolean = false;
 
   states!: StateDistrict[];
-  cities!: any[];
+  cities!: City[];
+  state!: StateDistrict;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,7 +58,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   ngOnInit() {
     this.index = history.state.index;
-    this.populateStates();    
+    this.populateStates();   
     this.populateTitle();
     this.createForm();
     this.setChangeValidate();
@@ -88,15 +90,19 @@ export class PaymentMethodsComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
       'name': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'username': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'state': [null, [Validators.required]],
+      'city': [null, [Validators.required]],
       'address': [null, [Validators.required, Validators.minLength(3)]],
       'password': [null, [Validators.required, this.checkPassword]],
-      'passwordConfirmation': [null, [Validators.required, this.checkPassword]],
+      'passwordconfirmation': [null, [Validators.required, this.checkPassword]],
       'surname': [null, [Validators.required, Validators.minLength(3)]],
-      'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
+      'cardnumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
       'securitycode': [null, [Validators.required, Validators.pattern(securitycoderegex)]],
+      'cardflag': [null, [Validators.required]],
       'expirationdate': [null, [Validators.required, Validators.pattern(expirationdateregex)]],
-      'cardname': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
+      'ownername': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
       'validate': ''
     });
   }
@@ -147,28 +153,34 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   populateStates() {
-    this.locationService.getStates().subscribe((states: StateDistrict[]) => {
-      this.states = states;
-      this.cities = this.states.map(s => s.cidades);
-      
-
-    });
     
+    this.locationService.getStates().subscribe(
+      (data: any) => {
+        this.states = data;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
-  populateCities(estado: any) {
-    
-    
-    
+  populateCities(stateName: any) {
+    this.cities = new Array<City>();
+    for (let i = 0; i < this.states.length; i++) {
+      if (this.states[i].name == stateName) {
+        
+        for (let j = 0; j < this.states[i].cities.length; j++) {
+          this.cities.push(this.states[i].cities[j]);
+        }
+      }
+    }    
   }
 
   onCityOptionChange(event: any) {
-    this.formGroup.get('city').setValue(event.value);
+    this.formGroup.get('city').setValue(event.value);    
   }
 
-  onStateOptionChange(data: any) {
-    
-    
+  onStateOptionChange(data: any) {    
     this.populateCities(data.value);
     this.formGroup.get('state').setValue(data.value);
   }

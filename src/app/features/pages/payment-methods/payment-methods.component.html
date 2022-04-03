@@ -49,7 +49,8 @@
                     <mat-form-field appearance="fill" class="form dropdown-fixture mb-2">
                         <mat-label>Estado</mat-label>
                         <mat-select (selectionChange)="onStateOptionChange($event)" formControlName="state">
-                            <mat-option *ngFor="let state of states" [value]="state.nome"> {{state.nome}}
+                            <mat-option *ngFor="let state of states" [value]="state.name">
+                                {{ state.name }}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="!formGroup.controls['state'].valid && formGroup.controls['state'].touched">
@@ -91,9 +92,7 @@
                     <mat-form-field appearance="fill" class="form dropdown-fixture">
                         <mat-label>Cidade</mat-label>
                         <mat-select (selectionChange)="onCityOptionChange($event)" formControlName="city">
-                            <mat-option value="goiania">El Dorado</mat-option>
-                            <!-- *ngIf de array de cidades do estado escolhido -->
-
+                            <mat-option *ngFor="let city of cities"[value]="city">{{city}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="!formGroup.controls['city'].valid && formGroup.controls['city'].touched">
                             {{ getErrorCity() }}

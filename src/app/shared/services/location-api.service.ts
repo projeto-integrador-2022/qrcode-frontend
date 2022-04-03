@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { StateDistrict } from '../models/state_district.model';
+import { StateDistrict } from '../models/state-district.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class LocationService {
   }
 
   getCities(state: string): Observable<StateDistrict> {
-    return this.http.get<StateDistrict>(this.endpoint + '/?nome=' + state + '/cidades')
+    return this.http.get<StateDistrict>(this.endpoint + '/?nome=' )
       .pipe(
         retry(2),
         catchError(this.handleError))
