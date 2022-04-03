@@ -1,26 +1,54 @@
 {
-    "account": [
-        {
-            "name": "Nucky ",
-            "surname": "Thompson",
-            "email": "cine.astro@gmail.com",
-            "phone": "32995530338",
-            "address": "Villa Imperial",
-            "city": "goiania",
-            "stateDistrict": "Madrid",
-            "login": {
-                "username": "cine-astro",
-                "password": "1abcdefgH"
-            },
-            "creditCard": {
-                "ownerName": "Nucky L Thompson",
-                "cardNumber": "1929 1929 1929 1929",
-                "securityCode": "123",
-                "expirationDate": "12/30",
-                "cardFlag": "amex"
-            },
-            "paymentPlan": {},
-            "id": 2
-        }
-    ]
+  "account": [
+    {
+      "name": "Nucky",
+      "surname": "Thompson",
+      "email": "admin@cineastro.com",
+      "phone": "62995530338",
+      "address": "Rua El dorado",
+      "city": "Andorinha",
+      "stateDistrict": "Bahia",
+      "login": {
+        "username": "cine.astro",
+        "password": "1abcdefgH"
+      },
+      "creditCard": {
+        "ownerName": "Enoch J Thompson",
+        "cardNumber": "1929 1929 1929 1929",
+        "securityCode": "123",
+        "expirationDate": "12/30",
+        "cardFlag": "amex"
+      },
+      "paymentPlan": {
+        "planId": 1,
+        "title": "Professional",
+        "reportType": "Relatórios em Tempo Real",
+        "clientQuantity": 20,
+        "value": 750
+      },
+      "id": 1
+    },
+    {
+      "name": "nome",
+      "surname": null,
+      "email": null,
+      "phone": null,
+      "address": null,
+      "city": null,
+      "stateDistrict": null,
+      "login": {
+        "username": null,
+        "password": null
+      },
+      "creditCard": {
+        "ownerName": "nome",
+        "cardNumber": null,
+        "securityCode": null,
+        "expirationDate": null,
+        "cardFlag": null
+      },
+      "paymentPlan": {},
+      "id": 2
+    }
+  ]
 }

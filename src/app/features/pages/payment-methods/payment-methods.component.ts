@@ -295,6 +295,10 @@ export class PaymentMethodsComponent implements OnInit {
     this.creditCard = {} as CreditCard;
     this.plan = {} as PaymentPlan;
     this.login = {} as Login;
+    Object.keys(this.formGroup.controls).forEach(key => {
+      this.formGroup.get(key).setErrors(null) ;
+    });
+    
   }
 
   delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
