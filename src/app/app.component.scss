@@ -3,17 +3,23 @@
 
 body, html {
   background-color: #f8f8f8;
+  margin: 0 !important;
+  position: relative;
+  
 }
 
 
 .page-size {
   width: 100%;
   overflow-x: hidden;
+  height: 100% !important;
+
 }
 
 .container {
   margin-top: 250px;
   width: 100%;
+  min-height: 100%;
 }
 
 .my-4 {

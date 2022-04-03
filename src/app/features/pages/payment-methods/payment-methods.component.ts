@@ -86,16 +86,17 @@ export class PaymentMethodsComponent implements OnInit {
     let securitycoderegex : RegExp = /^\d{3}$/
     let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/
     let cardnameregex: RegExp = /^[a-zA-Z\s]+$/
+    let passwordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 
     this.formGroup = this.formBuilder.group({
-      'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'name': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
-      'username': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'email': [null, [Validators.required, Validators.pattern(emailregex)]],
+      'name': [null, [Validators.required, Validators.minLength(3)]],
+      'username': [null, [Validators.required, Validators.minLength(3)]],
       'state': [null, [Validators.required]],
       'city': [null, [Validators.required]],
       'address': [null, [Validators.required, Validators.minLength(3)]],
-      'password': [null, [Validators.required, this.checkPassword]],
-      'passwordconfirmation': [null, [Validators.required, this.checkPassword]],
+      'password': [null, [Validators.required, Validators.pattern(passwordregex)]],
+      'passwordconfirmation': [null, [Validators.required, Validators.pattern(passwordregex)]],
       'surname': [null, [Validators.required, Validators.minLength(3)]],
       'cardnumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
@@ -118,25 +119,9 @@ export class PaymentMethodsComponent implements OnInit {
     });
   }
 
-  checkPassword(control: any) {
-    let enteredPassword = control.value;
-    let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
-    return !passwordCheck.test(enteredPassword) && enteredPassword
-      ? { requirements: true }
-      : null;
-  }
 
   checkInUseEmail(control: any) {
-    // mimic http database access
-    let db = ['tony@gmail.com'];
-    return new Observable((observer) => {
-      setTimeout(() => {
-        let result =
-          db.indexOf(control.value) !== -1 ? { alreadyInUse: true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 4000);
-    });
+    return true;
   }
 
   checkInUseUsername(control: any) {
@@ -167,8 +152,7 @@ export class PaymentMethodsComponent implements OnInit {
   populateCities(stateName: any) {
     this.cities = new Array<City>();
     for (let i = 0; i < this.states.length; i++) {
-      if (this.states[i].name == stateName) {
-        
+      if (this.states[i].name == stateName) { 
         for (let j = 0; j < this.states[i].cities.length; j++) {
           this.cities.push(this.states[i].cities[j]);
         }
@@ -285,6 +269,8 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   createAccount() {
+    console.log(this.account);
+    
     if (this.account !== undefined) {
       this.apiService.createAccount(this.account).subscribe(() => {
         this.cleanForm();

@@ -1,14 +1,11 @@
 @import "/src/app/app.component.scss";
 
-.container {
-  margin-top: 10% !important;
-  margin-bottom: 5% !important;
-}
+
 mat-card {
-  height: 100%;
+  position: relative;
+  height: auto;
   max-width: 400px;
   margin: 0 auto;
-  margin-top: 15px !important;
 }
 
 mat-form-field {
@@ -26,8 +23,8 @@ mat-form-field {
 }
 
 .container {
-
-  margin-top: 194.5px;
+  margin-top: 10% !important;
+  margin-bottom: 5% !important;
   height: 100%;
   width: 40vh;;
   display: flex;
