@@ -1,21 +1,22 @@
 @import "/src/app/app.component.scss";
 
-
 mat-card {
-  position: relative;
+  margin-top: 300px !important;
   height: auto;
+  max-height: 450px;
   max-width: 400px;
   margin: 0 auto;
 }
 
 mat-form-field {
-  width: 200px;
+  width: 300px;
+  margin-bottom: 0px !important;
 }
 
-.welcome {
-  line-height: 20px;;
+.welcome-text {
+  line-height: 20px;
+  margin-top: 50px !important;
 }
-
 
 .btn:hover {
   background-color: rgb(255, 174, 0);
@@ -23,15 +24,50 @@ mat-form-field {
 }
 
 .container {
-  margin-top: 10% !important;
-  margin-bottom: 5% !important;
-  height: 100%;
-  width: 40vh;;
+  margin-top: 0;
+  width: auto;
   display: flex;
-  height: 68vh;
-
+  height: 880px !important;
 }
 
 .button-fixture {
-  margin: 50px;
+  margin: 50px 0 20px 0;
+}
+
+@media (min-height: 600px) and (max-height: 880px) {
+  .container {
+    height: auto !important;
+  }
+  .welcome-text {
+    padding: 0;
+    margin-top: 20px 0 20px 0  !important;
+
+  }
+
+  .button-fixture {
+    margin: 50px 0 20px 0;
+  }
+
+  mat-card {
+    margin-top: 190px !important;
+    height:auto;
+    width:50%;
+  }
+
+}
+
+
+@media (min-height: 1040px) {
+  .container {
+    max-height: 77vh !important;
+    height: 77vh !important;
+    width: auto;
+  }
+  .welcome-text {
+    padding: 0;
+    margin-top: 20px;
+  }
+  .button-fixture {
+    margin-top: 50px;
+  }
 }

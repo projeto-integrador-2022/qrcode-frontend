@@ -17,15 +17,19 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {  
     this.size = SENTENCES.LANDING_PAGE.length;
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });  
+    this.scrollUp();
+ 
   }
 
   public navigateTo() {
     this.router.navigate(['/about']);
     
+  }
+
+  scrollUp() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    }); 
   }
 }
