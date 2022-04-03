@@ -119,7 +119,6 @@ export class PaymentMethodsComponent implements OnInit {
     });
   }
 
-
   checkInUseEmail(control: any) {
     return true;
   }
@@ -391,36 +390,32 @@ export class PaymentMethodsComponent implements OnInit {
       : '';
   }
 
+  getErrorSurname() {
+    return this.formGroup.get('surname').hasError('required')? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('surname').hasError('minlength') ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
+  }
+
   getAddressError() {
-    return this.formGroup.get('address').hasError('required')
-      ? SENTENCES.FORM_ERROR[0].REQUIRED
-      : this.formGroup.get('address').hasError('minlength')
-      ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+    return this.formGroup.get('address').hasError('required')? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('address').hasError('minlength') ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
       : '';
   }
 
   getErrorPassword() {
-    return this.formGroup.get('password').hasError('required')
-      ? SENTENCES.FORM_ERROR[0].REQUIRED
-      : this.formGroup.get('password').hasError('requirements')
-      ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID
-      : '';
+    return this.formGroup.get('password').hasError('required') ? SENTENCES.FORM_ERROR[0].REQUIRED :
+      this.formGroup.get('password').hasError('requirements') ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID : '';
   }
 
   getErrorPasswordMissmatch() {
-    const password = this.formGroup.get('password').value;
+    let password = this.formGroup.get('password').value;
+    console.log(password);
+    
     let passwordConfirmation = this.formGroup.get('passwordconfirmation').value;
-
-    if (password !== passwordConfirmation) {
-      return password !== passwordConfirmation
-        ? SENTENCES.FORM_ERROR[0].PASSWORD_MISMATCH
-        : 'test';
-    } else {
-      return this.formGroup.get('password').hasError('required')
-        ? SENTENCES.FORM_ERROR[0].REQUIRED
-        : this.formGroup.get('password').hasError('requirements')
-        ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID
-        : '';
-    }
+    console.log(passwordConfirmation);
+    
+    return password !== passwordConfirmation ? SENTENCES.FORM_ERROR[0].PASSWORD_MISSMATCH : 
+    this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].REQUIRED :
+    this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID : '';
   }
 }

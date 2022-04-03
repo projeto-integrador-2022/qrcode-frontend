@@ -9,13 +9,11 @@
 }
 
 .fill-remaining-space {
-  /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
 
 .container {
-  padding: 10px;
+  margin-bottom: 200px;
 }
 
 .form {
@@ -46,12 +44,18 @@ mat-card {
 }
 
 .text-fixture {
+  margin-top: 100px;
   font-size: 20px;
   font-weight: 600;
   color: rgb(99, 99, 99);
   cursor: default;
 }
-
+.title-fixture {
+  color: rgb(99, 99, 99);
+  font-size: 50px;
+  margin-top: 150px;
+  font-weight: bold;
+}
 mat-card {
   height: 36px;
   padding: 10px 0 0 0 ;
@@ -128,5 +132,6 @@ h2 {
 }
 
 .btn {
+
   width: 180px;
 }

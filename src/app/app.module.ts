@@ -18,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/shared/modules/material-module';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     PaymentPlansComponent,
     ContactUsFormComponent,
-    PaymentMethodsComponent
+    PaymentMethodsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -40,9 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [ ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

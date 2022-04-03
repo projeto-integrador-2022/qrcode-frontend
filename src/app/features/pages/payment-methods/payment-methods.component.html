@@ -1,5 +1,5 @@
 <div class="container">
-    <p class="text-center display-4 mb-5">Plano {{planTitle}}
+    <p class="text-center display-4 title-fixture">Plano {{planTitle}}
 
     <p class="text-center mt-5 mb-5 text-fixture " >Dados de Acesso </p>
 <!-- remove novalidate after tests -->
@@ -84,8 +84,8 @@
                         <textarea matInput placeholder="Endereço" matTextareaAutosize matAutosizeMinRows="1"
                             matAutosizeMaxRows="5" formControlName="address"></textarea>
                         <mat-error
-                            *ngIf="!formGroup.controls['surname'].valid && formGroup.controls['surname'].touched">
-                            Campo precisa de preenchimendo no mínimo 5 caracteres
+                            *ngIf="!formGroup.controls['address'].valid && formGroup.controls['address'].touched">
+                            {{ getErrorName() }}
                         </mat-error>
                     </mat-form-field>
 
@@ -100,11 +100,11 @@
                     </mat-form-field>
 
                     <mat-form-field class="form-element margin-fixture">
-                        <input matInput placeholder="Confirmação" [type]="hide ? 'passwordconfirmation' : 'text2'"
+                        <input matInput placeholder="Confirmação"[type]="hide ? 'password' : 'text'"
                             formControlName="passwordconfirmation" required>
-                        <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         <mat-error
-                            *ngIf="formGroup.controls['passwordconfirmation'].touched">
+                            *ngIf="!formGroup.controls['passwordconfirmation'].valid && formGroup.controls['passwordconfirmation'].touched">
                             {{ getErrorPasswordMissmatch() }}
                         </mat-error>
                     </mat-form-field>
