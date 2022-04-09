@@ -1,5 +1,5 @@
 import { CreditCard } from './creditcard';
-import { Login } from './login';
+import { User } from './user.model';
 import { PaymentPlan } from './payment-plan';
 
 
@@ -15,5 +15,5 @@ export interface Account {
 
     paymentPlan?: PaymentPlan;
     creditCard?: CreditCard;
-    login?: Login
+    login?: User
 }

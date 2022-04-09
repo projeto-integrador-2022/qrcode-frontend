@@ -29,26 +29,58 @@
       "id": 1
     },
     {
-      "name": "nome",
-      "surname": null,
-      "email": null,
-      "phone": null,
-      "address": null,
-      "city": null,
-      "stateDistrict": null,
+      "name": "Conrado",
+      "surname": "Soprano",
+      "email": "admin@funeraria-vai-com-deus.com",
+      "phone": "8599999999",
+      "address": "Rua do cara",
+      "city": "Ocara",
+      "stateDistrict": "Ceará",
       "login": {
-        "username": null,
-        "password": null
+        "username": "funeraria.vai.com.deus",
+        "password": "1abcdefgH"
       },
       "creditCard": {
-        "ownerName": "nome",
-        "cardNumber": null,
-        "securityCode": null,
-        "expirationDate": null,
-        "cardFlag": null
+        "ownerName": "Conrado J Soprano",
+        "cardNumber": "1990 1990 1990 1900",
+        "securityCode": "321",
+        "expirationDate": "12/25",
+        "cardFlag": "amex"
       },
-      "paymentPlan": {},
+      "paymentPlan": {
+        "planId": 1,
+        "title": "Professional",
+        "reportType": "Relatórios em Tempo Real",
+        "clientQuantity": 20,
+        "value": 750
+      },
       "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "username": "dsfsf",
+      "password": "1abcdefgH",
+      "id": 5
+    },
+    {
+      "username": "bruno",
+      "password": "1abcdefgH",
+      "id": 6
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "id": 7
+    },
+    {
+      "username": "cine.astro",
+      "password": "123",
+      "id": 8
     }
   ]
 }

@@ -8,7 +8,7 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
 import { CreditCard } from 'src/app/shared/models/creditcard';
 import { Account } from 'src/app/shared/models/account';
 import { PaymentPlan } from 'src/app/shared/models/payment-plan';
-import { Login } from 'src/app/shared/models/login';
+import { User } from '../../../shared/models/user.model';
 import { LocationService } from 'src/app/shared/services/location-api.service';
 import { StateDistrict } from 'src/app/shared/models/state-district.model';
 import { City } from 'src/app/shared/models/city.model';
@@ -22,7 +22,7 @@ export class PaymentMethodsComponent implements OnInit {
   account = {} as Account;
   creditCard = {} as CreditCard;
   plan = {} as PaymentPlan;
-  login = {} as Login;
+  user = {} as User;
 
   formGroup: any;
   titleAlert: string = '';
@@ -58,7 +58,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   ngOnInit() {
     this.index = history.state.index;
-    this.populateStates();   
+    this.populateStates();
     this.populateTitle();
     this.createForm();
     this.setChangeValidate();
@@ -137,7 +137,7 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   populateStates() {
-    
+
     this.locationService.getStates().subscribe(
       (data: any) => {
         this.states = data;
@@ -151,19 +151,19 @@ export class PaymentMethodsComponent implements OnInit {
   populateCities(stateName: any) {
     this.cities = new Array<City>();
     for (let i = 0; i < this.states.length; i++) {
-      if (this.states[i].name == stateName) { 
+      if (this.states[i].name == stateName) {
         for (let j = 0; j < this.states[i].cities.length; j++) {
           this.cities.push(this.states[i].cities[j]);
         }
       }
-    }    
+    }
   }
 
   onCityOptionChange(event: any) {
-    this.formGroup.get('city').setValue(event.value);    
+    this.formGroup.get('city').setValue(event.value);
   }
 
-  onStateOptionChange(data: any) {    
+  onStateOptionChange(data: any) {
     this.populateCities(data.value);
     this.formGroup.get('state').setValue(data.value);
   }
@@ -181,7 +181,7 @@ export class PaymentMethodsComponent implements OnInit {
   processingUserData(data: any) {
     this.saveCreditCardData(data);
     this.savePaymentPlan();
-    this.saveLoginData(data);
+    this.saveuserData(data);
     this.saveUserData(data);
     this.start();
   }
@@ -218,9 +218,9 @@ export class PaymentMethodsComponent implements OnInit {
     }
   }
 
-  saveLoginData(data: any) {
-    this.login.username = data.username;
-    this.login.password = data.password;
+  saveuserData(data: any) {
+    this.user.username = data.username;
+    this.user.password = data.password;
   }
 
   saveUserData(data: any) {
@@ -231,7 +231,7 @@ export class PaymentMethodsComponent implements OnInit {
     this.account.address = data.address;
     this.account.city = data.city;
     this.account.stateDistrict = data.state;
-    this.account.login = this.login;
+    this.account.login = this.user;
     this.account.creditCard = this.creditCard;
     this.account.paymentPlan = this.plan;
   }
@@ -269,7 +269,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   createAccount() {
     console.log(this.account);
-    
+
     if (this.account !== undefined) {
       this.apiService.createAccount(this.account).subscribe(() => {
         this.cleanForm();
@@ -294,18 +294,18 @@ export class PaymentMethodsComponent implements OnInit {
     this.account = {} as Account;
     this.creditCard = {} as CreditCard;
     this.plan = {} as PaymentPlan;
-    this.login = {} as Login;
+    this.user = {} as User;
     Object.keys(this.formGroup.controls).forEach(key => {
       this.formGroup.get(key).setErrors(null) ;
     });
-    
+
   }
 
   delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
     setTimeout(() => {
       this.processingMessage = message;
       if (isPaymentSuccessful) {
-        this.router.navigate(['/login'], {
+        this.router.navigate(['/user'], {
           state: {
             username: `${this.post.username}`,
             password: `${this.post.password}`,
@@ -414,11 +414,11 @@ export class PaymentMethodsComponent implements OnInit {
   getErrorPasswordMissmatch() {
     let password = this.formGroup.get('password').value;
     console.log(password);
-    
+
     let passwordConfirmation = this.formGroup.get('passwordconfirmation').value;
     console.log(passwordConfirmation);
-    
-    return password !== passwordConfirmation ? SENTENCES.FORM_ERROR[0].PASSWORD_MISSMATCH : 
+
+    return password !== passwordConfirmation ? SENTENCES.FORM_ERROR[0].PASSWORD_MISSMATCH :
     this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].REQUIRED :
     this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID : '';
   }
