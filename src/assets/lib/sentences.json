@@ -131,6 +131,7 @@
             "REQUIRED": "Preenchimento necessário",
             "NAME_IN_USE": "Este nome já está sendo usado",
             "FILL_CRITERIA": "Nome deve conter mais de 3 letras",
+            "INVALID_NAME": "Nome inválido",
             "INVALID_EMAIL": "E-mail inválido",
             "EMAIL_IN_USE": "Este e-mail já está sendo usado",
             "CVC_NOT_VALID": "Código de segurança inválido",
@@ -138,7 +139,8 @@
             "CARD_EXPIRATION_NOT_VALID": "Data inválida, precisa estar em formato mm/aa",
             "PHONE_NOT_VALID": "Não é um número de telefone válido",
             "PASSWORD_NOT_VALID": "A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número",
-            "PASSWORD_NOT_MATCH": "As senhas não conferem"
+            "PASSWORD_NOT_MATCH": "As senhas não conferem",
+            "USERNAME_OR_PASSWORD_NOT_VALID": "Usuário ou senha inválidos"
 
 
         }

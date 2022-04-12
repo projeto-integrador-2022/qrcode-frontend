@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
-import { ApiService } from 'src/app/shared/services/account-api.service';
-import SENTENCES from '../../../../assets/lib/sentences.json';
+import { AccountService } from 'src/app/shared/services/account.service';
 import { CreditCard } from 'src/app/shared/models/creditcard';
 import { Account } from 'src/app/shared/models/account';
 import { PaymentPlan } from 'src/app/shared/models/payment-plan';
@@ -12,6 +10,8 @@ import { User } from '../../../shared/models/user.model';
 import { LocationService } from 'src/app/shared/services/location-api.service';
 import { StateDistrict } from 'src/app/shared/models/state-district.model';
 import { City } from 'src/app/shared/models/city.model';
+
+import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
   selector: 'app-payment-methods',
@@ -45,7 +45,7 @@ export class PaymentMethodsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private apiService: ApiService,
+    private accountService: AccountService,
     private locationService: LocationService
   ) {}
 
@@ -123,21 +123,7 @@ export class PaymentMethodsComponent implements OnInit {
     return true;
   }
 
-  checkInUseUsername(control: any) {
-    // mimic http database access
-    let db = ['tony'];
-    return new Observable((observer) => {
-      setTimeout(() => {
-        let result =
-          db.indexOf(control.value) !== -1 ? { alreadyInUse: true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 4000);
-    });
-  }
-
   populateStates() {
-
     this.locationService.getStates().subscribe(
       (data: any) => {
         this.states = data;
@@ -271,7 +257,7 @@ export class PaymentMethodsComponent implements OnInit {
     console.log(this.account);
 
     if (this.account !== undefined) {
-      this.apiService.createAccount(this.account).subscribe(() => {
+      this.accountService.createAccount(this.account).subscribe(() => {
         this.cleanForm();
       });
     }
@@ -320,8 +306,6 @@ export class PaymentMethodsComponent implements OnInit {
   getErrorUsername() {
     return this.formGroup.get('username').hasError('required')
       ? SENTENCES.FORM_ERROR[0].REQUIRED
-      : this.formGroup.get('username').hasError('alreadyInUse')
-      ? SENTENCES.FORM_ERROR[0].NAME_IN_USE
       : this.formGroup.get('username').hasError('pattern')
       ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
       : '';

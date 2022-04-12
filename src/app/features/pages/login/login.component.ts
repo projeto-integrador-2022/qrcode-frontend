@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Account } from 'src/app/shared/models/account';
+import { AccountService } from 'src/app/shared/services/account.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+
+import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +17,18 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   hide: boolean = true;
+  isError!: boolean;
+  list: Array<Account> = [];
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.logout();
     this.username = history.state.username;
     this.password = history.state.password;
 
     this.createForm();
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
 
     if (this.username) {
       this.formGroup.get('username').setValue(this.username);
@@ -36,26 +40,47 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    console.log(value);
+    this.list = new Array<Account>();
+    this.accountService.getAccounts().subscribe((data: any) => {
+
+      data.forEach((account: Account) => {
+        if(account.login?.username === value.username && account.login?.password === value.password) {
+        this.list.push(account);      
+        this.authService.login();
+        this.router.navigate(['/landing-page']);
+        } else {
+          this.isError = true;
+        }
+      });
+    })    
   }
 
   createForm() {
-    let usernameregex: RegExp = /[a-zA-Z][a-zA-Z0-9-_]{4,32}/;
-    let passwordregex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
-
     this.formGroup = this.formBuilder.group({
       username: [
         null,
-        [Validators.required, Validators.pattern(usernameregex)],
+        [Validators.required],
       ],
       password: [
         null,
-        [Validators.required, Validators.pattern(passwordregex)],
+        [Validators.required],
       ],
     });
   }
 
-  getErrorUsername() {}
+  navigateToInnerPage() {
+    this.router.navigate(['/home']);
+  }
 
-  getErrorPassword() {}
+  getErrorUsername() {
+    return this.formGroup.get('username').hasError('required') ? SENTENCES.FORM_ERROR[0].REQUIRED : '';
+  }
+
+  getErrorPassword() {
+    return this.formGroup.get('password').hasError('required') ? SENTENCES.FORM_ERROR[0].REQUIRED : '';
+  }
+
+  getErrorNotValid() {
+    return SENTENCES.FORM_ERROR[0].USERNAME_OR_PASSWORD_NOT_VALID;
+  }
 }

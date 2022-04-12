@@ -7,9 +7,9 @@ import { retry, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class AccountService {
 
-  endpoint = 'http://localhost:4001/account';
+  endpoint = 'http://localhost:4201/account';
 
   constructor(private http: HttpClient) { }
 
@@ -28,6 +28,16 @@ export class ApiService {
       )
   }
 
+  getAccounts(): Observable<Account> {
+    return this.http
+      .get<Account>(this.endpoint)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+
   getItem(id: number): Observable<Account> {
     return this.http
       .get<Account>(this.endpoint + '/' + id)
@@ -37,14 +47,7 @@ export class ApiService {
       )
   }
 
-  getList(): Observable<Account> {
-    return this.http
-      .get<Account>(this.endpoint)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
+
 
   updateItem(id: number, item: Account): Observable<Account> {
     return this.http

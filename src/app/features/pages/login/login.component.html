@@ -1,48 +1,65 @@
 <div class="container">
     <mat-card>
-        
-        <div class="form-layout" novalidate> 
+
+        <div class="form-layout" novalidate>
             <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
                 <div class="row">
-                    
+
                     <div class="col-12 text-center">
-                        <h1 class="text-center welcome-text">Bem Vindo</h1>
-                        <mat-form-field class="form-element mt-5 mb-5">
-                            <input matInput placeholder="Nome do Usuário" formControlName="username">
-                            <mat-error
-                                *ngIf="!formGroup.controls['username'].valid && formGroup.controls['username'].touched">
-                                {{ getErrorUsername() }}
+                        <div [ngStyle]="{'display' : authService.isLoggedIn$.getValue() ? 'block':'none'}">
+                            <h1 class="m-5"> Você já está logado!</h1>
+                            <img class="img-responsive logo-image" src="assets/images/qr-code-color.png" alt="">
+                            <div class="form-element button-fixture mt-5">
+                                <button mat-raised-button color="default"
+                                    type="submit" class="button btn">Voltar para página de administrador</button>
+                            </div>
+                        </div>
+
+                        
+
+
+                        <div [ngStyle]="{'display' : !authService.isLoggedIn$.getValue()? 'block':'none'}">
+                            <h1 class="text-center welcome-text">Bem Vindo</h1>
+                            <mat-form-field class="form-element mt-5 mb-5">
+                                <input matInput placeholder="Nome do Usuário" formControlName="username">
+
+                                <mat-error
+                                    *ngIf="!formGroup.controls['username'].valid && formGroup.controls['username'].touched">
+                                    {{ getErrorUsername() }}
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="form-element">
+                                <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'"
+                                    formControlName="password" required>
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                                </mat-icon>
+                                <mat-error
+                                    *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+                                    {{ getErrorPassword() }}
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-error *ngIf="isError" class="mt-3">
+                                {{ getErrorNotValid() }}
                             </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-12 text-center">
-                        <mat-form-field class="form-element">
-                            <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'"
-                                formControlName="password" required>
-                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
-                            </mat-icon>
-                            <mat-error
-                                *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-                                {{ getErrorPassword() }}
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="text-center">
-                        <div class="form-element button-fixture">
-                            <button mat-raised-button color="default" type="submit" class="button btn">Confirmar</button>
-                            <!-- [disabled]="!formGroup.valid" -->
+
+
+                            <div class="text-center">
+                                <div class="form-element button-fixture">
+                                    <button mat-raised-button color="default" [disabled]="!formGroup.valid"
+                                        type="submit" class="button btn">Entrar</button>
+                                </div>
+
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <mat-label><a href="">Equeci minha senha</a></mat-label>
+                            </div>
                         </div>
                     </div>
-                    
-    
-                    <div class="text-center">
-                        <mat-label ><a href="">Equeci minha senha</a></mat-label>
-                    </div>
                 </div>
-                
-                
             </form>
         </div>
-        
     </mat-card>
 </div>
