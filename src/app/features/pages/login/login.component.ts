@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         if(account.login?.username === value.username && account.login?.password === value.password) {      
         this.authService.login();
         this.isLogedIn = true;
-        this.router.navigate(['/landing-page']);
+        this.router.navigate(['/admin-page']);
 
         } else {
           this.isError = true;

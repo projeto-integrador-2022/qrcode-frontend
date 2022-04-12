@@ -19,6 +19,7 @@ import { MaterialModule } from '../app/shared/modules/material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import {  MatFormFieldModule } from '@angular/material/form-field';
+import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
     PaymentPlansComponent,
     ContactUsFormComponent,
     PaymentMethodsComponent,
+    AdminPageComponent,
   ],
   imports: [
     HttpClientModule,

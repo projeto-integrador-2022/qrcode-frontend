@@ -11,6 +11,13 @@ export class AuthService {
         this.isLoggedIn$ = new BehaviorSubject(isLoggedIn);
     }
 
+    getAuthStatus() {
+        if (localStorage.getItem('loggedIn') === 'true') {
+            
+            return true;
+        } else return false;
+    }
+
     login() {
         // logic
         localStorage.setItem('loggedIn', 'true');

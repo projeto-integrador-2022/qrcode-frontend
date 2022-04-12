@@ -168,7 +168,6 @@ export class PaymentMethodsComponent implements OnInit {
     this.saveCreditCardData(data);
     this.savePaymentPlan();
     this.saveuserData(data);
-    this.saveUserData(data);
     this.start();
   }
 
