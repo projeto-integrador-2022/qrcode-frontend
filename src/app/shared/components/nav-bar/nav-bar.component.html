@@ -20,8 +20,12 @@
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" [routerLink]="'./us'">Sobre nós</a>
                 </li>
-                <li class="nav-item">
-                    <a mat-raised-button href="" color="default" class="text-center btn" type="button" [routerLink]="'./login'"> Começar</a>
+                <li class="nav-item" *ngIf="authService.isLoggedIn$.getValue() === false">
+                    <a mat-raised-button href="" color="default" class="text-center btn" type="button" [routerLink]="'./login' "
+                    routerLinkActive="activebutton"> Começar</a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isLoggedIn$.getValue() === true">
+                    <a mat-raised-button href="" color="default" class="text-center btn" type="button" (click)="authService.logout()"> Sair</a>
                 </li>
             </ul>
         </div>

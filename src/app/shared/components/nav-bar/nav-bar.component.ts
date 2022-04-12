@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,9 +11,10 @@ export class NavBarComponent implements OnInit {
   public isMenuCollapsed = true;
   public imageUrl = '../../../assets/images/qr-code-color.png'
 
-  constructor() { }
+  constructor(private router: Router,  public authService: AuthService) { }
 
   ngOnInit(): void {
   }
+
 
 }

@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
   password: string = '';
   hide: boolean = true;
   isError!: boolean;
-  list: Array<Account> = [];
+  isLogedIn!: boolean;
 
 
   constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.logout();
+    this.isLogedIn = false;
     this.username = history.state.username;
     this.password = history.state.password;
 
@@ -40,16 +40,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    this.list = new Array<Account>();
     this.accountService.getAccounts().subscribe((data: any) => {
-
       data.forEach((account: Account) => {
-        if(account.login?.username === value.username && account.login?.password === value.password) {
-        this.list.push(account);      
+        if(account.login?.username === value.username && account.login?.password === value.password) {      
         this.authService.login();
+        this.isLogedIn = true;
         this.router.navigate(['/landing-page']);
+
         } else {
           this.isError = true;
+          this.isLogedIn = false;
         }
       });
     })    
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToInnerPage() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/landing-page']);
   }
 
   getErrorUsername() {
