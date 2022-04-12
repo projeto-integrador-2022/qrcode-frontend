@@ -1,0 +1,60 @@
+{
+  "account": [
+    {
+      "name": "Nucky",
+      "surname": "Thompson",
+      "email": "admin@cineastro.com",
+      "phone": "62995530338",
+      "address": "Rua El dorado",
+      "city": "Andorinha",
+      "stateDistrict": "Bahia",
+      "login": {
+        "username": "cine.astro",
+        "password": "1abcdefgH"
+      },
+      "creditCard": {
+        "ownerName": "Enoch J Thompson",
+        "cardNumber": "1929 1929 1929 1929",
+        "securityCode": "123",
+        "expirationDate": "12/30",
+        "cardFlag": "amex"
+      },
+      "paymentPlan": {
+        "planId": 1,
+        "title": "Professional",
+        "reportType": "Relatórios em Tempo Real",
+        "clientQuantity": 20,
+        "value": 750
+      },
+      "id": 1
+    },
+    {
+      "name": "Conrado",
+      "surname": "Soprano",
+      "email": "admin@funeraria-vai-com-deus.com",
+      "phone": "8599999999",
+      "address": "Rua do cara",
+      "city": "Ocara",
+      "stateDistrict": "Ceará",
+      "login": {
+        "username": "funeraria.vai.com.deus",
+        "password": "1abcdefgH"
+      },
+      "creditCard": {
+        "ownerName": "Conrado J Soprano",
+        "cardNumber": "1990 1990 1990 1900",
+        "securityCode": "321",
+        "expirationDate": "12/25",
+        "cardFlag": "amex"
+      },
+      "paymentPlan": {
+        "planId": 1,
+        "title": "Professional",
+        "reportType": "Relatórios em Tempo Real",
+        "clientQuantity": 20,
+        "value": 750
+      },
+      "id": 2
+    }
+  ]
+}

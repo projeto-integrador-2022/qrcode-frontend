@@ -9,19 +9,27 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
 })
 export class LandingPageComponent implements OnInit {
   LANDING_PAGE_SENTENCES: any;
+  size!:number;
+
   constructor(private router: Router) {
     this.LANDING_PAGE_SENTENCES = SENTENCES.LANDING_PAGE;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {  
+    this.size = SENTENCES.LANDING_PAGE.length;
+    this.scrollUp();
+ 
   }
 
   public navigateTo() {
     this.router.navigate(['/about']);
+    
+  }
+
+  scrollUp() {
     window.scroll({
       top: 0,
-      left: 0,
       behavior: 'smooth',
-    });
+    }); 
   }
 }

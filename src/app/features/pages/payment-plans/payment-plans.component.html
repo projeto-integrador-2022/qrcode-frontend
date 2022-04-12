@@ -1,10 +1,10 @@
 <div class="container">
-    <p class="text-center display-4 mb-5">Assine Já!</p>
+    <h1 class="text-center display-4 margin-fixture">Assine Já!</h1>
     <div class="row justify-content-md-center ">
         <div class="col-md-auto mt-5 column-fixture" *ngFor="let ITEM of PAYMENT_PLANS_SENTENCES; index as i">
             <div class="card featured-card" *ngIf="i == cardContentSize - 2; else anotherStyle">
                 <div class="">
-                    <div class="card-body text-center">
+                    <mat-card class="card-body text-center">
                         <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{ITEM.TITLE}}</h4>
                         <div class="text-fixture mb-5 mt-5">
                             <p class="card-text">{{ITEM.REPORTS}}</p>
@@ -13,15 +13,16 @@
                             <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
-                        <a class="btn btn-primary btn-lg start-button text-center" [routerLink]="'./about'"
-                            routerLinkActive="activebutton" (click)="navigateTo(i)">Assinar</a>
-                    </div>
+                        <a mat-raised-button color="default" class="btn mb-3" type="button" [routerLink]="'./about'"
+                        (click)="navigateTo(i)">Assinar</a>
+
+                    </mat-card >
                 </div>
             </div>
 
             <ng-template class="card" #anotherStyle>
                 <div class="card">
-                    <div class="card-body text-center">
+                    <mat-card  class="card-body text-center">
                         <h4 class="card-subtitle mb-2 mt-2 text-muted ">{{ITEM.TITLE}}</h4>
                         <div class="text-fixture mb-5 mt-5">
                             <p class="card-text">{{ITEM.REPORTS}}</p>
@@ -30,22 +31,22 @@
                             <p class="card-text">{{ITEM.PRICE}}</p>
                         </div>
 
-                        <a class="btn btn-primary btn-lg start-button mt-3 text-center" [routerLink]="'./about'"
-                            routerLinkActive="activebutton" (click)="navigateTo(i)">Assinar</a>
-                    </div>
+                        <a mat-raised-button color="default" class="btn mb-3" type="button" [routerLink]="'./about'"
+                        (click)="navigateTo(i)">Assinar</a>
+                    </mat-card >
                 </div>
             </ng-template>
         </div>
     </div>
 </div>
 
-<div class="container fix-margin mb-5">
-    <p class="display-4 mb-2 text-center">FAQ</p>
-    <div class="row ">
+<div class="container fix-margin mb-5 ">
+    <h1 class="display-4 mb-2 text-center margin-fixture">FAQ</h1>
+    <div class="row margin-fixture">
         <div class="col-6 mt-5 " *ngFor="let ITEM of FAQ_SENTENCES; index as i">
-            <div class="jumbotron box-shadow p-5">
+            <mat-card class="p-5">
                 <h4 class="mb-5 text-center">{{ ITEM.TITLE }}</h4>
                 <p class="lead float-left mb-5">{{ ITEM.DESCRIPTION }}</p>
-            </div>
+            </mat-card>
         </div>
     </div>

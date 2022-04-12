@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs'
 
+import { AccountService } from 'src/app/shared/services/account.service';
+import { CreditCard } from 'src/app/shared/models/creditcard';
+import { Account } from 'src/app/shared/models/account';
+import { PaymentPlan } from 'src/app/shared/models/payment-plan';
+import { User } from '../../../shared/models/user.model';
+import { LocationService } from 'src/app/shared/services/location-api.service';
+import { StateDistrict } from 'src/app/shared/models/state-district.model';
+import { City } from 'src/app/shared/models/city.model';
+
+import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
   selector: 'app-payment-methods',
@@ -10,44 +19,63 @@ import { Observable } from 'rxjs'
   styleUrls: ['./payment-methods.component.scss'],
 })
 export class PaymentMethodsComponent implements OnInit {
+  account = {} as Account;
+  creditCard = {} as CreditCard;
+  plan = {} as PaymentPlan;
+  user = {} as User;
 
   formGroup: any;
-  titleAlert: string = 'Preenchimento necessário';
+  titleAlert: string = '';
+  index: number = 0;
   post: any = '';
   hide: boolean = true;
-  hide2: boolean = false;
+  hide2: boolean = true;
   option: number = 0;
-  planTitle: string ='';
+  planTitle: string = '';
   price: any;
+
   isProgressBarActivated: boolean = false;
-  progressMessage: string = '';
+  processingMessage: string = '';
+  isPaymentSuccessful: boolean = false;
 
+  states!: StateDistrict[];
+  cities!: City[];
+  state!: StateDistrict;
 
-  constructor(private formBuilder: FormBuilder, private router : Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private accountService: AccountService,
+    private locationService: LocationService
+  ) {}
 
-  get name() { return this.formGroup.get('name') as FormControl }
-  get passwordInput() { return this.formGroup.get('password'); }  
-  get passwordConfirmationInput() { return this.formGroup.get('passwordConfirmation'); } 
-
-  ngOnInit() {
-    this.option = history.state.index;
-    this.populateTitle(this.option);
-    this.createForm();
-    this.setChangeValidate();   
+  get name() {
+    return this.formGroup.get('name') as FormControl;
+  }
+  get passwordInput() {
+    return this.formGroup.get('password');
   }
 
-  populateTitle(state: number) {
-    if (state == 0) {
+  ngOnInit() {
+    this.index = history.state.index;
+    this.populateStates();
+    this.populateTitle();
+    this.createForm();
+    this.setChangeValidate();
+  }
+
+  populateTitle() {
+    if (this.index == 0) {
       this.planTitle = 'Starter';
       this.price = 350;
     }
-    if (state == 1) {
+    if (this.index == 1) {
       this.planTitle = 'Professional';
       this.price = 750;
     }
-    if (state == 2) {
+    if (this.index == 2) {
       this.planTitle = 'Enterprise';
-      this.price = 150
+      this.price = 150;
     }
   }
 
@@ -58,111 +86,323 @@ export class PaymentMethodsComponent implements OnInit {
     let securitycoderegex : RegExp = /^\d{3}$/
     let expirationdateregex: RegExp = /^(0[1-9]|1[0-2])\/([0-9]{2})$/
     let cardnameregex: RegExp = /^[a-zA-Z\s]+$/
+    let passwordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 
     this.formGroup = this.formBuilder.group({
-      'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'name': [null, [Validators.required, Validators.minLength(3), Validators.pattern(cardnameregex)]],
+      'email': [null, [Validators.required, Validators.pattern(emailregex)]],
+      'name': [null, [Validators.required, Validators.minLength(3)]],
+      'username': [null, [Validators.required, Validators.minLength(3)]],
+      'state': [null, [Validators.required]],
+      'city': [null, [Validators.required]],
       'address': [null, [Validators.required, Validators.minLength(3)]],
-      'password': [null, [Validators.required, this.checkPassword]],
-      'passwordConfirmation': [null, [Validators.required, this.checkPassword]],
+      'password': [null, [Validators.required, Validators.pattern(passwordregex)]],
+      'passwordconfirmation': [null, [Validators.required, Validators.pattern(passwordregex)]],
       'surname': [null, [Validators.required, Validators.minLength(3)]],
-      'cardNumber': [null, [Validators.required, Validators.pattern(cardregex)]],
+      'cardnumber': [null, [Validators.required, Validators.pattern(cardregex)]],
       'phone': [null, [Validators.required, Validators.pattern(phoneregex)]],
       'securitycode': [null, [Validators.required, Validators.pattern(securitycoderegex)]],
+      'cardflag': [null, [Validators.required]],
       'expirationdate': [null, [Validators.required, Validators.pattern(expirationdateregex)]],
-      'cardname': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
+      'ownername': [null, [Validators.required, Validators.minLength(5), Validators.pattern(cardnameregex)]],
       'validate': ''
     });
   }
 
   setChangeValidate() {
-    this.formGroup.get('validate').valueChanges.subscribe(
-      (validate: any) => {
-        if (validate == '1') {
-          this.formGroup.get('name').setValidators([Validators.required, Validators.minLength(3)]);
-          this.titleAlert = "Deve ter no mínimo de 3 caracteres";
-        } else {
-          this.formGroup.get('name').setValidators(Validators.required);
-        }
-        this.formGroup.get('name').updateValueAndValidity();
+    this.formGroup.get('validate').valueChanges.subscribe((validate: any) => {
+      if (validate == '1') {
+        this.titleAlert = SENTENCES.FORM_ERROR[0].FILL_CRITERIA;
+      } else {
+        this.formGroup.get('name').setValidators(Validators.required);
       }
-    )
+      this.formGroup.get('name').updateValueAndValidity();
+    });
   }
 
-  checkPassword(control : any) {
-    let enteredPassword = control.value
-    let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
-    return (!passwordCheck.test(enteredPassword) && enteredPassword) ? { 'requirements': true } : null;
+  checkInUseEmail(control: any) {
+    return true;
   }
 
-  checkInUseEmail(control : any) {
-    // mimic http database access
-    let db = ['tony@gmail.com'];
-    return new Observable(observer => {
-      setTimeout(() => {
-        let result = (db.indexOf(control.value) !== -1) ? { 'alreadyInUse': true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 4000)
-    })
+  populateStates() {
+    this.locationService.getStates().subscribe(
+      (data: any) => {
+        this.states = data;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
+  populateCities(stateName: any) {
+    this.cities = new Array<City>();
+    for (let i = 0; i < this.states.length; i++) {
+      if (this.states[i].name == stateName) {
+        for (let j = 0; j < this.states[i].cities.length; j++) {
+          this.cities.push(this.states[i].cities[j]);
+        }
+      }
+    }
+  }
+
+  onCityOptionChange(event: any) {
+    this.formGroup.get('city').setValue(event.value);
+  }
+
+  onStateOptionChange(data: any) {
+    this.populateCities(data.value);
+    this.formGroup.get('state').setValue(data.value);
+  }
+
+  onCardFlagChange(event: any) {
+    this.formGroup.get('cardflag').setValue(event.value);
+  }
+
+  onSubmit(data: any) {
+    this.post = data;
+    this.setSelectedPlan();
+    this.processingUserData(data);
+  }
+
+  processingUserData(data: any) {
+    this.saveCreditCardData(data);
+    this.savePaymentPlan();
+    this.saveuserData(data);
+    this.start();
+  }
+
+  saveCreditCardData(data: any) {
+    this.creditCard.ownerName = data.ownername;
+    this.creditCard.cardNumber = data.cardnumber;
+    this.creditCard.securityCode = data.securitycode;
+    this.creditCard.expirationDate = data.expirationdate;
+    this.creditCard.cardFlag = data.cardflag;
+  }
+
+  savePaymentPlan() {
+    if (this.index == 0) {
+      this.plan.planId = 0;
+      this.plan.title = 'Starter';
+      this.plan.reportType = 'Relatórios Mensais';
+      this.plan.clientQuantity = 10;
+      this.plan.value = 350;
+    }
+    if (this.index == 1) {
+      this.plan.planId = 1;
+      this.plan.title = 'Professional';
+      this.plan.reportType = 'Relatórios em Tempo Real';
+      this.plan.clientQuantity = 20;
+      this.plan.value = 750;
+    }
+    if (this.index == 2) {
+      this.plan.planId = 2;
+      this.plan.title = 'Enterprise';
+      this.plan.reportType = 'Relatórios em Tempo Real';
+      this.plan.clientQuantity = 50;
+      this.plan.valuePerUser = 150;
+    }
+  }
+
+  saveuserData(data: any) {
+    this.user.username = data.username;
+    this.user.password = data.password;
+  }
+
+  saveUserData(data: any) {
+    this.account.name = data.name;
+    this.account.surname = data.surname;
+    this.account.email = data.email;
+    this.account.phone = data.phone;
+    this.account.address = data.address;
+    this.account.city = data.city;
+    this.account.stateDistrict = data.state;
+    this.account.login = this.user;
+    this.account.creditCard = this.creditCard;
+    this.account.paymentPlan = this.plan;
+  }
+
+  start() {
+    this.startProgressBar();
+
+    let isPaymentSuccessful = this.processingCreditCard();
+
+    if (isPaymentSuccessful) {
+      this.createAccount();
+      this.redirecting();
+    } else {
+      this.delay(
+        5000,
+        SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_NOT_ACCEPTED
+      );
+    }
+  }
+
+  startProgressBar() {
+    this.isProgressBarActivated = true;
+    this.delay(0, SENTENCES.PROCESSING_SOLICITATION[0].PROCESSING_PAYMENT);
+  }
+
+  processingCreditCard() {
+    // credit card api call
+    return true;
+  }
+
+  validadeCreditCard(billingDetails: CreditCard) {
+    // logica para checar se cartão foi aceito pela operadora
+    return true;
+  }
+
+  createAccount() {
+    console.log(this.account);
+
+    if (this.account !== undefined) {
+      this.accountService.createAccount(this.account).subscribe(() => {
+        this.cleanForm();
+      });
+    }
+    this.delay(8000, SENTENCES.PROCESSING_SOLICITATION[0].CREATING_ACCOUNT);
+  }
+
+  setSelectedPlan() {
+    this.post.price = '' + this.price;
+    this.post.planTitle = '' + this.planTitle;
+  }
+
+  redirecting() {
+    this.delay(5000, SENTENCES.PROCESSING_SOLICITATION[0].CREDIT_CARD_ACCEPTED);
+    this.delay(10000, SENTENCES.PROCESSING_SOLICITATION[0].OK);
+    this.delay(15000, '', true);
+  }
+
+  cleanForm() {
+    this.formGroup.reset();
+    this.account = {} as Account;
+    this.creditCard = {} as CreditCard;
+    this.plan = {} as PaymentPlan;
+    this.user = {} as User;
+    Object.keys(this.formGroup.controls).forEach(key => {
+      this.formGroup.get(key).setErrors(null) ;
+    });
+
+  }
+
+  delay(mms: number, message: string, isPaymentSuccessful?: boolean) {
+    setTimeout(() => {
+      this.processingMessage = message;
+      if (isPaymentSuccessful) {
+        this.router.navigate(['/user'], {
+          state: {
+            username: `${this.post.username}`,
+            password: `${this.post.password}`,
+          },
+        });
+      }
+    }, mms);
+  }
+
+  // Errors
+
+  getErrorUsername() {
+    return this.formGroup.get('username').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('username').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
+  }
   getErrorName() {
-    return this.formGroup.get('name').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('name').hasError('minlength') ? 'Deve ter no mínimo de 3 caracteres' : '';
+    return this.formGroup.get('name').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('name').hasError('minlength')
+      ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
   }
   getErrorEmail() {
-    return this.formGroup.get('email').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('email').hasError('pattern') ? 'Não é um email válido' :
-        this.formGroup.get('email').hasError('alreadyInUse') ? 'Esse email já está sendo usado' : '';
+    return this.formGroup.get('email').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('email').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].INVALID_EMAIL
+      : this.formGroup.get('email').hasError('alreadyInUse')
+      ? SENTENCES.FORM_ERROR[0].EMAIL_IN_USE
+      : '';
+  }
+
+  getErrorState() {
+    return this.formGroup.get('state').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : '';
+  }
+
+  getErrorCity() {
+    return this.formGroup.get('city').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : '';
   }
 
   getErrorSecurityCode() {
-    return this.formGroup.get('securitycode').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('securitycode').hasError('pattern') ? 'Não é um número de segurança válido' :'';
+    return this.formGroup.get('securitycode').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('securitycode').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].CVC_NOT_VALID
+      : '';
   }
   getErrorCardNumber() {
-    return this.formGroup.get('cardNumber').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('cardNumber').hasError('pattern') ? 'Não é um número de cartão válido' :'';
+    return this.formGroup.get('cardnumber').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('cardnumber').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].CARD_NUMBER_NOT_VALID
+      : '';
   }
 
   getErrorExpirationDate() {
-    return this.formGroup.get('expirationdate').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('expirationdate').hasError('pattern') ? 'Não é uma data válida' :'';
+    return this.formGroup.get('expirationdate').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('expirationdate').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].CARD_EXPIRATION_NOT_VALID
+      : '';
   }
 
-  getErrorCardName() {
-    return this.formGroup.get('cardname').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('cardname').hasError('minlength') ? 'Deve ter no mínimo 5 caracteres' : '';
+  getErrorOwnerName() {
+    return this.formGroup.get('ownername').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('ownername').hasError('minlength')
+      ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
   }
 
   getErrorPhoneNumber() {
-    return this.formGroup.get('phone').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('phone').hasError('pattern') ? 'Não é um número de telefone válido' :'';
+    return this.formGroup.get('phone').hasError('required')
+      ? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('phone').hasError('pattern')
+      ? SENTENCES.FORM_ERROR[0].PHONE_NOT_VALID
+      : '';
+  }
+
+  getErrorSurname() {
+    return this.formGroup.get('surname').hasError('required')? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('surname').hasError('minlength') ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
   }
 
   getAddressError() {
-    return this.formGroup.get('address').hasError('required') ? 'Preenchimento necessário' :
-      this.formGroup.get('address').hasError('minlength') ? 'Deve ter no mínimo 5 caracteres' : '';
+    return this.formGroup.get('address').hasError('required')? SENTENCES.FORM_ERROR[0].REQUIRED
+      : this.formGroup.get('address').hasError('minlength') ? SENTENCES.FORM_ERROR[0].FILL_CRITERIA
+      : '';
   }
 
   getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'Preenchimento necessário (no mínimo 8 digitos, pelo menos uma letra maiúscula e um número)' :
-      this.formGroup.get('password').hasError('requirements') ? 'A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número' : '';
+    return this.formGroup.get('password').hasError('required') ? SENTENCES.FORM_ERROR[0].REQUIRED :
+      this.formGroup.get('password').hasError('requirements') ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID : '';
   }
 
-  getErrorSamePassword() {
-    let isSame = this.formGroup.get('password').value === this.formGroup.get('passwordConfirmation').value;
-    return isSame ? null : {'samePassword': true} ? 'As senhas não são iguais' : '';
+  getErrorPasswordMissmatch() {
+    let password = this.formGroup.get('password').value;
+    console.log(password);
 
-  }
-  onSubmit(post : any) {
-    this.post = post;
-    this.post.price = '' + this.price;
-    this.post.planTitle = '' + this.planTitle;
-    this.isProgressBarActivated = true;
-    //this.router.navigate(['/login'], {state: {email: `${this.post.email}`, password: `${this.post.password}`}});
-    
-  }
+    let passwordConfirmation = this.formGroup.get('passwordconfirmation').value;
+    console.log(passwordConfirmation);
 
+    return password !== passwordConfirmation ? SENTENCES.FORM_ERROR[0].PASSWORD_MISSMATCH :
+    this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].REQUIRED :
+    this.formGroup.get('password').hasError('passwordconfirmation') ? SENTENCES.FORM_ERROR[0].PASSWORD_NOT_VALID : '';
+  }
 }

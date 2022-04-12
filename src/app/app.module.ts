@@ -16,7 +16,11 @@ import { PaymentMethodsComponent } from './features/pages/payment-methods/paymen
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/shared/modules/material-module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
+import { AuthGuard } from './shared/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -29,18 +33,23 @@ import { MaterialModule } from '../app/shared/modules/material-module';
     FooterComponent,
     PaymentPlansComponent,
     ContactUsFormComponent,
-    PaymentMethodsComponent
+    PaymentMethodsComponent,
+    AdminPageComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatButtonModule,
+    MatFormFieldModule,
+
   ],
-  providers: [ ],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

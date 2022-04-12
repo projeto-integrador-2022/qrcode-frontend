@@ -1,1 +1,96 @@
-@import '/src/app/app.component.scss';
+@import "/src/app/app.component.scss";
+
+mat-card {
+  height: auto;
+  max-height: 450px;
+  max-width: 400px;
+  margin: 50px auto 5px auto;
+}
+.logo-image {
+  border: none;
+  height: auto;
+  max-height: 100px;
+  max-width: 100px;
+  margin: 0 auto;
+}
+mat-form-field {
+  width: 300px;
+  margin-bottom: 0px !important;
+}
+
+.welcome-text {
+  line-height: 20px;
+  margin-top: 50px !important;
+}
+
+.btn:hover {
+  background-color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255) !important;
+}
+
+.container {
+
+  margin-top: 0 ;
+  width: auto;
+  display: flex;
+  height: auto;
+}
+
+.button-fixture {
+  margin: 50px 0 20px 0;
+}
+
+.btn:hover {
+  background-color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255) !important;
+}
+
+.form-element {
+  padding: 5px 0px 25px 2px;
+  width: 100%;
+  height: 50px;
+}
+
+.spinner {
+  display: inline-block;
+  margin: 0 4px 0 -4px;
+}
+
+@media (min-height: 600px) and (max-height: 880px) {
+  .container {
+    height: auto !important;
+  }
+  .welcome-text {
+    padding: 0;
+    margin-top: 20px 0 20px 0  !important;
+
+  }
+
+  .button-fixture {
+    margin: 50px 0 20px 0;
+  }
+
+  mat-card {
+    margin-top: 5% !important;
+    width: auto !important;
+    height:auto;
+    width:50%;
+  }
+
+}
+
+
+@media (min-height: 1040px) {
+  .container {
+    max-height: 77vh !important;
+    height: 77vh !important;
+    width: auto;
+  }
+  .welcome-text {
+    padding: 0;
+    margin-top: 20px;
+  }
+  .button-fixture {
+    margin-top: 50px;
+  }
+}

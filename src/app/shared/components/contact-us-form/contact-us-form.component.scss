@@ -1,5 +1,52 @@
 @import '/src/app/app.component.scss';
 
 .container {
-    margin-top: 100px;
+    margin-top: 50px;
+}
+.box {
+    border: 1px solid rgb(185, 185, 185);
+
+}
+.dropdown-fixture {
+    margin-top: 20px;
+}
+
+.text-area-fixture {
+    height: 178px;
+    background-color: #f7f7f7;
+}
+
+.column-fixture {
+    margin-top: 16px;
+}
+
+.button-fixture {
+    width: 50%;
+
+}
+
+.btn {
+    width: 200px;
+    background-color: rgb(255, 174, 0);
+    
+}
+
+.btn:hover{
+    color: rgb(255, 255, 255) !important;
+}
+
+@media (max-width: 991px) {
+    button {
+        margin: 10px 0 10px 0;
+    }
+}
+@media (max-width: 575px) {
+    .button-fixture {
+        width: 80%;
+    }
+}
+@media (max-width: 414px) {
+    .button-fixture {
+        width: 100%;
+    }
 }
