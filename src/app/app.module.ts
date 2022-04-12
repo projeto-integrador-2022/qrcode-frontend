@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
+import { AuthGuard } from './shared/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -46,8 +47,9 @@ import { AdminPageComponent } from './features/pages/admin-page/admin-page.compo
     MaterialModule,
     MatButtonModule,
     MatFormFieldModule,
+
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
