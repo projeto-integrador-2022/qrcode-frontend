@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --o",
     "fake-server": "json-server --host localhost --port 4201 src/assets/database/test-db.json",
+    "fake-cities": "json-server --host localhost --port 4202 src/assets/database/estados-cidades.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
