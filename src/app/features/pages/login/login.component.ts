@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.formGroup.get('password').setValue(this.password);
     }
   }
-  /*
+  
     onSubmit(value: any) {
       this.accountService.getAccounts().subscribe((data: any) => {
         data.forEach((account: Account) => {
@@ -49,13 +49,12 @@ export class LoginComponent implements OnInit {
   
           } else {
             this.isError = true;
-            this.isLogedIn = false;
           }
         });
       })    
     }
-  */
-
+  
+/*
   onSubmit(value: any) {
     this.accountService.getAccounts(value.username, value.password).subscribe((data: any) => {
 
@@ -63,8 +62,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/admin-page']);
     })
   }
+*/
 
-  
   createForm() {
     this.formGroup = this.formBuilder.group({
       username: [
