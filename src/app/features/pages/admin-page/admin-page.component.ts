@@ -7,15 +7,11 @@ import { AuthGuard } from 'src/app/shared/services/auth.guard';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
-  username: string = '';
-  @Output() public hide = new EventEmitter();
+
 
   constructor(public authGuard: AuthGuard) { }
 
   ngOnInit(): void {
-    let status = this.authGuard.isAuthenticated();
-    console.log(status);
-    this.hide.emit(!status);
     
   }
 

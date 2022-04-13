@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/shared/models/account';
@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
   hide: boolean = true;
   isError!: boolean;
 
-
-
   constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
 
   ngOnInit(): void {
@@ -38,31 +36,29 @@ export class LoginComponent implements OnInit {
       this.formGroup.get('password').setValue(this.password);
     }
   }
-  
-    onSubmit(value: any) {
-      this.accountService.getAccounts().subscribe((data: any) => {
-        data.forEach((account: Account) => {
-          if(account.login?.username === value.username && account.login?.password === value.password) {      
-          this.authService.login();
-  
-          this.router.navigate(['/admin-page']);
-  
-          } else {
-            this.isError = true;
-          }
-        });
-      })    
-    }
-  
-/*
-  onSubmit(value: any) {
-    this.accountService.getAccounts(value.username, value.password).subscribe((data: any) => {
 
-      this.authService.login(data.jwttoken);
-      this.router.navigate(['/admin-page']);
-    })
+  onSubmit(value: any) {
+    this.accountService.getAccounts().subscribe((data: any) => {
+      data.forEach((account: Account) => {
+        if (account.login?.username === value.username && account.login?.password === value.password) {
+          this.authService.login();
+          this.router.navigate(['/admin-page']);
+        } else {
+          this.isError = true;
+        }
+      });
+    });
   }
-*/
+
+  /*
+    onSubmit(value: any) {
+      this.accountService.getAccounts(value.username, value.password).subscribe((data: any) => {
+  
+        this.authService.login(data.jwttoken);
+        this.router.navigate(['/admin-page']);
+      })
+    }
+  */
 
   createForm() {
     this.formGroup = this.formBuilder.group({
