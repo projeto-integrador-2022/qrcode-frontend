@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthGuard } from 'src/app/shared/services/auth.guard';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
   username: string = '';
-  constructor() { }
+  @Output() public hide = new EventEmitter();
+
+  constructor(public authGuard: AuthGuard) { }
 
   ngOnInit(): void {
-    
-    this.username = history.state.username;
-    console.log(this.username);
+    let status = this.authGuard.isAuthenticated();
+    console.log(status);
+    this.hide.emit(!status);
     
   }
 

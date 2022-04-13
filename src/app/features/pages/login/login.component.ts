@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
   password: string = '';
   hide: boolean = true;
   isError!: boolean;
-  isLogedIn!: boolean;
+
 
 
   constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogedIn = false;
+
     this.username = history.state.username;
     this.password = history.state.password;
 
@@ -38,23 +38,33 @@ export class LoginComponent implements OnInit {
       this.formGroup.get('password').setValue(this.password);
     }
   }
+  /*
+    onSubmit(value: any) {
+      this.accountService.getAccounts().subscribe((data: any) => {
+        data.forEach((account: Account) => {
+          if(account.login?.username === value.username && account.login?.password === value.password) {      
+          this.authService.login();
+  
+          this.router.navigate(['/admin-page']);
+  
+          } else {
+            this.isError = true;
+            this.isLogedIn = false;
+          }
+        });
+      })    
+    }
+  */
 
   onSubmit(value: any) {
-    this.accountService.getAccounts().subscribe((data: any) => {
-      data.forEach((account: Account) => {
-        if(account.login?.username === value.username && account.login?.password === value.password) {      
-        this.authService.login();
-        this.isLogedIn = true;
-        this.router.navigate(['/admin-page']);
+    this.accountService.getAccounts(value.username, value.password).subscribe((data: any) => {
 
-        } else {
-          this.isError = true;
-          this.isLogedIn = false;
-        }
-      });
-    })    
+      this.authService.login(data.jwttoken);
+      this.router.navigate(['/admin-page']);
+    })
   }
 
+  
   createForm() {
     this.formGroup = this.formBuilder.group({
       username: [

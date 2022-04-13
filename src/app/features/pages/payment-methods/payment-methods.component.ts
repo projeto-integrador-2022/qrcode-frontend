@@ -218,7 +218,7 @@ export class PaymentMethodsComponent implements OnInit {
     this.account.stateDistrict = data.state;
     this.account.login = this.user;
     this.account.creditCard = this.creditCard;
-    this.account.paymentPlan = this.plan;
+    this.account.paymentPlan = {id:1};
   }
 
   start() {
