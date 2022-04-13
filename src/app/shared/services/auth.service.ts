@@ -11,7 +11,6 @@ export class AuthService {
         this.isLoggedIn$ = new BehaviorSubject(isLoggedIn);
     }
 
-
     getAuthStatus() {
         if (this.isLoggedIn$.value) {
             return true;
