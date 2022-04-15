@@ -1,4 +1,4 @@
-import { Component, Input,  OnChanges,  SimpleChanges,  ViewEncapsulation } from '@angular/core';
+import { Component,  ViewEncapsulation } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 
 @Component({

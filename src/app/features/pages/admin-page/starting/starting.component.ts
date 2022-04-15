@@ -15,7 +15,7 @@ export class StartingComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.STARTING_SENTENCES);
-    
+
   }
 
 }
