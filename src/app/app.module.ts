@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthGuard } from './shared/services/auth.guard';
     ContactUsFormComponent,
     PaymentMethodsComponent,
     AdminPageComponent,
+    StartingComponent,
   ],
   imports: [
     HttpClientModule,

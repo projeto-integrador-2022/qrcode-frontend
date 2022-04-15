@@ -14,7 +14,7 @@ export class UsComponent implements OnInit {
   constructor() {
     this.US_SENTENCES = SENTENCES.US;
   }
-
+ 
   ngOnInit(): void {
     this.size = this.US_SENTENCES.length;
     window.scroll({

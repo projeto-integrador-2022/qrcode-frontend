@@ -141,8 +141,21 @@
             "PASSWORD_NOT_VALID": "A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número",
             "PASSWORD_NOT_MATCH": "As senhas não conferem",
             "USERNAME_OR_PASSWORD_NOT_VALID": "Usuário ou senha inválidos"
-
-
+        }
+    ],
+    "STARTING": [
+        {
+            "START_TITLE": "Bem Vindo!",
+            "START_PRESENTATION": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu. Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "GENERATOR_TITLE": "Gere seu Código QR",
+            "GENERATOR_PRESENTATION" : "Para, fermentum eget  orci  v ádas auctor. Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",   
+            "GENERATOR_BUTTON" : "Gerar",
+            "VISUALIZER_TITLE": "Visualize dados dos seus freguêses",
+            "VISUALIZER_PRESENTATION" : "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur.",
+            "VISUALIZER_BUTTON" : "Visualizar",
+            "MANAGING_TITLE" : "Gerencie seus clientes",
+            "MANAGING_PRESENTATION" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur lectus. Vestibulum felis bibendum",
+            "MANAGING_BUTTON" : "Gerenciar"
         }
     ]
     
