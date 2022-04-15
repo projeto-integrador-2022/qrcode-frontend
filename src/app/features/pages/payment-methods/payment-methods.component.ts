@@ -58,6 +58,9 @@ export class PaymentMethodsComponent implements OnInit {
 
   ngOnInit() {
     this.index = history.state.index;
+    if(!this.index) {
+      this.router.navigate(['/landing-page']);
+    }
     this.populateStates();
     this.populateTitle();
     this.createForm();
@@ -167,7 +170,7 @@ export class PaymentMethodsComponent implements OnInit {
   processingUserData(data: any) {
     this.saveCreditCardData(data);
     this.savePaymentPlan();
-    this.saveuserData(data);
+    this.saveUserData(data);
     this.start();
   }
 
@@ -181,36 +184,26 @@ export class PaymentMethodsComponent implements OnInit {
 
   savePaymentPlan() {
     if (this.index == 0) {
-      this.plan.planId = 0;
-      this.plan.title = 'Starter';
-      this.plan.reportType = 'Relatórios Mensais';
-      this.plan.clientQuantity = 10;
-      this.plan.value = 350;
+      this.plan.id = 1;
+      
     }
     if (this.index == 1) {
-      this.plan.planId = 1;
-      this.plan.title = 'Professional';
-      this.plan.reportType = 'Relatórios em Tempo Real';
-      this.plan.clientQuantity = 20;
-      this.plan.value = 750;
+      this.plan.id = 2;
+
     }
     if (this.index == 2) {
-      this.plan.planId = 2;
-      this.plan.title = 'Enterprise';
-      this.plan.reportType = 'Relatórios em Tempo Real';
-      this.plan.clientQuantity = 50;
-      this.plan.valuePerUser = 150;
+      this.plan.id = 3;
+      
     }
+    
   }
 
-  saveuserData(data: any) {
-    this.user.username = data.username;
-    this.user.password = data.password;
-  }
 
   saveUserData(data: any) {
-    this.account.name = data.name;
-    this.account.surname = data.surname;
+
+    this.user.username = data.username;
+    this.user.password = data.password;
+    this.account.completeName = data.name + ' ' + data.surname;
     this.account.email = data.email;
     this.account.phone = data.phone;
     this.account.address = data.address;
@@ -218,7 +211,10 @@ export class PaymentMethodsComponent implements OnInit {
     this.account.stateDistrict = data.state;
     this.account.login = this.user;
     this.account.creditCard = this.creditCard;
-    this.account.paymentPlan = {id:1};
+    this.account.paymentPlan = this.plan;
+
+    console.log(this.account);
+    
   }
 
   start() {
