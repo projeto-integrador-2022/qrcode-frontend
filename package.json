@@ -6,11 +6,12 @@
     "start": "ng serve --o",
 
     "dev": "yarn run compose-up &&  yarn run start",
-    "drop-n-go": "yarn run postgresql-down && yarn run compose-up &&  yarn run start",
+    "drop-n-go": "yarn run postgresql-down && yarn run compose-down && yarn run compose-up &&  yarn run start",
 
     "postgresql-down" : "service postgresql stop",
     "compose-up": "docker-compose -f ./docker/docker-compose.yml up -d",
     "compose-down" : "docker-compose -f ./docker/docker-compose.yml down",
+    
     "debug-backend" : "dockerId=`docker ps -aqf 'name=qrcode_backend'` && xterm -e docker logs -f $dockerId",
 
     "build-n-go": "yarn run compose-down && ng build && yarn run dev",

@@ -47,20 +47,20 @@ npm install bootstrap@latest
 Comandos docker
 
 ```sh
-    # Em qrcode-backend/docker
+# Em qrcode-backend/docker
 
-    # rodar o backend
-    docker-compose up -d
-    
-    # dropar containers
-    docker-compose down
-    
-    # dropar um dos containers
-    docker ps
-    docker-compose down <container_id>
-    
-    # depurar o que esta acontecendo no container
-    docker logs -f <container_id>
+# rodar o backend
+docker-compose up -d
+
+# dropar containers
+docker-compose down
+
+# dropar um dos containers
+docker ps
+docker-compose down <container_id>
+
+# depurar o que esta acontecendo no container
+docker logs -f <container_id>
 ```
 
 ## Yarn e NPM
@@ -68,12 +68,12 @@ Comandos docker
 Comandos para rodar o projeto
 
 ```sh
-    # npm ou yarn
+# npm ou yarn
 
-    # para usuários que não precisam derrubar o servidor postgresql para rodar o composer
-    npm run go
+# para usuários que não precisam derrubar o servidor postgresql para rodar o composer
+npm run go
 
-    # para usuários que  precisam derrubar o servidor postgressado para rodar o composer
-    npm run drop-n-go
+# para usuários que  precisam derrubar o servidor postgressado para rodar o composer
+npm run drop-n-go
 
 ```

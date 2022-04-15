@@ -1,6 +1,7 @@
 @import "/src/app/app.component.scss";
 
 .customized-footer {
+  z-index: 3;
   position: fixed;
   bottom: 0;
   width: 100%;
