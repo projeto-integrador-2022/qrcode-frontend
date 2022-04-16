@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import SENTENCES from '../../../../../assets/lib/sentences.json'
 
 @Component({
   selector: 'starting-component',
   templateUrl: './starting.component.html',
   styleUrls: ['./starting.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StartingComponent implements OnInit {
   ADMIN_PAGE_SENTENCES: any;

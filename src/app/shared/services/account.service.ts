@@ -9,8 +9,8 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class AccountService {
 
-  //endpoint = 'http://localhost:4201/account';
-  endpoint = 'http://localhost:8080/administrator';
+  endpoint = 'http://localhost:4201/account';
+  //endpoint = 'http://localhost:8080/administrator';
 
   constructor(private http: HttpClient) { }
 

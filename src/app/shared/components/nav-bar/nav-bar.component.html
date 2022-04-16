@@ -14,11 +14,15 @@
         </a>
         <div [ngbCollapse]="isMenuCollapsed" class="collapse justify-content-end navbar-collapse">
             <ul class="navbar-nav ml-auto">
+                
                 <li class="nav-item " routerLinkActive="active">
                     <a class="nav-link" [routerLink]="'./about'">Saiba mais</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" [routerLink]="'./us'">Sobre nós</a>
+                </li>
+                <li *ngIf="authService.isLoggedIn$.getValue() === true">
+                    <a class="nav-link" [routerLink]="'./admin-page'">Administração</a>
                 </li>
                 <li class="nav-item" *ngIf="authService.isLoggedIn$.getValue() === false">
                     <a mat-raised-button href="" color="default" class="text-center btn" type="button" [routerLink]="'./login' "
