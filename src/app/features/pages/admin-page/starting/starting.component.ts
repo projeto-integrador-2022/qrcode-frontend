@@ -4,18 +4,18 @@ import SENTENCES from '../../../../../assets/lib/sentences.json'
 @Component({
   selector: 'starting-component',
   templateUrl: './starting.component.html',
-  styleUrls: ['./starting.component.scss']
+  styleUrls: ['./starting.component.scss'],
 })
 export class StartingComponent implements OnInit {
-  STARTING_SENTENCES: any;
+  ADMIN_PAGE_SENTENCES: any;
+  size: number = 0;
 
   constructor() {
-    this.STARTING_SENTENCES = SENTENCES.STARTING;
+    this.ADMIN_PAGE_SENTENCES = SENTENCES.ADMIN_PAGE ;
   }
 
   ngOnInit(): void {
-    console.log(this.STARTING_SENTENCES);
-
+    this.size = this.ADMIN_PAGE_SENTENCES.length;
   }
 
 }

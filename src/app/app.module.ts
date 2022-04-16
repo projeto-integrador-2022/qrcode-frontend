@@ -22,6 +22,7 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
+import { TabComponent } from './shared/components/tab/tab.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { StartingComponent } from './features/pages/admin-page/starting/starting
     PaymentMethodsComponent,
     AdminPageComponent,
     StartingComponent,
+    TabComponent
   ],
   imports: [
     HttpClientModule,

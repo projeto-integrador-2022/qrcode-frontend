@@ -1,0 +1,44 @@
+<div class="mb-5 mt-5">
+        <mat-tab-group 
+                mat-stretch-tabs  
+                mat-align-tabs="center" 
+                [selectedIndex]="selected.value" 
+                (selectedIndexChange)="selected.setValue($event)"
+                class="mt-5">
+                <mat-tab *ngFor="let TAB of TAB_SENTENCES; let index = index">
+                        <ng-template mat-tab-label>
+                                {{ TAB.TITLE }}
+                        </ng-template>
+                        <starting-component *ngIf="index == 0"></starting-component>
+                </mat-tab>
+        </mat-tab-group>
+
+</div>
+
+
+
+
+
+<!--
+<div class="mb-5 mt-5">
+        <mat-tab-group mat-stretch-tabs animationDuration="1000ms" mat-align-tabs="center" class="mb-5">
+
+                <mat-tab label="Início" class>
+                        <starting-component></starting-component>
+                </mat-tab>
+
+                <mat-tab label="Gerador de QR Code">
+                        Large content
+                </mat-tab>
+
+                <mat-tab label="Relatórios">
+                        Large content
+                </mat-tab>
+
+                <mat-tab label="Gerência">
+                        Large content
+                </mat-tab>
+
+        </mat-tab-group>
+</div>
+-->

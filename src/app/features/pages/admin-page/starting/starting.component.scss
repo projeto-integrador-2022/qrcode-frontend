@@ -1,20 +1,16 @@
 @import '/src/app/app.component.scss';
 
-.row {
+html, body {
     height: 100%;
 }
 
-
-.btn:hover {
-    background-color: rgb(255, 174, 0);
-    color: rgb(255, 255, 255) !important;
-
+.container {
+    margin-top: 100px;
+    height: 100% !important;
+    overflow: hidden;
 }
 
-.bottom-button {
-    width: 180px;
-}
 
-.card-ajustment {
-    height: 25vh !important;
+.mat-tab-body-content {
+    overflow: hidden;
 }
