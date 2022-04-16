@@ -33,6 +33,8 @@ export class PaymentMethodsComponent implements OnInit {
   option: number = 0;
   planTitle: string = '';
   price: any;
+  REGISTER_TEXT: any;
+  CREDIT_CARD_TEXT: any;
 
   isProgressBarActivated: boolean = false;
   processingMessage: string = '';
@@ -47,7 +49,10 @@ export class PaymentMethodsComponent implements OnInit {
     private router: Router,
     private accountService: AccountService,
     private locationService: LocationService
-  ) {}
+  ) {
+    this.REGISTER_TEXT = SENTENCES.REGISTER;
+    this.CREDIT_CARD_TEXT = SENTENCES.CREDIT_CARD;
+  }
 
   get name() {
     return this.formGroup.get('name') as FormControl;

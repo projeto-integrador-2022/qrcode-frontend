@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Account } from 'src/app/shared/models/account';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
-
 import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
@@ -18,8 +17,11 @@ export class LoginComponent implements OnInit {
   password: string = '';
   hide: boolean = true;
   isError!: boolean;
+  LOGIN_SENTENCES: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) {
+    this.LOGIN_SENTENCES = SENTENCES.LOGIN;
+  }
 
   ngOnInit(): void {
 
@@ -50,15 +52,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /*
-    onSubmit(value: any) {
-      this.accountService.getAccounts(value.username, value.password).subscribe((data: any) => {
-  
-        this.authService.login(data.jwttoken);
-        this.router.navigate(['/admin-page']);
-      })
-    }
-  */
 
   createForm() {
     this.formGroup = this.formBuilder.group({

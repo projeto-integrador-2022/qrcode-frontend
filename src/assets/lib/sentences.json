@@ -30,7 +30,18 @@
             "IMAGE": "../../../assets/images/image-example.png"
         }
     ],
-    "LOGIN": [],
+    "LOGIN": [
+        {
+            "TITLE": "Bem Vindo!",
+            "IMAGE": "../../../assets/images/qr-code-color.png",
+            "ALERT": "Você já está logado!",
+            "BUTTON_TEXT_REDIRECT": "Voltar para página de administrador",
+            "BUTTON_TEXT": "Entrar",
+            "PASSWORD_FORGOTTEN": "Esqueceu sua senha?",
+            "USERNAME": "Nome do Usuário",
+            "PASSWORD": "Senha"
+        }
+    ],
     "PAYMENT_PLANS": [
         {
             "TITLE": "Starter",
@@ -100,21 +111,36 @@
             "TEXT3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur."
         }
     ],
-    "PAYMENT_METHODS_FORM": [
+    "REGISTER": [
         {
+            "USERNAME": "Nome do Usuário",
             "NAME": "Nome",
+            "SOBRENOME": "Sobrenome",
             "ADDRESS": "Endereço",
-            "ESTADO": "Estado",
-            "CIDADE": "Cidade",
+            "STATE": "Estado",
+            "CITY": "Cidade",
             "EMAIL": "E-mail",
             "PHONE": "Telefone",
-            "CARD": "Cartão de Crédito",
-            "CARD_NUMBER": "Número do Cartão",
-            "CARD_NAME": "Nome do Titular",
-            "CARD_EXPIRATION": "Validade",
-            "CARD_CVV": "Código de Segurança",
             "PAYMENT_METHOD": "Método de Pagamento",
-            "PASSWORD": "Senha"
+            "PASSWORD": "Senha",
+            "CONFIRMATION": "Confirmação de Senha"
+        }
+    ],
+    "CREDIT_CARD": [
+        {
+            "TITLE": "Dados do Cartão de Crédito",
+            "NUMBER": "Número do Cartão",
+            "NAME": "Nome do Titular",
+            "EXPIRATION": "Validade",
+            "CVC": "Código de Segurança",
+            "TAG": "Bandeira do Cartão",
+            "TAG1" : "Visa",
+            "TAG2" : "Mastercard",
+            "TAG3" : "American Express",
+            "TAG4" : "Diners Club",
+            "TAG5" : "Elo",
+            "VALUE": "Valor a Pagar: R$",  
+            "BUTTON_TEXT": "Confirmar"       
         }
     ],
     "PROCESSING_SOLICITATION": [
