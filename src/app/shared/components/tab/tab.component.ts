@@ -17,9 +17,8 @@ export class TabComponent implements OnInit {
     this.TAB_SENTENCES = SENTENCES.ADMIN_PAGE;
   }
 
-  ngOnInit(): void {
-    console.log(this.TAB_SENTENCES[0].TITLE);
-    
+  ngOnInit(): void {    
   }
+
 
 }

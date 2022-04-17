@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
 
 .mat-tab-label-content {
-    padding-top: 20px;
     font-size: 1rem;
     font-family: "Spartan", sans-serif;    
 }
@@ -12,11 +11,12 @@
 }
 
 .mat-ripple-element { 
+
     background-color: rgba(255, 174, 0, 0.247) !important; 
+
 }
 
 .mat-tab-header {
-    height: 7vh !important;
     background-color: #fafafa !important;
     z-index: 3 !important;
     position: fixed !important;

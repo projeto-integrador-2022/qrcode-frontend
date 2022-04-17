@@ -11,11 +11,13 @@ import SENTENCES from '../../../../../assets/lib/sentences.json'
 export class QrGeneratorComponent implements OnInit {
   GENERATOR_SENTENCES: any;
   formGroup: any;
-  constructor(private formBuilder: FormBuilder,) { 
+  selected = '';
+  constructor(private formBuilder: FormBuilder) { 
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
   }
 
   ngOnInit(): void {
+    this.scrollItUP();
     this.createForm();
   }
 
@@ -24,7 +26,13 @@ export class QrGeneratorComponent implements OnInit {
       'name' : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     });
   }
+
   onSubmit(value: any) {
+  }
+
+
+  scrollItUP() {
+    window.scrollTo(0, 0);
   }
 
 }

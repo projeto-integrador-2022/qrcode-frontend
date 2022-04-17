@@ -23,6 +23,7 @@ import { AdminPageComponent } from './features/pages/admin-page/admin-page.compo
 import { AuthGuard } from './shared/services/auth.guard';
 import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
 import { TabComponent } from './shared/components/tab/tab.component';
+import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TabComponent } from './shared/components/tab/tab.component';
     PaymentMethodsComponent,
     AdminPageComponent,
     StartingComponent,
-    TabComponent
+    TabComponent,
+    QrGeneratorComponent
   ],
   imports: [
     HttpClientModule,

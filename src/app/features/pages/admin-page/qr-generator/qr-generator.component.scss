@@ -1,8 +1,20 @@
 @import '/src/app/app.component.scss';
 
-.form-layout {
-    .mat-form-field {
-        width: 80%;
+.container {
+    .spacing {
+        margin-bottom: 100px;
     }
+    .text-ajustment {
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
+.mat-form-field-underline {
     
+    width: 0 !important;
+}
+
+.mat-form-field-wrapper {
+    padding: 0 !important;
 }

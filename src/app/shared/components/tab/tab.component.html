@@ -1,9 +1,12 @@
-<mat-tab-group mat-stretch-tabs mat-align-tabs="center" [selectedIndex]="selected.value"
-        (selectedIndexChange)="selected.setValue($event)">
-        <mat-tab *ngFor="let TAB of TAB_SENTENCES; let index = index">
-                <ng-template mat-tab-label>
-                        {{ TAB.TITLE }}
-                </ng-template>
-                <starting-component *ngIf="index == 0"></starting-component>
-        </mat-tab>
+<mat-tab-group mat-stretch-tabs mat-align-tabs="center">
+        <div class="container">
+                <mat-tab label="{{TAB_SENTENCES[0].TITLE}}">
+                        <starting-component></starting-component>
+                </mat-tab>
+                <mat-tab label="{{TAB_SENTENCES[1].TITLE}}">
+                        <qr-generator></qr-generator>
+                </mat-tab>
+                <mat-tab label="{{TAB_SENTENCES[2].TITLE}}">Content 3</mat-tab>
+                <mat-tab label="{{TAB_SENTENCES[3].TITLE}}">Content 4</mat-tab>
+        </div>
 </mat-tab-group>

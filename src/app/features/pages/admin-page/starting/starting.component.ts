@@ -16,7 +16,12 @@ export class StartingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.scrollItUP();
     this.size = this.ADMIN_PAGE_SENTENCES.length;
+  }
+
+  scrollItUP() {
+    window.scrollTo(0, 0);
   }
 
 }

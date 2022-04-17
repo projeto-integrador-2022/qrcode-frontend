@@ -9,6 +9,7 @@ import { UsComponent } from './features/pages/us/us.component';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
+import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'starting',
         component: StartingComponent,
+      },
+      {
+        path: 'qr-generator',
+        component: QrGeneratorComponent
       },
       {
         path: '**',
