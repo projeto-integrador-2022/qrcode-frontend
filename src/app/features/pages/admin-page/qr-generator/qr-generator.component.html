@@ -1,51 +1,129 @@
 <div class="container">
-    <div class="row spacing">
+    <div class="row spacing mb-5">
         <div class="col-sm-12">
             <div class="jumbotron">
-                <h1 class="display-4 mb-5 ">{{GENERATOR_SENTENCES[0].TITLE}}</h1>
-                <p>{{GENERATOR_SENTENCES[0].DESCRIPTION}}</p>
+                <h1 class="display-4 mb-5 ">{{ADMIN_SENTENCES[4].TITLE}}</h1>
+                <p>{{ADMIN_SENTENCES[4].DESCRIPTION}}</p>
             </div>
         </div>
     </div>
 
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-        <mat-card class="m-0 p-0">
-            <mat-form-field appearance="fill">
-                <mat-label>Select me</mat-label>
-                <mat-select>
-                    <mat-option value="option">Option</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </mat-card>
 
-    </form>
-    <!-- <mat-label class="mt-5">
-        <p *ngIf="selected !== ''">Loja Selecionada {{selected}}</p>
-    </mat-label>
-    <mat-card class="mt-5">
-        <div class="form-layout " novalidate>
-            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
-                <div class="col-sm-6 text-center mt-5">
-                    <mat-form-field class="form-element">
-                        <input matInput placeholder="{{GENERATOR_SENTENCES[1].PRODUCT}}" formControlName="name"
-                            required>
-
-                        <mat-icon matSuffix matTooltip="{{GENERATOR_SENTENCES[1].BALOON_TIP}}"
-                            matTooltipPosition="left">help_outline</mat-icon>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" novalidate>
+        <mat-card>
+            <div class="btn-toolbar mb-3">
+                <div class="input-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Selecione</mat-label>
+                        <mat-select [(value)]="selected">
+                            <mat-option value=""> - </mat-option>
+                            <mat-option value="option">Option</mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-sm-6">
+                <div class="btn-group">
+                    <div class="col-sm" *ngIf="selected == ''">
+                        <img src="{{ ADMIN_SENTENCES[1].IMAGE }}" class="icon image-responsive">
+                    </div>
+                    <div class="col-sm" *ngIf="selected == ''">
+                        <button 
+                            color="default" 
+                            [disabled]="!formGroup.valid" 
+                            type="submit" 
+                            class="button btn">Gerar
+                            QR</button>
+                    </div>
+                    <div class="col-sm" *ngIf="selected == ''">
+                        <button 
+                            color="default" 
+                            [disabled]="!formGroup.valid" 
+                            type="submit" 
+                            class="button btn">Ver
+                            QR</button>
+                    </div>
+
+
+                    <div class="col-sm" *ngIf="selected !== ''">
+                        <img src="{{ ADMIN_SENTENCES[2].IMAGE }}" class="icon image-responsive">
+                    </div>
+                    <div class="col-sm" *ngIf="selected !== ''">
+                        <button 
+                            color="default" 
+                            [disabled]="!formGroup.valid" 
+                            type="submit"
+                            class="button btn">Salvar</button>
+                    </div>
+                    <div class="col-sm" *ngIf="selected !== ''">
+                        <button 
+                            color="default" 
+                            [disabled]="!formGroup.valid" 
+                            type="submit"
+                            class="button btn">Deletar</button>
+                    </div>
+                    <div class="col-sm" *ngIf="selected !== ''">
+                        <button 
+                            color="default" 
+                            [disabled]="!formGroup.valid" 
+                            type="submit" class="button btn">Ver
+                            QR</button>
+                    </div>
 
                 </div>
+            </div>
+        </mat-card>
 
-                <div class="form-element text-center mt-5">
-                    <button mat-raised-button color="default" [disabled]="!formGroup.valid" type="submit"
-                        class="button btn">Gerar</button>
-                </div>
-            </form>
+        <div class="text-center mt-5 mb-5">
+            <p *ngIf="selected !== ''">Loja Selecionada {{selected}}</p>
         </div>
-    </mat-card> -->
+        <div class="ajustment">
+            <div class="row ">
+                <div class="col-6 mt-5">
+                    <mat-card class="card-color mt-1 text-center">
+                        <div 
+                            class="row size-fixture" 
+                            *ngFor="let ITEM of GENERATOR_SENTENCES; index as i">
 
+                            <mat-form-field class="form-element">
+                                <input 
+                                    matInput 
+                                    placeholder="{{GENERATOR_SENTENCES[i].TITLE}}" 
+                                    formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}"
+                                    (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)">
+                                <mat-icon 
+                                    matSuffix 
+                                    matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
+                                    matTooltipPosition="left">help_outline</mat-icon>
+                            </mat-form-field>
 
+                            <mat-form-field *ngIf="i == GENERATOR_SENTENCES.lenght-2"  class="form-element">
+                                <textarea                                 
+                                matInput placeholder="{{GENERATOR_SENTENCES[i].TITLE}}" 
+                                matTextareaAutosize matAutosizeMinRows="2"
+                                matAutosizeMaxRows="5"
+                                formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}">
+                            </textarea>
+                            </mat-form-field>
+                        </div>
+                        
+                    </mat-card>
+                </div>
 
+                <div class="col-6 text-center position">
+                    <img src="{{ IMAGE[0].IMAGE }}" class="image-responsive fixed-size">
+                    <div class="mobile-items">
+
+                            <div class="row" >
+                                <img src="../../../../../assets/images/banner-example.png">      
+                            </div>
+                            <div class="row">
+                                <p class="announcement ">{{formData[0].announcement}}</p>
+                            </div>
+
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

@@ -1,20 +1,131 @@
 @import '/src/app/app.component.scss';
 
 .container {
-    .spacing {
-        margin-bottom: 100px;
-    }
+
+
     .text-ajustment {
-        margin: 5px;
         font-size: 14px;
+        white-space: pre;
+    }
+
+
+    .icon {
+        max-height: 52px;
+        width: auto;
+        margin: 0 50px 0 50px;
+    }
+
+    .border {
+        padding-left: 10px;
+        background-color: #bdbdbd8f;
+        box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)
+    }
+
+    button {
+        height: 52px;
+        width: 104px;
+        margin: 0;
+        padding: 0;
+        border-radius: 0px !important;
+        border-left: 1px solid white !important;
+        border-right: 1px solid white !important;
+    }
+
+    .row>* {
+        margin: 0;
+        padding: 0;
+    }
+
+    .size-fixture {
+        width: 100%;
+    }
+
+    .btn {
+        border-radius: none !important;
+    }
+
+    .btn-toolbar {
+        padding-left: 0 !important;
+    }
+
+    .mat-input-element {
+        width: 80% !important;
+    }
+
+    .form-element {
+        transform: translateX(22px);
+    }
+
+    .ajustment {
+        margin-left: 12px;
+    }
+
+    .position {
+        position: relative;
+    }
+
+    .top {
+        position: relative;
+        transform: translateY(-100px);
+    }
+    .fixed-size {
+        width: 80% !important;
+        height: 100% !important;
+
+    }
+
+}
+
+.mobile-items>* {
+    justify-content: center;
+    img {
+        transform: translateY(-490px) !important;
+        width: 70%;
+    }
+    p {
+        overflow-wrap: break-word;
+        transform: translateY(-470px);
+        display: block;
+        width: 70%;
+
     }
 }
 
 .mat-form-field-underline {
-    
     width: 0 !important;
 }
 
 .mat-form-field-wrapper {
     padding: 0 !important;
+}
+
+.mat-icon {
+    transform: translateX(-40px);
+}
+
+.mat-card {
+    padding: 0 !important;
+    background-color: rgb(226, 226, 226);
+
+    .mobile {
+        height: 200px !important;
+    }
+}
+
+.card-color {
+    background-color: white;
+}
+
+@media(max-width: 768px) {
+    .btn-group {
+        margin-top: 10px !important;
+    }
+
+    .btn-toolbar {
+        justify-content: center !important;
+    }
+
+    .mat-select {
+        width: 100% !important;
+    }
 }

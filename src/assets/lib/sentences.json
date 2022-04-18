@@ -183,33 +183,96 @@
             "IMAGE": "../../../assets/images/manufacturing.png"
         },
         {
+            "TITLE": "Gerência",
+            "SUB_TITLE": "Gerência de Códigos QR",
+            "DESCRIPTION": "Aréa dedicada a edição de Códigos QR previamente criados, selecionando o produto, é possível alterar os dados que serão exibidos para o freguês após a leitura do código. Também é possível deletar seu conteúdo ou todo o código.",
+            "IMAGE": "../../../assets/images/management.png"
+        },
+        {
             "TITLE": "Relatórios",
             "SUB_TITLE": "Relatórios dos fregueses",
             "DESCRIPTION": "Quem são os freguêses dos seu cliente? Visualize as dados sobre os fregueses que fizeram a leitura de um código, fique sabendo sobre seus hábitos de consumo e estatísticas. Envie o relatório diretamente para seu cliente",
             "IMAGE": "../../../assets/images/report.png"
         },
         {
-            "TITLE": "Gerência",
-            "SUB_TITLE": "Gerência de Códigos QR",
-            "DESCRIPTION": "Aréa dedicada a edição de Códigos QR previamente criados, selecionando o produto, é possível alterar os dados que serão exibidos para o freguês após a leitura do código. Também é possível deletar seu conteúdo ou todo o código.",
-            "IMAGE": "../../../assets/images/management.png"
+            "TITLE": "Gerador de Códigos QR",
+            "DESCRIPTION": "Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja deixado em branco, não irá aparecer na página depois da leitura do Código QR"
+            
         }
+        
     ],
     "GENERATOR": [
         
         {
-            "TITLE": "Gerador de Códigos QR",
-            "DESCRIPTION": "Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja deixado em branco, não irá aparecer na página depois da leitura do Código QR"
-            
-        },
-        {
-            "TITLE": "Se deseja editar algum código já criado, selecione abaixo:"
-            
-        },
-        {
-            "PRODUCT": "Nome",
+            "FORM_NAME": "name",
+            "TITLE": "Nome",
             "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente"
+        },
+        {
+            "FORM_NAME": "cnpj",
+            "TITLE": "CNPJ",
+            "BALOON_TIP": "CNPJ da empresa"
+        },
+        {
+            "FORM_NAME": "email",
+            "TITLE": "Email",
+            "BALOON_TIP": "O e-mail do cliente, para envio de relatórios"
+        },
+        {
+            "FORM_NAME": "officialpage",
+            "TITLE": "Página",
+            "BALOON_TIP": "A página oficial do cliente, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "productpage",
+            "TITLE": "Página do Produto",
+            "BALOON_TIP": "A página do produto, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "whatsappgroup",
+            "TITLE": "Grupo de WhatsApp",
+            "BALOON_TIP": "Grupo de WhatsApp, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "telegramgroup",
+            "TITLE": "Grupo de Telegram",
+            "BALOON_TIP": "Grupo de Telegram, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "facebookgroup",
+            "TITLE": "Grupo de Facebook",
+            "BALOON_TIP": "Grupo de Facebook, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "instagramgroup",
+            "TITLE": "Página do Instagram",
+            "BALOON_TIP": "Página do Instagram, para redirecionamento"
+        },
+        {   
+            "FORM_NAME": "voucherpage",
+            "TITLE": "Página do Voucher ou Promoção",
+            "BALOON_TIP": "Página do Voucher ou Promoção, para redirecionamento"
+        },
+        {
+            "FORM_NAME": "banner",
+            "TITLE": "Banner",
+            "BALOON_TIP": "Banner da empresa",
+            "IMAGE": ""
+        }, 
+        {
+            "FORM_NAME": "announcement",
+            "TITLE": "Anúncio",
+            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio"
+        }       
+    ],
+    "MOBILE" : [
+        {
+            "TITLE": "",
+            "SUB_TITLE": "",
+            "DESCRIPTION":"",
+            "FOOTER_TEXT": "",
+            "IMAGE": "../../../assets/images/mobile.png" 
         }
-        
     ]
+
 }
