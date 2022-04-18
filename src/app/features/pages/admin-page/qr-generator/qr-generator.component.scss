@@ -70,7 +70,7 @@
     }
     .fixed-size {
         width: 80% !important;
-        height: 100% !important;
+        max-height: 700px !important;
 
     }
 
@@ -79,16 +79,22 @@
 .mobile-items>* {
     justify-content: center;
     img {
-        transform: translateY(-490px) !important;
-        width: 70%;
+        position: static;
+        transform: translateY(-578px) !important;
+        width: 70% !important;
+    }
+    h1 {
+        overflow-wrap: break-word;
+        transform: translateY(-558px);
     }
     p {
         overflow-wrap: break-word;
-        transform: translateY(-470px);
+        justify-content: flex-start;
+        transform: translateY(-528px);
         display: block;
         width: 70%;
-
     }
+
 }
 
 .mat-form-field-underline {
