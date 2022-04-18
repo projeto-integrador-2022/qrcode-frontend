@@ -54,6 +54,7 @@
 
     .form-element {
         transform: translateX(22px);
+        margin-top: 10px;
     }
 
     .ajustment {
@@ -84,8 +85,10 @@
         width: 70% !important;
     }
     h1 {
-        overflow-wrap: break-word;
+        overflow-wrap: break-word !important;
         transform: translateY(-558px);
+        display: block;
+        width: 70%;
     }
     p {
         overflow-wrap: break-word;
