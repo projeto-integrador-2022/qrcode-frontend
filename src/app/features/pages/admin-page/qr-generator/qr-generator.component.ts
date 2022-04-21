@@ -17,7 +17,7 @@ export class QrGeneratorComponent implements OnInit {
   IMAGE: any;
   ADMIN_SENTENCES: any;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
@@ -50,11 +50,11 @@ export class QrGeneratorComponent implements OnInit {
     let cnpj: RegExp = /(\d{2}[-.\s]?\d{3}[-.\s]?\d{3}[-.\s\/]?\d{4}[-.\s]?\d{2})$/
 
     this.formGroup = this.formBuilder.group({
-      'name' : [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      'cnpj' : [null, Validators.pattern(cnpj)],
-      'email' : [null, [Validators.required, Validators.pattern(emailregex)]],
-      'officialpage' : [null],
-      'productpage' : [null],
+      'name': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      'cnpj': [null, Validators.pattern(cnpj)],
+      'email': [null, [Validators.required, Validators.pattern(emailregex)]],
+      'officialpage': [null],
+      'productpage': [null],
       'whatsappgroup': [null],
       'telegramgroup': [null],
       'facebookgroup': [null],
@@ -69,8 +69,8 @@ export class QrGeneratorComponent implements OnInit {
     console.log('🚀 >> event: any, formName: string', event.target.value, formName);
     this.formData[0][formName] = event.target.value;
     console.log('🚀 >> this.formData', this.formData[0][formName]);
-    
-    
+
+
   }
 
   onSubmit(formData: any) {
@@ -81,4 +81,11 @@ export class QrGeneratorComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  populateForm(index: number, divClass: string) {
+    if (divClass === 'top-form' && (index === 0 || index === 1 || index === 2)) {
+      return true;
+    }
+    return false;
+
+  }
 }
