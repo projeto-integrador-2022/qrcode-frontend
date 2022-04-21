@@ -60,7 +60,7 @@
         </div>
 
 
-        <div class="qr-container">
+        <mat-card class="qr-container">
             <div class="grid">
                 
                 <div class="row">
@@ -82,13 +82,36 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="item text-center">
+                    
+                    <div class="item text-center image-item-ajustment"> 
+                        <div class="mock-elements">
+                            <div class="row">
+                                <div class="text-center">
+                                    <div class="col">
+                                        <img src="../../../../../assets/images/mini-banner-example.png">
+                                    </div>
+                                </div>  
+                                
+                            </div>
+                            <div class="row" *ngFor="let data of formData">
+                                <div class="col text-padding">
+                                    <h1>{{data.name}}</h1>
+                                    <p>{{data.announcement}}</p>
+                                    
+                                </div>
+                                
+                                    
+                                
+                            </div>
+
+                        </div>
                         <img src="{{ IMAGE[0].IMAGE }}" class="image-responsive">
                     </div>
                 </div>
             </div>
-        </div>
+        </mat-card>
         <!--
 <div class="ajustment">
             <div class="row ">

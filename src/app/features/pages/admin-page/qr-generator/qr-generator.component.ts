@@ -66,10 +66,11 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   updateMobileView(event: any, formName: string) {
-    console.log('🚀 >> event: any, formName: string', event.target.value, formName);
+    let string = this.formData[0]['name'];
     this.formData[0][formName] = event.target.value;
-    console.log('🚀 >> this.formData', this.formData[0][formName]);
-
+    if (this.formData[0]['name'].length > 20) {
+      this.formData[0]['name'] = string.substring(0, 20);
+    }
 
   }
 
