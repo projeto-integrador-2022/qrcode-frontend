@@ -1,0 +1,132 @@
+@import '/src/app/app.component.scss';
+
+.image-item-ajustment {
+
+    width: inherit;
+    display: inline-table;
+
+    img {
+        margin-top: 8%;
+        z-index: 1;
+    }
+
+    .mock-elements {
+        transform: translateY(160px);
+    }
+
+    .row {
+        position: fixed;
+
+    }
+
+    .text-padding {
+        position: fixed;
+        padding-left: 25% !important;
+        padding-right: 25% !important;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+        margin: 20px 0 20px 0;
+    }
+
+    p {
+        font-size: 1rem;
+        width: 80%;
+    }
+
+    .mobile-container {
+        margin-left: 20px;
+        margin-right: 24px;
+        margin-top: 80px;
+        overflow-wrap: break-word;
+        max-width: 300px;
+    }
+
+    .banner-area {
+        height: 50px;
+    }
+
+    .mat-grid-tile-content {
+        justify-content: initial;
+    }
+
+    .border {
+        background-color: whitesmoke;
+        margin: 10px 0 10px 0;
+        width: 100%;
+    }
+
+    .mat-radio-button {
+        margin: 10px 0 10px 10px;
+
+        span {
+            color: rgb(52, 52, 97);
+        }
+
+    }
+
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+        opacity: 0 !important;
+        /*click effect color change*/
+        background-color: #ffc751 !important;
+    }
+
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+        background-color: #ffbc36 !important;
+        /*inner circle color change*/
+    }
+
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: #ffc751 !important;
+        /*outer ring color change*/
+    }
+
+    .confirm-button {
+        border-radius: 6px !important;
+        height: 30px;
+        width: 100%;
+        margin: 10px 0 0 0;
+        padding: 0;
+    }
+
+    footer img {
+        transform: translateY(-1vw);
+        margin: 0.2vw;
+        width: 2.1vw;
+        height: 2.2vw;
+        filter: saturate(0%);
+    }
+
+    footer img:hover {
+        filter: saturate(100%);
+    }
+
+    footer p {
+        transform: translateY(-1vw);
+        width: 100%;
+        font-size: 0.8vw;
+        margin: 0 !important;
+    }
+}
+
+.customized-footer {
+    transform: translate(-5px,58px);
+    z-index: 3;
+    width: 104%;
+    height: 6vh;
+    background-image: linear-gradient(to left, #d1d1d1, #d7d7d7, #dddddd, #e4e4e4, #eaeaea, #eaeaea, #eaeaea, #eaeaea, #e4e4e4, #dddddd, #d7d7d7, #d1d1d1) !important;
+    border-top: 1px solid rgb(177, 177, 177);
+    color: rgb(99, 99, 99);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+// new style

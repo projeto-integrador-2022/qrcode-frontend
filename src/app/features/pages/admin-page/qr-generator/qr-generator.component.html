@@ -55,6 +55,7 @@
 
         <div class="text-center mt-5 mb-5">
             <p *ngIf="selected !== ''">Loja Selecionada {{selected}}</p>
+            <p *ngIf="selected === ''">Complete o Formulário</p>
         </div>
 
         <mat-card class="qr-container">
@@ -78,7 +79,8 @@
 
                 <div class="row">
                     <div class="item text-center image-item-ajustment">
-                        <mobile-view [formData]="formData"></mobile-view>
+                        <p class="mt-2 mb-2"> Visão do Freguês</p>
+                        <mobile-view [formData]="formData" ></mobile-view>
                     </div>
                 </div>
             </div>

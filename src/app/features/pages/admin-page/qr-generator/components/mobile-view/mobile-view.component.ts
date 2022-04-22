@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import SENTENCES from '../../../../../../../assets/lib/sentences.json';
 
 @Component({
   selector: 'mobile-view',
@@ -10,12 +11,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class MobileViewComponent implements OnInit {
   @Input() formData: any;
   formGroup: any;
+  SOCIAL_ICONS: any;
 
   constructor(private formBuilder: FormBuilder) {
-
+    this.SOCIAL_ICONS = SENTENCES.SOCIAL_ICONS;
   }
 
   ngOnInit(): void {
+    console.log(this.SOCIAL_ICONS[0]);
     this.createFormGroup();
   }
 
@@ -30,6 +33,8 @@ export class MobileViewComponent implements OnInit {
     });
   }
   onSubmit(value: any) {
+    
+    
     console.log(value);
   }
 
