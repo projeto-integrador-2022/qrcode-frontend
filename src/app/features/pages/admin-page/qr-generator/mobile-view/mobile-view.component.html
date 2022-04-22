@@ -1,0 +1,38 @@
+<div class="image-item-ajustment text-start" [style.background-image]="'url(./../../../../assets/images/mobile.png)'"
+    [style.width.px]="320" [style.height.px]="669">
+
+    <div class="mobile-content">
+        <mat-grid-list cols="1" rowHeight="5:1">
+            <mat-grid-tile class="banner"></mat-grid-tile>
+            <mat-grid-tile>
+                <h1>{{formData[0].name}}</h1>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <p>{{formData[0].announcement}}</p>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+
+
+
+
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form mt-2">
+            <mat-form-field class="">
+                <input matInput placeholder="Digite seu nome" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="">
+                <input matInput placeholder="Digite seu Email" formControlName="email">
+            </mat-form-field>
+
+            <div class=" text-center">
+                <button mat-raised-button color="default" type="submit" class="button btn"
+                    [disabled]="!formGroup.valid">Enviar</button>
+            </div>
+        </form>
+
+    </div>
+
+    <footer id="sticky-footer" class="footer flex-shrink-0 py-4 bg-light customized-footer">hi</footer>
+
+</div>

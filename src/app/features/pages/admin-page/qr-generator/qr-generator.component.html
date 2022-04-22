@@ -9,7 +9,7 @@
     </div>
 
 
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" novalidate>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
         <mat-card>
             <div class="btn-toolbar mb-3">
                 <div class="input-group">
@@ -33,8 +33,6 @@
                         <button color="default" [disabled]="!formGroup.valid" type="submit" class="button btn">Ver
                             QR</button>
                     </div>
-
-
                     <div class="col-sm" *ngIf="selected !== ''">
                         <img src="{{ ADMIN_SENTENCES[2].IMAGE }}" class="icon image-responsive">
                     </div>
@@ -59,117 +57,31 @@
             <p *ngIf="selected !== ''">Loja Selecionada {{selected}}</p>
         </div>
 
-
         <mat-card class="qr-container">
             <div class="grid">
-                
+
                 <div class="row">
                     <div class="nested">
                         <div class="item" *ngFor="let ITEM of GENERATOR_SENTENCES; index as i">
                             <span>
                                 <mat-form-field class="form-element">
-                                    <input 
-                                        matInput 
-                                        placeholder="{{GENERATOR_SENTENCES[i].TITLE}}" 
+                                    <input matInput placeholder="{{GENERATOR_SENTENCES[i].TITLE}}"
                                         formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}"
                                         (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)">
-                                    <mat-icon 
-                                        matSuffix 
-                                        matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
+                                    <mat-icon matSuffix matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
                                         matTooltipPosition="left">help_outline</mat-icon>
                                 </mat-form-field>
                             </span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="row">
-                    
-                    <div class="item text-center image-item-ajustment"> 
-                        <div class="mock-elements">
-                            <div class="row">
-                                <div class="text-center">
-                                    <div class="col">
-                                        <img src="../../../../../assets/images/mini-banner-example.png">
-                                    </div>
-                                </div>  
-                                
-                            </div>
-                            <div class="row" *ngFor="let data of formData">
-                                <div class="col text-padding">
-                                    <h1>{{data.name}}</h1>
-                                    <p>{{data.announcement}}</p>
-                                    
-                                </div>
-                                
-                                    
-                                
-                            </div>
 
-                        </div>
-                        <img src="{{ IMAGE[0].IMAGE }}" class="image-responsive">
+                <div class="row">
+                    <div class="item text-center image-item-ajustment">
+                        <mobile-view [formData]="formData"></mobile-view>
                     </div>
                 </div>
             </div>
         </mat-card>
-        <!--
-<div class="ajustment">
-            <div class="row ">
-                <div class="col-6 ">
-                    <mat-card class="card-color mt-1 text-center">
-                        <div 
-                            class="row size-fixture" 
-                            *ngFor="let ITEM of GENERATOR_SENTENCES; index as i">
-
-                            <mat-form-field class="form-element">
-                                <input 
-                                    matInput 
-                                    placeholder="{{GENERATOR_SENTENCES[i].TITLE}}" 
-                                    formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}"
-                                    (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)">
-                                <mat-icon 
-                                    matSuffix 
-                                    matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
-                                    matTooltipPosition="left">help_outline</mat-icon>
-                            </mat-form-field>
-
-                            <mat-form-field *ngIf="i == GENERATOR_SENTENCES.lenght-2"  class="form-element">
-                                <textarea                                 
-                                matInput placeholder="{{GENERATOR_SENTENCES[i].TITLE}}" 
-                                matTextareaAutosize matAutosizeMinRows="2"
-                                matAutosizeMaxRows="5"
-                                formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}">
-                            </textarea>
-                            </mat-form-field>
-                        </div>
-                        
-                    </mat-card>
-                </div>
-
-                <div class="col-6 text-center position">
-                    <img src="{{ IMAGE[0].IMAGE }}" class="image-responsive fixed-size">
-                    <div class="mobile-items">
-
-                            <div class="row" >
-                                <img src="../../../../../assets/images/banner-example.png">      
-                            </div>
-
-                            <div class="row" >
-                                <h1> {{formData[0].name}}</h1>
-                            </div>
-
-                            <div class="row">
-                                <p class="announcement ">{{formData[0].announcement}}</p>
-                            </div>
-
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-        -->
-
     </form>
 </div>

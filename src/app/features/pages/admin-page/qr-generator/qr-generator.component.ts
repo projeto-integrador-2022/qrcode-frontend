@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import SENTENCES from '../../../../../assets/lib/sentences.json'
 
@@ -12,7 +12,8 @@ export class QrGeneratorComponent implements OnInit {
 
   formGroup: any;
   selected = '';
-  formData: any;
+
+  @Input() formData: any;
   GENERATOR_SENTENCES: any;
   IMAGE: any;
   ADMIN_SENTENCES: any;
@@ -71,6 +72,8 @@ export class QrGeneratorComponent implements OnInit {
     if (this.formData[0]['name'].length > 20) {
       this.formData[0]['name'] = string.substring(0, 20);
     }
+
+    
 
   }
 
