@@ -21,7 +21,7 @@
                 <input matInput placeholder="Digite seu Email" formControlName="email">
             </mat-form-field>
 
-            <mat-radio-button>Li e concordo com os <br> termos  descritos <span>aqui</span></mat-radio-button>
+            <mat-radio-button>Li e concordo com os <br> termos descritos <span>aqui</span></mat-radio-button>
 
             <button mat-raised-button color="default" type="submit" class="button btn confirm-button"
                 [disabled]="!formGroup.valid">Enviar</button>
@@ -29,16 +29,18 @@
 
             <footer id="sticky-footer" class="footer flex-shrink-0 py-4 bg-light customized-footer">
                 <mat-label>
-                    <p>Acesse nossas redes sociais   </p>
+                    <p>Acesse nossas redes sociais </p>
                 </mat-label>
-                <div class="d-flex flex-row justify-content-between align-self-center">
-                    <div class="col" *ngIf="formData[0].facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].officialpage !== ''"><img src="{{SOCIAL_ICONS[4].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].youtube !== ''"><img src="{{SOCIAL_ICONS[5].IMAGE}}"></div>
-                    <div class="col" *ngIf="formData[0].voucherpage !== ''"><img src="{{SOCIAL_ICONS[6].IMAGE}}"></div>
+                <div class="d-flex flex-row justify-content-between align-self-center"
+                    *ngFor="let data of formData; index as i">
+
+                    <div class="col" *ngIf="data.facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.officialpage !== ''" (click)="onClick()"><img src="{{SOCIAL_ICONS[4].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.youtube !== ''"><img src="{{SOCIAL_ICONS[5].IMAGE}}"></div>
+                    <div class="col" *ngIf="data.voucherpage !== ''"><img src="{{SOCIAL_ICONS[6].IMAGE}}"></div>
                 </div>
             </footer>
         </form>

@@ -18,12 +18,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/shared/modules/material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
 import { TabComponent } from './shared/components/tab/tab.component';
 import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
+import { MobileViewComponent } from './features/pages/admin-page/qr-generator/components/mobile-view/mobile-view.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/q
     AdminPageComponent,
     StartingComponent,
     TabComponent,
-    QrGeneratorComponent
+    QrGeneratorComponent,
+    MobileViewComponent
   ],
   imports: [
     HttpClientModule,
@@ -58,4 +60,4 @@ import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/q
   providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

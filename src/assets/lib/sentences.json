@@ -193,11 +193,6 @@
             "SUB_TITLE": "Relatórios dos fregueses",
             "DESCRIPTION": "Quem são os freguêses dos seu cliente? Visualize as dados sobre os fregueses que fizeram a leitura de um código, fique sabendo sobre seus hábitos de consumo e estatísticas. Envie o relatório diretamente para seu cliente",
             "IMAGE": "../../../assets/images/report.png"
-        },
-        {
-            "TITLE": "Gerador de Códigos QR",
-            "DESCRIPTION": "Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja deixado em branco, não irá aparecer na página depois da leitura do Código QR"
-            
         }
         
     ],
@@ -221,48 +216,42 @@
         {
             "FORM_NAME": "officialpage",
             "TITLE": "Página",
-            "BALOON_TIP": "A página oficial do cliente, para redirecionamento"
-        },
-        {
-            "FORM_NAME": "productpage",
-            "TITLE": "Página do Produto",
-            "BALOON_TIP": "A página do produto, para redirecionamento"
+            "BALOON_TIP": "A página oficial do cliente ou de um produto específico"
         },
         {
             "FORM_NAME": "whatsappgroup",
             "TITLE": "Grupo de WhatsApp",
-            "BALOON_TIP": "Grupo de WhatsApp, para redirecionamento"
+            "BALOON_TIP": "Grupo de WhatsApp, é opcional e irá direcionar a um link"
         },
         {
             "FORM_NAME": "telegramgroup",
             "TITLE": "Grupo de Telegram",
-            "BALOON_TIP": "Grupo de Telegram, para redirecionamento"
+            "BALOON_TIP": "Grupo de Telegram, é opcional e irá direcionar a um link"
         },
         {
             "FORM_NAME": "facebookgroup",
             "TITLE": "Grupo de Facebook",
-            "BALOON_TIP": "Grupo de Facebook, para redirecionamento"
+            "BALOON_TIP": "Grupo de Facebook, é opcional e irá direcionar a um link"
         },
         {
             "FORM_NAME": "instagramgroup",
             "TITLE": "Página do Instagram",
-            "BALOON_TIP": "Página do Instagram, para redirecionamento"
+            "BALOON_TIP": "Página do Instagram, é opcional e irá direcionar a um link"
+        },
+        {
+            "FORM_NAME": "youtube",
+            "TITLE": "Página do Youtube",
+            "BALOON_TIP": "Página do Youtube, é opcional e irá direcionar a um link"
         },
         {   
             "FORM_NAME": "voucherpage",
             "TITLE": "Página do Voucher",
-            "BALOON_TIP": "Página do Voucher ou Promoção, para redirecionamento"
+            "BALOON_TIP": "Página do Voucher ou Promoção, é opcional e irá direcionar a um link"
         },
-        {
-            "FORM_NAME": "banner",
-            "TITLE": "Banner",
-            "BALOON_TIP": "Banner da empresa",
-            "IMAGE": ""
-        }, 
         {
             "FORM_NAME": "announcement",
             "TITLE": "Anúncio",
-            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio"
+            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio ou produto"
         }       
     ],
     "MOBILE" : [
@@ -273,6 +262,37 @@
             "FOOTER_TEXT": "",
             "IMAGE": "../../../assets/images/mobile.png" 
         }
+    ],
+    "SOCIAL_ICONS" : [
+        {
+            "NAME": "facebook",
+            "IMAGE": "../../../assets/images/facebook.png"
+        },
+        {
+            "NAME": "instagram",
+            "IMAGE": "../../../assets/images/instagram.png"
+        },
+        {
+            "NAME": "whatsapp",
+            "IMAGE": "../../../assets/images/whatsapp.png"
+        },
+        {
+            "NAME": "telegram",
+            "IMAGE": "../../../assets/images/telegram.png"
+        },
+        {
+            "NAME": "officialpage",
+            "IMAGE": "../../../assets/images/web.png"
+        },       
+        {
+            "NAME": "youtube",
+            "IMAGE": "../../../assets/images/youtube.png"
+        },
+        {
+            "NAME": "voucher",
+            "IMAGE": "../../../assets/images/voucher.png"
+        }
+
     ]
 
 }

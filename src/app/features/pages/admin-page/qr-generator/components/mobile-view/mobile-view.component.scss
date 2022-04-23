@@ -10,10 +10,6 @@
         z-index: 1;
     }
 
-    .mock-elements {
-        transform: translateY(160px);
-    }
-
     .row {
         position: fixed;
 
@@ -40,12 +36,9 @@
         margin-right: 24px;
         margin-top: 80px;
         overflow-wrap: break-word;
-        max-width: 300px;
+        width: 277px;
     }
 
-    .banner-area {
-        height: 50px;
-    }
 
     .mat-grid-tile-content {
         justify-content: initial;
@@ -63,7 +56,6 @@
         span {
             color: rgb(52, 52, 97);
         }
-
     }
 
     .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
@@ -93,14 +85,11 @@
     footer img {
         transform: translateY(-1vw);
         margin: 0.2vw;
-        width: 2.1vw;
-        height: 2.2vw;
-        filter: saturate(0%);
+        width: 30px;
+        height: 30px;
+        
     }
 
-    footer img:hover {
-        filter: saturate(100%);
-    }
 
     footer p {
         transform: translateY(-1vw);

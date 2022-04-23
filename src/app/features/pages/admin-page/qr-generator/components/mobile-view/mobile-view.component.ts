@@ -18,7 +18,6 @@ export class MobileViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.SOCIAL_ICONS[0]);
     this.createFormGroup();
   }
 
@@ -32,11 +31,14 @@ export class MobileViewComponent implements OnInit {
 
     });
   }
-  onSubmit(value: any) {
-    
+  onSubmit(value: any) {  
     
     console.log(value);
   }
 
+  onClick() {
+    console.log(this.formData);
+    
+  }
 
 }
