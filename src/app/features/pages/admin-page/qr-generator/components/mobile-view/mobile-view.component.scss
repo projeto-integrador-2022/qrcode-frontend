@@ -28,7 +28,8 @@
 
     p {
         font-size: 1rem;
-        width: 80%;
+        width: 30px;
+        overflow-wrap: break-word;
     }
 
     .mobile-container {
@@ -94,8 +95,8 @@
     footer p {
         transform: translateY(-1vw);
         width: 100%;
-        font-size: 0.8vw;
-        margin: 0 !important;
+        font-size: 12px;
+        margin: 5px 0 0 0 !important;
     }
 }
 

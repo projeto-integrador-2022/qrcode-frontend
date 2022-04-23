@@ -181,7 +181,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   saveCreditCardData(data: any) {
     this.creditCard.ownerName = data.ownername;
-    this.creditCard.cardNumber = data.cardnumber;
+    this.creditCard.cardNumber = data.cardnumber.trim();
     this.creditCard.securityCode = data.securitycode;
     this.creditCard.expirationDate = data.expirationdate;
     this.creditCard.cardFlag = data.cardflag;
@@ -210,7 +210,7 @@ export class PaymentMethodsComponent implements OnInit {
     this.user.password = data.password;
     this.account.completeName = data.name + ' ' + data.surname;
     this.account.email = data.email;
-    this.account.phone = data.phone;
+    this.account.phone = data.phone.trim();
     this.account.address = data.address;
     this.account.city = data.city;
     this.account.stateDistrict = data.state;

@@ -48,7 +48,7 @@ export class QrGeneratorComponent implements OnInit {
   createForm() {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     let cnpj: RegExp = /(\d{2}[-.\s]?\d{3}[-.\s]?\d{3}[-.\s\/]?\d{4}[-.\s]?\d{2})$/;
-    let url: RegExp = /(((http|https):\/\/)*[a-zA-Z0-9\-]+[\.]{1}[a-z]{1}([a-zA-Z0-9-.]+))/;
+    let url: RegExp = /(https?:\/\/(www\.)?|www\.)((\w-?\.?){2,}\.)([a-z]){2,6}\/?([a-z0-9]|&|\.|\?|=|-|_|\#|%|:|\/)*/;
 
     this.formGroup = this.formBuilder.group({
       'name': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -68,17 +68,14 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   updateMobileView(event: any, formName: string) {
-    console.log(this.formGroup.controls[formName].valid);
-    
+
     if (this.formGroup.controls[formName].valid) {
-      this.formData[0][formName] = event.target.value;
-      
-      if (this.formData[0]['name'].length > 20) {
-        this.formData[0]['name'] = this.formData[0][formName].substring(0, 20);
-      }
+      this.formData[0][formName] = event.target.value;            
     }
 
-    
+    if (this.formData[0]['name'].length > 20) {
+      this.formData[0]['name'] = this.formData[0][formName].substring(0, 20);
+    }
 
 
   }
