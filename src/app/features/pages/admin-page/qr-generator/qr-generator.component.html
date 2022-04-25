@@ -13,30 +13,39 @@
         <mat-card>
             <div class="btn-toolbar mb-3">
                 <div class="input-group">
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="fill" *ngFor="let qr of qrList" >
                         <mat-label>Selecione</mat-label>
-                        <mat-select [(value)]="selected">
+                        <mat-select [(value)]="selected"  >
                             <mat-option value=""> - </mat-option>
-                            <mat-option value="option">Option</mat-option>
+                            <mat-option value="{{qr.id}}" (click)="populateFields(qr)">{{qr.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
                 <div class="btn-group">
                     <div class="col-sm" *ngIf="selected">
-                        <img src="{{ ADMIN_SENTENCES[2].IMAGE }}" class="icon image-responsive">
+                        <img src="{{ ADMIN_SENTENCES[3].IMAGE }}" class="icon image-responsive">
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button color="default" type="submit" class="button btn" (click)="update()">Salvar</button>
+                        <button color="default" type="submit" class="button btn" (click)="update()">
+                            <div class="col">Salvar</div>
+                            <div class="col">
+                                <div class="spinner-border spinner-border-sm" *ngIf="saveSpinner"><span class="sr-only"></span></div>
+                            </div>
+                        </button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button color="default" type="submit" class="button btn" (click)="delete()">Deletar</button>
+                        <button color="default" type="submit" class="button btn" (click)="delete()">
+                            <div class="col">Deletar</div>
+                            <div class="col">
+                                <div class="spinner-border spinner-border-sm" *ngIf="delSpinner"><span class="sr-only"></span></div>
+                            </div>
+                        </button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button color="default" type="submit" class="button btn" (click)="openDialog()">Ver
-                            QR</button>
+                        <button color="default" type="submit" class="button btn" (click)="openDialog()">Ver QR</button>
                     </div>
 
 
@@ -46,15 +55,19 @@
 
                     <div class="col-sm" *ngIf="!selected">
                         <button color="default" type="submit" class="button btn" [disabled]="!formGroup.valid"
-                            (click)="save()">Salvar
+                            (click)="save()">
+                            <div class="col">Salvar</div>
+                            <div class="col">
+                                <div class="spinner-border spinner-border-sm" *ngIf="saveSpinner"><span class="sr-only"></span></div>
+                            </div>
                         </button>
                     </div>
 
                     <div class="col-sm" *ngIf="!selected">
                         <button color="default" type="submit" class="button btn"
-                            [disabled]="!selected && !isQrViewEnabled" (click)="openDialog()"> Ver QR
-                        </button>
+                            [disabled]="!selected && !isQrViewEnabled" (click)="openDialog()"> Ver QR  </button>
                     </div>
+
 
                 </div>
             </div>
@@ -75,7 +88,8 @@
                                 <mat-form-field class="form-element">
                                     <input matInput placeholder="{{GENERATOR_SENTENCES[i].TITLE}}"
                                         formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}"
-                                        (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)">
+                                        (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)"
+                                        >
                                     <mat-icon matSuffix matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
                                         matTooltipPosition="left">help_outline</mat-icon>
                                 </mat-form-field>
@@ -106,7 +120,7 @@
                         <div class="col-sm-1 ">
                             <mat-icon class="ml-1">perm_device_information</mat-icon>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-7">
                             <p class="lead"><i>{{SENTENCE.DESCRIPTION}}</i></p>
                         </div>
                     </div>

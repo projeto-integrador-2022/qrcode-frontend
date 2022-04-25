@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, ElementRef } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -27,6 +27,10 @@ export class QrGeneratorComponent implements OnInit {
   INTRO_SENTENCES: any;
 
   isQrViewEnabled = false;
+  saveSpinner = false;
+  delSpinner = false;
+
+  qrList = Array<Qr>();
 
 
 
@@ -56,6 +60,7 @@ export class QrGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.populateSelector();
 
   }
 
@@ -75,8 +80,45 @@ export class QrGeneratorComponent implements OnInit {
       'instagramgroup': [null, Validators.pattern(url)],
       'youtube': [null, Validators.pattern(url)],
       'voucherpage': [null, Validators.pattern(url)],
-      'announcement': [null, Validators.required],
+      'announcement': [null, Validators.required]
     });
+
+  }
+
+  populateSelector() {
+    this.qrService.getQrList().subscribe(
+      (data: any) => {
+        data.forEach((code: Qr) => {
+          this.qrList.push(code);
+        })
+      });
+  }
+
+  populateFields(data: Qr) {
+
+    this.formGroup.get("name").setValue(data.name);
+    this.formGroup.get("cnpj").setValue(data.cnpj);
+    this.formGroup.get("email").setValue(data.email);
+    this.formGroup.get("officialpage").setValue(data.officialpage);
+    this.formGroup.get("whatsappgroup").setValue(data.whatsappgroup);
+    this.formGroup.get("telegramgroup").setValue(data.telegramgroup);
+    this.formGroup.get("facebookgroup").setValue(data.facebookgroup);
+    this.formGroup.get("instagramgroup").setValue(data.instagramgroup);
+    this.formGroup.get("youtube").setValue(data.youtube);
+    this.formGroup.get("voucherpage").setValue(data.voucherpage);
+    this.formGroup.get("announcement").setValue(data.announcement);
+
+    this.formData[0]['name'] = data.name;
+    this.formData[0]['cnpj'] = data.cnpj;
+    this.formData[0]['email'] = data.email;
+    this.formData[0]['officialpage'] = data.officialpage;
+    this.formData[0]['whatsappgroup'] = data.whatsappgroup;
+    this.formData[0]['telegramgroup'] = data.telegramgroup;
+    this.formData[0]['facebookgroup'] = data.facebookgroup;
+    this.formData[0]['instagramgroup'] = data.instagramgroup;
+    this.formData[0]['youtube'] = data.youtube;
+    this.formData[0]['voucherpage'] = data.voucherpage;
+    this.formData[0]['announcement'] = data.announcement;
 
   }
 
@@ -96,42 +138,51 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   save() {
-    console.log(this.formGroup.value);
     this.saveNewQr(this.getQrObject());
     this.isQrViewEnabled = true;
+    this.showSpinner('save');
   }
 
   getQrObject() {
     let newQr: Qr = {
-      name: this.formData[0]['name'],
-      cnpj: this.formData[0]['cnpj'],
-      email: this.formData[0]['email'],
-      officialpage: this.formData[0]['officialpage'],
-      whatsappgroup: this.formData[0]['whatsappgroup'],
-      telegramgroup: this.formData[0]['telegramgroup'],
-      facebookgroup: this.formData[0]['facebookgroup'],
-      instagramgroup: this.formData[0]['instagramgroup'],
-      youtube: this.formData[0]['youtube'],
-      voucherpage: this.formData[0]['voucherpage'],
-      announcement: this.formData[0]['announcement']
+      name: this.formGroup[0]['name'],
+      cnpj: this.formGroup[0]['cnpj'],
+      email: this.formGroup[0]['email'],
+      officialpage: this.formGroup[0]['officialpage'],
+      whatsappgroup: this.formGroup[0]['whatsappgroup'],
+      telegramgroup: this.formGroup[0]['telegramgroup'],
+      facebookgroup: this.formGroup[0]['facebookgroup'],
+      instagramgroup: this.formGroup[0]['instagramgroup'],
+      youtube: this.formGroup[0]['youtube'],
+      voucherpage: this.formGroup[0]['voucherpage'],
+      announcement: this.formGroup[0]['announcement']
     }
     return newQr;
   }
 
-  saveNewQr(newQr : Qr) {
-    
+  saveNewQr(newQr: Qr) {
+    this.qrService.saveNewQr(newQr).subscribe(
+      (response) => {
+        this.showSpinner('save');
+      });
+
   }
 
   generateQr() {
+    this.showSpinner('save');
 
   }
 
   delete() {
     this.isQrViewEnabled = false;
+    this.showSpinner('del');
   }
 
   update() {
     this.isQrViewEnabled = true;
+    // this.qrService.updateItem()
+    this.showSpinner('save');
+
   }
 
   openDialog() {
@@ -142,4 +193,27 @@ export class QrGeneratorComponent implements OnInit {
     });
   }
 
+  showSpinner(kind: any) {
+
+    if (kind == 'save') {
+      this.saveSpinner = true;
+      setTimeout(() => {
+        this.saveSpinner = true;
+      }, 1500)
+
+      setTimeout(() => {
+        this.saveSpinner = false;
+      }, 1500)
+    } else {
+      this.delSpinner = true;
+      setTimeout(() => {
+        this.delSpinner = true;
+      }, 1500)
+
+      setTimeout(() => {
+        this.delSpinner = false;
+      }, 1500)
+    };
+  }
 }
+

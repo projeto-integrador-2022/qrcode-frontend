@@ -10,7 +10,7 @@ import { Qr } from '../models/qr';
 })
 export class QrGeneratorService {
 
-    endpoint = 'http://localhost:4201/qr';
+    endpoint = 'http://localhost:4203/qr';
     //endpoint = 'http://localhost:8080/administrator';
 
     constructor(private http: HttpClient) { }
@@ -30,7 +30,7 @@ export class QrGeneratorService {
             )
     }
 
-    getQrs(): Observable<Qr> {
+    getQrList(): Observable<Qr> {
         return this.http
             .get<Qr>(this.endpoint)
             .pipe(

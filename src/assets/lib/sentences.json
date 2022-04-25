@@ -198,7 +198,7 @@
     "QR_GENERATOR_INFO": [
         {
             "SUB_TITLE": "Gerador de Códigos QR",
-            "DESCRIPTION": "Para gerar um Código Qr eficiente, adicione o máximo de campos que puder, alguns não são obrigatórios, mas ainda assim, é importante que sejam preenchidos. Lembre-se que, ao ler o código, será apresentado ao freguês uma página semelhante à visão do Freguês. No entanto, nesta momento ela é apenas uma visualização para que seja mais facil prever como a página vai se apresentar após a leitura do código. ",
+            "DESCRIPTION": "Para gerar um Código Qr eficiente, adicione o máximo de campos que puder, alguns não são obrigatórios, mas ainda assim, é importante que sejam preenchidos. Lembre-se que, ao ler o código, será apresentado ao freguês uma página semelhante à 'Visão do Freguês'. Nesse momento ela é apenas uma visualização, assim é mais facil prever como a página vai se apresentar após a leitura do código. ",
             "INSTRUCTIONS": "Instruções Adicionais"
         },
         {
@@ -220,7 +220,15 @@
         {
             "TITLE": "CNPJ",
             "DESCRIPTION": "Incluindo o CNPJ, é possível que varios produtos sejam associados a uma mesma empresa, facilitando o cruzamento de dados em relatório."
-        } 
+        },
+        {
+            "TITLE": "Armazenamento",
+            "DESCRIPTION": "Ao inserir as informações e efetuar o salvamento, os dados serão armazenados em nossos bancos de dados. Escolhendo uma loja ou produto previamente criado, é possível editar ou até mesmo deleta-lo da base de dados."
+        },
+        {
+            "TITLE": "Códigos QR",
+            "DESCRIPTION": "Códigos poderão ser visualizados após o salvamento, assim, surgirá opções de impressão e download. O Código não irá se alterar quando editado, apenas seus dados poderão ser trocados, mas pode ser completamente excluido da base de dados."
+        }
 
     ],
     "GENERATOR": [
