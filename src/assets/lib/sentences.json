@@ -134,13 +134,13 @@
             "EXPIRATION": "Validade",
             "CVC": "Código de Segurança",
             "TAG": "Bandeira do Cartão",
-            "TAG1" : "Visa",
-            "TAG2" : "Mastercard",
-            "TAG3" : "American Express",
-            "TAG4" : "Diners Club",
-            "TAG5" : "Elo",
-            "VALUE": "Valor a Pagar: R$",  
-            "BUTTON_TEXT": "Confirmar"       
+            "TAG1": "Visa",
+            "TAG2": "Mastercard",
+            "TAG3": "American Express",
+            "TAG4": "Diners Club",
+            "TAG5": "Elo",
+            "VALUE": "Valor a Pagar: R$",
+            "BUTTON_TEXT": "Confirmar"
         }
     ],
     "PROCESSING_SOLICITATION": [
@@ -183,29 +183,56 @@
             "IMAGE": "../../../assets/images/manufacturing.png"
         },
         {
-            "TITLE": "Gerência",
-            "SUB_TITLE": "Gerência de Códigos QR",
-            "DESCRIPTION": "Aréa dedicada a edição de Códigos QR previamente criados, selecionando o produto, é possível alterar os dados que serão exibidos para o freguês após a leitura do código. Também é possível deletar seu conteúdo ou todo o código.",
-            "IMAGE": "../../../assets/images/management.png"
-        },
-        {
             "TITLE": "Relatórios",
             "SUB_TITLE": "Relatórios dos fregueses",
             "DESCRIPTION": "Quem são os freguêses dos seu cliente? Visualize as dados sobre os fregueses que fizeram a leitura de um código, fique sabendo sobre seus hábitos de consumo e estatísticas. Envie o relatório diretamente para seu cliente",
             "IMAGE": "../../../assets/images/report.png"
+        },
+        {
+            "TITLE": "Gerência",
+            "SUB_TITLE": "Gerência de Códigos QR",
+            "DESCRIPTION": "Aréa dedicada a edição de Códigos QR previamente criados, selecionando o produto, é possível alterar os dados que serão exibidos para o freguês após a leitura do código. Também é possível deletar seu conteúdo ou todo o código.",
+            "IMAGE": "../../../assets/images/management.png"
         }
-        
+    ],
+    "QR_GENERATOR_INFO": [
+        {
+            "SUB_TITLE": "Gerador de Códigos QR",
+            "DESCRIPTION": "Para gerar um Código Qr eficiente, adicione o máximo de campos que puder, alguns não são obrigatórios, mas ainda assim, é importante que sejam preenchidos. Lembre-se que, ao ler o código, será apresentado ao freguês uma página semelhante à visão do Freguês. No entanto, nesta momento ela é apenas uma visualização para que seja mais facil prever como a página vai se apresentar após a leitura do código. ",
+            "INSTRUCTIONS": "Instruções Adicionais"
+        },
+        {
+            "TITLE": "Nome ou Produto",
+            "DESCRIPTION": "Deve ser adicionado o nome do seu cliente ou produto, servirá como um título que será exibido após a leitura do código."
+        },       
+        {
+            "TITLE": "Anúncio",
+            "DESCRIPTION": "Deve ser adicionado um anúncio que será exibido como uma descrição, podendo conter um slogan, um anúncio, ou algo que chame a atenção do freguês."
+        },
+        {
+            "TITLE": "Voucher",
+            "DESCRIPTION": "Aqui pode ser disponibilizado um voucher que quando o cliente se inscrever com seu nome, email e confirmar, um icone de voucher deverá surgir, este deve ser um redirecionamento para uma página contendo o código que será apresentado pelo freguês no estabelecimento."
+        },
+        {
+            "TITLE": "Redes Sociais",
+            "DESCRIPTION": "Os demais campos devem ser preenchidos com os links para as páginas sociais do seu cliente, podendo ser adicionado um link para o Facebook, Instagram, Youtube etc."
+        },
+        {
+            "TITLE": "CNPJ",
+            "DESCRIPTION": "Incluindo o CNPJ, é possível que varios produtos sejam associados a uma mesma empresa, facilitando o cruzamento de dados em relatório."
+        } 
+
     ],
     "GENERATOR": [
         {
             "FORM_NAME": "name",
             "TITLE": "Produto / Loja",
-            "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente"
+            "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente."
         },
         {
             "FORM_NAME": "announcement",
             "TITLE": "Anúncio",
-            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio ou produto"
+            "BALOON_TIP": "Descreva brevemente seu negócio ou produto."
         },
         {
             "FORM_NAME": "cnpj",
@@ -215,7 +242,7 @@
         {
             "FORM_NAME": "email",
             "TITLE": "Email",
-            "BALOON_TIP": "O e-mail do cliente, para envio de relatórios"
+            "BALOON_TIP": "O e-mail do cliente ou de um produto específico, para envio de relatórios"
         },
         {
             "FORM_NAME": "officialpage",
@@ -225,44 +252,44 @@
         {
             "FORM_NAME": "whatsappgroup",
             "TITLE": "Grupo de WhatsApp",
-            "BALOON_TIP": "Grupo de WhatsApp, é opcional e irá direcionar a um link"
+            "BALOON_TIP": "Grupo de WhatsApp, é opcional e irá direcionar ao link"
         },
         {
             "FORM_NAME": "telegramgroup",
             "TITLE": "Grupo de Telegram",
-            "BALOON_TIP": "Grupo de Telegram, é opcional e irá direcionar a um link"
+            "BALOON_TIP": "Grupo de Telegram, é opcional e irá direcionar ao link"
         },
         {
             "FORM_NAME": "facebookgroup",
             "TITLE": "Grupo de Facebook",
-            "BALOON_TIP": "Grupo de Facebook, é opcional e irá direcionar a um link"
+            "BALOON_TIP": "Grupo de Facebook, é opcional e irá direcionar ao link"
         },
         {
             "FORM_NAME": "instagramgroup",
             "TITLE": "Página do Instagram",
-            "BALOON_TIP": "Página do Instagram, é opcional e irá direcionar a um link"
+            "BALOON_TIP": "Página do Instagram, é opcional e irá direcionar ao link"
         },
         {
             "FORM_NAME": "youtube",
             "TITLE": "Página do Youtube",
-            "BALOON_TIP": "Página do Youtube, é opcional e irá direcionar a um link"
+            "BALOON_TIP": "Página do Youtube, é opcional e irá direcionar ao link"
         },
-        {   
+        {
             "FORM_NAME": "voucherpage",
             "TITLE": "Página do Voucher",
             "BALOON_TIP": "Página do Voucher ou Promoção, é opcional e irá direcionar a um link"
-        }          
+        }
     ],
-    "MOBILE" : [
+    "MOBILE": [
         {
             "TITLE": "",
             "SUB_TITLE": "",
-            "DESCRIPTION":"",
+            "DESCRIPTION": "",
             "FOOTER_TEXT": "",
-            "IMAGE": "../../../assets/images/mobile.png" 
+            "IMAGE": "../../../assets/images/mobile.png"
         }
     ],
-    "SOCIAL_ICONS" : [
+    "SOCIAL_ICONS": [
         {
             "NAME": "facebook",
             "IMAGE": "../../../assets/images/facebook.png"
@@ -282,7 +309,7 @@
         {
             "NAME": "officialpage",
             "IMAGE": "../../../assets/images/web.png"
-        },       
+        },
         {
             "NAME": "youtube",
             "IMAGE": "../../../assets/images/youtube.png"
@@ -291,7 +318,5 @@
             "NAME": "voucher",
             "IMAGE": "../../../assets/images/voucher.png"
         }
-
     ]
-
 }

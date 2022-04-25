@@ -73,7 +73,19 @@
     .fixed-size {
         width: 80% !important;
         max-height: 700px !important;
+    }
 
+    .jumbotron p {
+        line-height: 1.8rem;
+    }
+
+    .instruction-style {
+        .container {
+            margin: 20px !important;
+        }
+        .display-4 {
+            margin-top: 80px;
+        }
     }
 
 }

@@ -1,11 +1,9 @@
-<ng-content></ng-content>
 <div class="container">
     <div class="row spacing mb-5">
         <div class="col-sm-12">
             <div class="jumbotron">
-                <h1 class="display-4 mb-5 ">Gerador de Códigos QR</h1>
-                <p>Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja
-                    deixado em branco, não irá aparecer na página depois da leitura do Código QR</p>
+                <h1 class="display-4 mb-5 ">{{INTRO_SENTENCES[0].SUB_TITLE}}</h1>
+                <p>{{INTRO_SENTENCES[0].DESCRIPTION}}</p>
             </div>
         </div>
     </div>
@@ -29,15 +27,11 @@
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button 
-                            color="default" type="submit" class="button btn"
-                            (click)="update()">Salvar</button>
+                        <button color="default" type="submit" class="button btn" (click)="update()">Salvar</button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button 
-                            color="default" type="submit" class="button btn"
-                            (click)="delete()">Deletar</button>
+                        <button color="default" type="submit" class="button btn" (click)="delete()">Deletar</button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
@@ -51,16 +45,14 @@
                     </div>
 
                     <div class="col-sm" *ngIf="!selected">
-                        <button 
-                            color="default" type="submit" class="button btn" 
-                            [disabled]="!formGroup.valid" (click)="save()">Salvar
+                        <button color="default" type="submit" class="button btn" [disabled]="!formGroup.valid"
+                            (click)="save()">Salvar
                         </button>
                     </div>
 
                     <div class="col-sm" *ngIf="!selected">
-                        <button 
-                            color="default"  type="submit" class="button btn"
-                            [disabled]="!selected && !isQrViewEnabled"  (click)="openDialog()"> Ver QR
+                        <button color="default" type="submit" class="button btn"
+                            [disabled]="!selected && !isQrViewEnabled" (click)="openDialog()"> Ver QR
                         </button>
                     </div>
 
@@ -101,4 +93,26 @@
             </div>
         </mat-card>
     </form>
+
+    <div class="row spacing mb-5">
+        <div class="col-sm-12">
+            <div class="jumbotron instruction-style">
+                <h1 class="display-4">{{INTRO_SENTENCES[0].INSTRUCTIONS}}</h1>
+                <div class="container" *ngFor="let SENTENCE of INTRO_SENTENCES; index as i">
+                    <div class="row" *ngIf="i >= 1">
+                        <div class="col-sm-3 ">
+                            <p class="lead">{{SENTENCE.TITLE}}</p>
+                        </div>
+                        <div class="col-sm-1 ">
+                            <mat-icon class="ml-1">perm_device_information</mat-icon>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="lead"><i>{{SENTENCE.DESCRIPTION}}</i></p>
+                        </div>
+                    </div>
+                    <hr class="my">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

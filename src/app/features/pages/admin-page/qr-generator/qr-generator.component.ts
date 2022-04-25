@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewEncapsulation, Input, ElementRef } from '@angular/core';
+import {  Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
-import SENTENCES from '../../../../../assets/lib/sentences.json'
+
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { QrGeneratorService } from 'src/app/shared/services/qr-generator.service';
 import { Qr } from '../../../../shared/models/qr';
-import { NavigationEnd, Router } from '@angular/router';
+
+import SENTENCES from '../../../../../assets/lib/sentences.json'
 
 @Component({
   selector: 'qr-generator',
@@ -22,6 +24,8 @@ export class QrGeneratorComponent implements OnInit {
   GENERATOR_SENTENCES: any;
   IMAGE: any;
   ADMIN_SENTENCES: any;
+  INTRO_SENTENCES: any;
+
   isQrViewEnabled = false;
 
 
@@ -30,6 +34,8 @@ export class QrGeneratorComponent implements OnInit {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
+    this.INTRO_SENTENCES = SENTENCES.QR_GENERATOR_INFO;
+
 
     this.formData = [
       {
@@ -70,7 +76,6 @@ export class QrGeneratorComponent implements OnInit {
       'youtube': [null, Validators.pattern(url)],
       'voucherpage': [null, Validators.pattern(url)],
       'announcement': [null, Validators.required],
-      'validate': ''
     });
 
   }
@@ -92,10 +97,11 @@ export class QrGeneratorComponent implements OnInit {
 
   save() {
     console.log(this.formGroup.value);
+    this.saveNewQr(this.getQrObject());
     this.isQrViewEnabled = true;
   }
 
-  generateQr() {
+  getQrObject() {
     let newQr: Qr = {
       name: this.formData[0]['name'],
       cnpj: this.formData[0]['cnpj'],
@@ -108,11 +114,16 @@ export class QrGeneratorComponent implements OnInit {
       youtube: this.formData[0]['youtube'],
       voucherpage: this.formData[0]['voucherpage'],
       announcement: this.formData[0]['announcement']
-      
-
     }
-    console.log(newQr);
+    return newQr;
+  }
+
+  saveNewQr(newQr : Qr) {
     
+  }
+
+  generateQr() {
+
   }
 
   delete() {
