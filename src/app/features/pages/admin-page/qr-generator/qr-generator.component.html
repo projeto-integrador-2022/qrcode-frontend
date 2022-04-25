@@ -1,3 +1,4 @@
+<ng-content></ng-content>
 <div class="container">
     <div class="row spacing mb-5">
         <div class="col-sm-12">
@@ -30,17 +31,17 @@
                     <div class="col-sm" *ngIf="selected">
                         <button 
                             color="default" type="submit" class="button btn"
-                            (click)="update(formGroup.value)">Salvar</button>
+                            (click)="update()">Salvar</button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
                         <button 
                             color="default" type="submit" class="button btn"
-                            (click)="delete(formGroup.value)">Deletar</button>
+                            (click)="delete()">Deletar</button>
                     </div>
 
                     <div class="col-sm" *ngIf="selected">
-                        <button color="default" type="submit" class="button btn" (click)="openDialog(formGroup.value)">Ver
+                        <button color="default" type="submit" class="button btn" (click)="openDialog()">Ver
                             QR</button>
                     </div>
 
@@ -52,14 +53,14 @@
                     <div class="col-sm" *ngIf="!selected">
                         <button 
                             color="default" type="submit" class="button btn" 
-                            [disabled]="!formGroup.valid" (click)="save(formGroup.value)">Salvar
+                            [disabled]="!formGroup.valid" (click)="save()">Salvar
                         </button>
                     </div>
 
                     <div class="col-sm" *ngIf="!selected">
                         <button 
                             color="default"  type="submit" class="button btn"
-                            [disabled]="!selected && !isQrViewEnabled"  (click)="openDialog(formGroup.value)"> Ver QR
+                            [disabled]="!selected && !isQrViewEnabled"  (click)="openDialog()"> Ver QR
                         </button>
                     </div>
 

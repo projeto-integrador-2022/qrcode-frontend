@@ -17,8 +17,9 @@ export class TabComponent implements OnInit {
     this.TAB_SENTENCES = SENTENCES.ADMIN_PAGE;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
+    window.scrollTo(0, 0); 
   }
 
-
+  
 }

@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'payment-methods', component: PaymentMethodsComponent, data: { index: '' } },
   { path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard] },
   { path: 'admin-page/starting', component: StartingComponent, canActivate: [AuthGuard] },
-  { path: 'admin-page/qr-generator', component: QrGeneratorComponent, canActivate: [AuthGuard] }
+  { path: 'admin-page/qr-generator', component: QrGeneratorComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({

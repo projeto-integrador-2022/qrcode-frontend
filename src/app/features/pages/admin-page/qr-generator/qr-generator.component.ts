@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import SENTENCES from '../../../../../assets/lib/sentences.json'
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
+import { QrGeneratorService } from 'src/app/shared/services/qr-generator.service';
+import { Qr } from '../../../../shared/models/qr';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'qr-generator',
@@ -21,7 +24,9 @@ export class QrGeneratorComponent implements OnInit {
   ADMIN_SENTENCES: any;
   isQrViewEnabled = false;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) {
+
+
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
@@ -44,8 +49,8 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.scrollItUP();
     this.createForm();
+
   }
 
   createForm() {
@@ -68,12 +73,12 @@ export class QrGeneratorComponent implements OnInit {
       'validate': ''
     });
 
-  } 
+  }
 
   updateMobileView(event: any, formName: string) {
 
     if (this.formGroup.controls[formName].valid) {
-      this.formData[0][formName] = event.target.value;            
+      this.formData[0][formName] = event.target.value;
     }
 
     if (this.formData[0]['name'].length > 20) {
@@ -85,28 +90,45 @@ export class QrGeneratorComponent implements OnInit {
     }
   }
 
-  save(data : FormBuilder) {
-    console.log(data);
+  save() {
+    console.log(this.formGroup.value);
     this.isQrViewEnabled = true;
   }
 
-  delete(data : FormBuilder) {
+  generateQr() {
+    let newQr: Qr = {
+      name: this.formData[0]['name'],
+      cnpj: this.formData[0]['cnpj'],
+      email: this.formData[0]['email'],
+      officialpage: this.formData[0]['officialpage'],
+      whatsappgroup: this.formData[0]['whatsappgroup'],
+      telegramgroup: this.formData[0]['telegramgroup'],
+      facebookgroup: this.formData[0]['facebookgroup'],
+      instagramgroup: this.formData[0]['instagramgroup'],
+      youtube: this.formData[0]['youtube'],
+      voucherpage: this.formData[0]['voucherpage'],
+      announcement: this.formData[0]['announcement']
+      
+
+    }
+    console.log(newQr);
+    
+  }
+
+  delete() {
     this.isQrViewEnabled = false;
   }
 
-  update(data : FormBuilder) {
+  update() {
     this.isQrViewEnabled = true;
   }
 
-  openDialog(data : FormBuilder) {
+  openDialog() {
     const dialogRef = this.dialog.open(QrDialogComponent, {
+      data: this.formData[0],
       width: '20vw',
       height: '35vh',
     });
-  }
-
-  scrollItUP() {
-    window.scrollTo(0, 0);
   }
 
 }
