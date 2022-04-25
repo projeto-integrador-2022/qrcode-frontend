@@ -12,6 +12,7 @@ export class MobileViewComponent implements OnInit {
   @Input() formData: any;
   formGroup: any;
   SOCIAL_ICONS: any;
+  checked = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.SOCIAL_ICONS = SENTENCES.SOCIAL_ICONS;
@@ -21,24 +22,21 @@ export class MobileViewComponent implements OnInit {
     this.createFormGroup();
   }
 
+  onRadioClick(){
+    this.checked = !this.checked;    
+  }
+
   createFormGroup() {
     let emailregex: RegExp = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
 
     this.formGroup = this.formBuilder.group({
       'name': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       'email': [null, [Validators.required, Validators.pattern(emailregex)]],
-      'fone': [null],
-
     });
   }
   onSubmit(value: any) {  
-    
     console.log(value);
   }
 
-  onClick() {
-    console.log(this.formData);
-    
-  }
 
 }

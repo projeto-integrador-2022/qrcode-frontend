@@ -25,6 +25,8 @@ import { StartingComponent } from './features/pages/admin-page/starting/starting
 import { TabComponent } from './shared/components/tab/tab.component';
 import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
 import { MobileViewComponent } from './features/pages/admin-page/qr-generator/components/mobile-view/mobile-view.component';
+import { QrDialogComponent } from './features/pages/admin-page/qr-generator/components/qr-dialog/qr-dialog.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { MobileViewComponent } from './features/pages/admin-page/qr-generator/co
     StartingComponent,
     TabComponent,
     QrGeneratorComponent,
-    MobileViewComponent
+    MobileViewComponent,
+    QrDialogComponent,
+    
   ],
   imports: [
     HttpClientModule,
@@ -55,6 +59,7 @@ import { MobileViewComponent } from './features/pages/admin-page/qr-generator/co
     MaterialModule,
     MatButtonModule,
     MatFormFieldModule,
+    QRCodeModule
 
   ],
   providers: [AuthGuard],

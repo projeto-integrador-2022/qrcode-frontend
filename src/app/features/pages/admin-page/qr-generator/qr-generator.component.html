@@ -3,13 +3,14 @@
         <div class="col-sm-12">
             <div class="jumbotron">
                 <h1 class="display-4 mb-5 ">Gerador de Códigos QR</h1>
-                <p>Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja deixado em branco, não irá aparecer na página depois da leitura do Código QR</p>
+                <p>Complete os campos como sugerido nos icones de informação acima de cada campo. Caso o campo seja
+                    deixado em branco, não irá aparecer na página depois da leitura do Código QR</p>
             </div>
         </div>
     </div>
 
 
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+    <form [formGroup]="formGroup" class="form">
         <mat-card>
             <div class="btn-toolbar mb-3">
                 <div class="input-group">
@@ -22,31 +23,44 @@
                     </mat-form-field>
                 </div>
                 <div class="btn-group">
-                    <div class="col-sm" *ngIf="selected == ''">
-                        <img src="{{ ADMIN_SENTENCES[1].IMAGE }}" class="icon image-responsive">
-                    </div>
-                    <div class="col-sm" *ngIf="selected == ''">
-                        <button color="default" [disabled]="!formGroup.valid" type="submit" class="button btn">Gerar
-                            QR</button>
-                    </div>
-                    <div class="col-sm" *ngIf="selected == ''">
-                        <button color="default" [disabled]="!formGroup.valid" type="submit" class="button btn">Ver
-                            QR</button>
-                    </div>
-                    <div class="col-sm" *ngIf="selected !== ''">
+                    <div class="col-sm" *ngIf="selected">
                         <img src="{{ ADMIN_SENTENCES[2].IMAGE }}" class="icon image-responsive">
                     </div>
-                    <div class="col-sm" *ngIf="selected !== ''">
-                        <button color="default" [disabled]="!formGroup.valid" type="submit"
-                            class="button btn">Salvar</button>
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button 
+                            color="default" type="submit" class="button btn"
+                            (click)="update(formGroup.value)">Salvar</button>
                     </div>
-                    <div class="col-sm" *ngIf="selected !== ''">
-                        <button color="default" [disabled]="!formGroup.valid" type="submit"
-                            class="button btn">Deletar</button>
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button 
+                            color="default" type="submit" class="button btn"
+                            (click)="delete(formGroup.value)">Deletar</button>
                     </div>
-                    <div class="col-sm" *ngIf="selected !== ''">
-                        <button color="default" [disabled]="!formGroup.valid" type="submit" class="button btn">Ver
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button color="default" type="submit" class="button btn" (click)="openDialog(formGroup.value)">Ver
                             QR</button>
+                    </div>
+
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <img src="{{ ADMIN_SENTENCES[1].IMAGE }}" class="icon image-responsive">
+                    </div>
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <button 
+                            color="default" type="submit" class="button btn" 
+                            [disabled]="!formGroup.valid" (click)="save(formGroup.value)">Salvar
+                        </button>
+                    </div>
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <button 
+                            color="default"  type="submit" class="button btn"
+                            [disabled]="!selected && !isQrViewEnabled"  (click)="openDialog(formGroup.value)"> Ver QR
+                        </button>
                     </div>
 
                 </div>
@@ -80,7 +94,7 @@
                 <div class="row">
                     <div class="item text-center image-item-ajustment">
                         <p class="mt-2 mb-2"> Visão do Freguês</p>
-                        <mobile-view [formData]="formData" ></mobile-view>
+                        <mobile-view [formData]="formData"></mobile-view>
                     </div>
                 </div>
             </div>

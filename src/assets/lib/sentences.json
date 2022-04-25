@@ -197,11 +197,15 @@
         
     ],
     "GENERATOR": [
-        
         {
             "FORM_NAME": "name",
-            "TITLE": "Nome",
+            "TITLE": "Produto / Loja",
             "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente"
+        },
+        {
+            "FORM_NAME": "announcement",
+            "TITLE": "Anúncio",
+            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio ou produto"
         },
         {
             "FORM_NAME": "cnpj",
@@ -247,12 +251,7 @@
             "FORM_NAME": "voucherpage",
             "TITLE": "Página do Voucher",
             "BALOON_TIP": "Página do Voucher ou Promoção, é opcional e irá direcionar a um link"
-        },
-        {
-            "FORM_NAME": "announcement",
-            "TITLE": "Anúncio",
-            "BALOON_TIP": "Página do Banner, para descrever brevemente seu negócio ou produto"
-        }       
+        }          
     ],
     "MOBILE" : [
         {

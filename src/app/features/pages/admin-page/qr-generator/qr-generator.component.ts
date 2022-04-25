@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import SENTENCES from '../../../../../assets/lib/sentences.json'
+import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 
 @Component({
   selector: 'qr-generator',
@@ -17,8 +19,9 @@ export class QrGeneratorComponent implements OnInit {
   GENERATOR_SENTENCES: any;
   IMAGE: any;
   ADMIN_SENTENCES: any;
+  isQrViewEnabled = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
@@ -65,7 +68,7 @@ export class QrGeneratorComponent implements OnInit {
       'validate': ''
     });
 
-  }
+  } 
 
   updateMobileView(event: any, formName: string) {
 
@@ -77,12 +80,30 @@ export class QrGeneratorComponent implements OnInit {
       this.formData[0]['name'] = this.formData[0][formName].substring(0, 20);
     }
 
-
+    if (this.formData[0]['announcement'].length > 137) {
+      this.formData[0]['announcement'] = this.formData[0][formName].substring(0, 137);
+    }
   }
 
-  onSubmit(formData: any) {
+  save(data : FormBuilder) {
+    console.log(data);
+    this.isQrViewEnabled = true;
   }
 
+  delete(data : FormBuilder) {
+    this.isQrViewEnabled = false;
+  }
+
+  update(data : FormBuilder) {
+    this.isQrViewEnabled = true;
+  }
+
+  openDialog(data : FormBuilder) {
+    const dialogRef = this.dialog.open(QrDialogComponent, {
+      width: '20vw',
+      height: '35vh',
+    });
+  }
 
   scrollItUP() {
     window.scrollTo(0, 0);

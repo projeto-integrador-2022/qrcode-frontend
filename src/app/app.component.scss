@@ -75,7 +75,7 @@ h4 {
 
 .mat-tooltip {
   background-image: linear-gradient(to bottom, #ffcc5e, #ffc751, #ffc144, #ffbc36, #ffb626, #ffb626, #ffb626, #ffb626, #ffbc36, #ffc144, #ffc751, #ffcc5e);
-  min-width: 25vw !important;
+  min-width: max-content;
   margin: 23px;
   font-size: 14px !important;
 }

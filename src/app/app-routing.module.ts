@@ -20,24 +20,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, data: { username: '', password: '' } },
   { path: 'payment-plans', component: PaymentPlansComponent },
   { path: 'payment-methods', component: PaymentMethodsComponent, data: { index: '' } },
-  {
-    path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'starting',
-        component: StartingComponent,
-      },
-      {
-        path: 'qr-generator',
-        component: QrGeneratorComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'starting',
-      },
-
-    ]
-  },
+  { path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard] },
+  { path: 'admin-page/starting', component: StartingComponent, canActivate: [AuthGuard] },
+  { path: 'admin-page/qr-generator', component: QrGeneratorComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

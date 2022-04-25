@@ -1,0 +1,6 @@
+<h3>angularx-qrcode demo implementation</h3>
+<qrcode id="img" #parent [qrdata]="qrdata"></qrcode>
+<br>
+<button (click)="saveAsImage(parent)">Download QR Code Image</button>
+<br>
+<a [href]="fileUrl" download="Qrcode.txt">Download Code Text</a>
