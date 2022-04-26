@@ -34,13 +34,14 @@ export class QrGeneratorComponent implements OnInit {
 
   qrList = Array<Qr>();
   qr!: Qr;
+  image: any;
 
   constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
     this.INTRO_SENTENCES = SENTENCES.QR_GENERATOR_INFO;
-    this.buildFormData();   
+    this.buildFormData();
   }
 
   ngOnInit(): void {
@@ -89,6 +90,11 @@ export class QrGeneratorComponent implements OnInit {
 
   populateSelector() {
     this.qrList = [];
+    this.getQrList();
+
+  }
+
+  getQrList() {
     this.qrService.getQrList().subscribe(
       (data: any) => {
         data.forEach((code: Qr) => {
@@ -96,6 +102,7 @@ export class QrGeneratorComponent implements OnInit {
         })
       });
   }
+
 
   populateFields(data: Qr) {
 
@@ -164,7 +171,8 @@ export class QrGeneratorComponent implements OnInit {
       instagramgroup: this.formGroup.get('instagramgroup').value,
       youtube: this.formGroup.get('youtube').value,
       voucherpage: this.formGroup.get('voucherpage').value,
-      announcement: this.formGroup.get('announcement').value
+      announcement: this.formGroup.get('announcement').value,
+      image: ''
     }
     return newQr;
   }
@@ -175,12 +183,16 @@ export class QrGeneratorComponent implements OnInit {
         this.showSpinner('save');
         this.populateSelector();
       });
-      console.log(newQr);
-      
-  }
 
-  generateQr() {
-    this.showSpinner('save');
+    this.qrList = [];
+    this.getQrList();
+    this.qrList.forEach(element => {
+      if (element.name === newQr.name) {
+        this.image = element.image;
+      }
+
+    });
+    console.log(newQr);
 
   }
 
@@ -194,8 +206,8 @@ export class QrGeneratorComponent implements OnInit {
             this.formGroup.reset();
             this.populateSelector();
           });
-      } 
-      this.isQrViewEnabled = false;     
+      }
+      this.isQrViewEnabled = false;
     });
   }
 
@@ -214,7 +226,7 @@ export class QrGeneratorComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(QrDialogComponent, {
-      data: this.formData[0],
+      data: this.image,
       width: '20vw',
       height: '35vh',
     });

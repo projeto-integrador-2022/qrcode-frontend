@@ -11,4 +11,5 @@ export interface Qr {
     instagramgroup: string;
     youtube: string;
     voucherpage: string;
+    image?: string;
 }
