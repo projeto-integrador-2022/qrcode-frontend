@@ -15,17 +15,17 @@
       "id": 1
     },
     {
-      "name": "Teste",
-      "cnpj": null,
-      "email": "teste@teste.com",
-      "officialpage": null,
-      "whatsappgroup": null,
-      "telegramgroup": null,
-      "facebookgroup": null,
-      "instagramgroup": null,
-      "youtube": null,
-      "voucherpage": null,
-      "announcement": "Teste",
+      "name": "Cine Astro 2",
+      "cnpj": "",
+      "email": "cine.astro@gmail.com",
+      "officialpage": "www.cine-astro.com",
+      "whatsappgroup": "www.cine-astro.com",
+      "telegramgroup": "www.cine-astro.com/tg",
+      "facebookgroup": "www.cine-astro.com/fb",
+      "instagramgroup": "www.cine-astro.com/ig",
+      "youtube": "www.cine-astro.com/yt",
+      "voucherpage": "www.cine-astro.com/promocoes",
+      "announcement": "A melhor qualidade de audio e video da América Latina",
       "id": 2
     }
   ]

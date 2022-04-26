@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { QrDialogComponent } from './components/qr-dialog/qr-dialog.component';
 import { QrGeneratorService } from 'src/app/shared/services/qr-generator.service';
+
 import { Qr } from '../../../../shared/models/qr';
 
 import SENTENCES from '../../../../../assets/lib/sentences.json'
@@ -13,8 +14,9 @@ import SENTENCES from '../../../../../assets/lib/sentences.json'
   selector: 'qr-generator',
   templateUrl: './qr-generator.component.html',
   styleUrls: ['./qr-generator.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
+
 export class QrGeneratorComponent implements OnInit {
   @Input() formData: any;
 
@@ -33,15 +35,20 @@ export class QrGeneratorComponent implements OnInit {
   qrList = Array<Qr>();
   qr!: Qr;
 
-
-
   constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
     this.IMAGE = SENTENCES.MOBILE;
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
     this.INTRO_SENTENCES = SENTENCES.QR_GENERATOR_INFO;
+    this.buildFormData();   
+  }
 
+  ngOnInit(): void {
+    this.createForm();
+    this.populateSelector();
 
+  }
+  buildFormData() {
     this.formData = [
       {
         name: '',
@@ -57,12 +64,6 @@ export class QrGeneratorComponent implements OnInit {
         announcement: ''
       }
     ]
-  }
-
-  ngOnInit(): void {
-    this.createForm();
-    this.populateSelector();
-
   }
 
   createForm() {
@@ -140,10 +141,9 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   clear() {
-    this.formData[0] = [];
+    this.buildFormData();
     this.formGroup.reset();
     this.selected = '';
-
   }
 
   save() {
@@ -175,7 +175,8 @@ export class QrGeneratorComponent implements OnInit {
         this.showSpinner('save');
         this.populateSelector();
       });
-
+      console.log(newQr);
+      
   }
 
   generateQr() {
@@ -188,12 +189,13 @@ export class QrGeneratorComponent implements OnInit {
       if (element.name === this.selected) {
         this.qrService.deleteQr(element.id!).subscribe(
           (response) => {
-            this.isQrViewEnabled = false;
+            this.buildFormData();
             this.showSpinner('del');
             this.formGroup.reset();
             this.populateSelector();
           });
-      }      
+      } 
+      this.isQrViewEnabled = false;     
     });
   }
 

@@ -65,6 +65,7 @@ export class QrGeneratorService {
                 catchError(this.handleError)
             );
     }
+    
     handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
             console.error('An error occurred:', error.error.message);

@@ -79,3 +79,7 @@ h4 {
   margin: 23px;
   font-size: 14px !important;
 }
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
