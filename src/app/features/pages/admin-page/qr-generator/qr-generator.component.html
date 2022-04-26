@@ -11,13 +11,15 @@
 
     <form [formGroup]="formGroup" class="form">
         <mat-card>
-            <div class="btn-toolbar mb-3">
+            <div class="btn-toolbar mb-3" >
                 <div class="input-group">
-                    <mat-form-field appearance="fill" *ngFor="let qr of qrList" >
+                    <mat-form-field appearance="fill"  >
                         <mat-label>Selecione</mat-label>
                         <mat-select [(value)]="selected"  >
                             <mat-option value=""> - </mat-option>
-                            <mat-option value="{{qr.id}}" (click)="populateFields(qr)">{{qr.name}}</mat-option>
+                            <div *ngFor="let qr of qrList">
+                                <mat-option value="{{qr.name}}"  (click)="populateFields(qr)">{{qr.name}}</mat-option>
+                            </div>                         
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -68,6 +70,10 @@
                             [disabled]="!selected && !isQrViewEnabled" (click)="openDialog()"> Ver QR  </button>
                     </div>
 
+                    <div class="col-sm">
+                        <button color="default" type="submit" class="button btn"
+                            (click)="clear()"> Limpar  </button>
+                    </div>
 
                 </div>
             </div>

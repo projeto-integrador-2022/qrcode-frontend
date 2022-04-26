@@ -27,7 +27,7 @@ export class QrGeneratorService {
             .pipe(
                 retry(2),
                 catchError(this.handleError)
-            )
+            );
     }
 
     getQrList(): Observable<Qr> {
@@ -36,7 +36,7 @@ export class QrGeneratorService {
             .pipe(
                 retry(2),
                 catchError(this.handleError)
-            )
+            );
     }
 
     getQr(id: number): Observable<Qr> {
@@ -45,19 +45,26 @@ export class QrGeneratorService {
             .pipe(
                 retry(2),
                 catchError(this.handleError)
-            )
+            );
     }
 
-    updateItem(id: number, qr: Qr): Observable<Qr> {
+    updateQr(id: number, qr: Qr): Observable<Qr> {
         return this.http
             .put<Qr>(this.endpoint + '/' + id, JSON.stringify(qr), this.httpOptions)
             .pipe(
                 retry(2),
                 catchError(this.handleError)
-            )
+            );
     }
 
-
+    deleteQr(id: number): Observable<Qr> {
+        return this.http
+            .delete<Qr>(this.endpoint + '/' + id, this.httpOptions)
+            .pipe(
+                retry(2),
+                catchError(this.handleError)
+            );
+    }
     handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
             console.error('An error occurred:', error.error.message);
