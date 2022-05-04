@@ -15,7 +15,8 @@
     "test": "ng test",
     "fake-server": "json-server --host localhost --port 4201 src/assets/database/test-db.json",
     "fake-cities": "json-server --host localhost --port 4202 src/assets/database/estados-cidades.json",
-    "fake-qr-db": "json-server --host localhost --port 4203 src/assets/database/qr-db.json"
+    "fake-qr-db": "json-server --host localhost --port 4203 src/assets/database/qr-db.json",
+    "deploy": "ng deploy --base-href=/qrcode-frontend/"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "1.0.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
