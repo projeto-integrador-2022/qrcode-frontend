@@ -142,9 +142,9 @@ export class QrGeneratorComponent implements OnInit {
       this.formData[0]['name'] = this.formData[0][formName].substring(0, 20);
     }
 
-    if (this.formData[0]['announcement'].length > 137) {
-      this.formData[0]['announcement'] = this.formData[0][formName].substring(0, 137);
-    }
+    // if (this.formData[0]['announcement'].length > 137) {
+    //   this.formData[0]['announcement'] = this.formData[0][formName].substring(0, 137);
+    // }
   }
 
   clear() {

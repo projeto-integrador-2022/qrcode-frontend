@@ -2,48 +2,62 @@
     [style.width.px]="320" [style.height.px]="669">
 
     <div class="mobile-container">
-        <mat-grid-list cols="1" rowHeight="3:1">
-            <mat-grid-tile>
-                <h1>{{formData[0].name}}</h1>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <p>{{formData[0].announcement}}</p> 
-            </mat-grid-tile>
-
-        </mat-grid-list>
-
-        <form [formGroup]="formGroup" class="form mt-2">
-            <mat-form-field class="border">
-                <input matInput placeholder="Digite seu nome" formControlName="name">
-            </mat-form-field>
-
-            <mat-form-field class="border">
-                <input matInput placeholder="Digite seu Email" formControlName="email">
-            </mat-form-field>
-
-            <mat-radio-button [checked]="checked" (click)="onRadioClick()">Li e concordo com os <br> termos descritos <span>aqui</span></mat-radio-button>
-
-            <button mat-raised-button color="default" type="submit" class="button btn confirm-button"
-                [disabled]="!formGroup.valid  && !checked">Enviar</button>
+        <div class="grid">
+            <mat-card class="glass size-fixture">
+                <mat-card-title>
+                    <h1>{{formData[0].name}}</h1>
+                </mat-card-title>
+                <mat-card-title>
+                    <p>{{formData[0].announcement}}</p>
+                </mat-card-title>
+            </mat-card>
 
 
-            <footer id="sticky-footer" class="footer flex-shrink-0 py-4 bg-light customized-footer">
-                <mat-label>
-                    <p>Acesse nossas redes sociais </p>
-                </mat-label>
-                <div class="d-flex flex-row justify-content-between align-self-center"
-                    *ngFor="let data of formData; index as i">
+            <mat-card class="glass ">
+                <form [formGroup]="formGroup" class="form mt-2 p-2">
+                    <mat-form-field  class="border">
+                        <input matInput placeholder="Digite seu nome" formControlName="name">
+                    </mat-form-field>
 
-                    <div class="col" *ngIf="data.facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.officialpage !== ''"><img src="{{SOCIAL_ICONS[4].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.youtube !== ''"><img src="{{SOCIAL_ICONS[5].IMAGE}}"></div>
-                    <div class="col" *ngIf="data.voucherpage !== ''"><img src="{{SOCIAL_ICONS[6].IMAGE}}"></div>
-                </div>
-            </footer>
-        </form>
+                    <mat-form-field  class="border">
+                        <input matInput placeholder="Digite seu Email" formControlName="email">
+                    </mat-form-field>
+
+                    <mat-radio-button [checked]="checked" (click)="onRadioClick()">Li e concordo com os <br> termos
+                        descritos
+                        <span>aqui</span>
+                    </mat-radio-button>
+
+                    <button mat-button mat-raised-button color="primary" type="submit" 
+                        [disabled]="!formGroup.valid  && !checked">Confirmar</button>
+                </form>
+            </mat-card>
+
+            <mat-card class="glass">
+                <footer class="footer flex-shrink-0 bg-light customized-footer">
+                    <mat-label>
+                        <p>Acesse nossas redes sociais </p>
+                    </mat-label>
+                    <div class="d-flex flex-row justify-content-between align-self-center"
+                        *ngFor="let data of formData; index as i">
+
+                        <div class="col" *ngIf="data.facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}">
+                        </div>
+                        <div class="col" *ngIf="data.instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}">
+                        </div>
+                        <div class="col" *ngIf="data.whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}">
+                        </div>
+                        <div class="col" *ngIf="data.telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}">
+                        </div>
+                        <div class="col" *ngIf="data.officialpage !== ''"><img src="{{SOCIAL_ICONS[4].IMAGE}}">
+                        </div>
+                        <div class="col" *ngIf="data.youtube !== ''"><img src="{{SOCIAL_ICONS[5].IMAGE}}"></div>
+                        <div class="col" *ngIf="data.voucherpage !== ''"><img src="{{SOCIAL_ICONS[6].IMAGE}}"></div>
+                    </div>
+                </footer>
+            </mat-card>
+        </div>
+
 
     </div>
 
