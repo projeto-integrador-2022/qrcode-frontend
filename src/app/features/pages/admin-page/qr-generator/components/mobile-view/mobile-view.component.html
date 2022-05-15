@@ -15,11 +15,11 @@
 
             <mat-card class="glass ">
                 <form [formGroup]="formGroup" class="form mt-2 p-2">
-                    <mat-form-field  class="border">
+                    <mat-form-field class="border">
                         <input matInput placeholder="Digite seu nome" formControlName="name">
                     </mat-form-field>
 
-                    <mat-form-field  class="border">
+                    <mat-form-field class="border">
                         <input matInput placeholder="Digite seu Email" formControlName="email">
                     </mat-form-field>
 
@@ -28,32 +28,35 @@
                         <span>aqui</span>
                     </mat-radio-button>
 
-                    <button mat-button mat-raised-button color="primary" type="submit" 
-                        [disabled]="!formGroup.valid  && !checked">Confirmar</button>
+                    <div class="text-center">
+                        <button mat-button mat-raised-button color="primary" type="submit"
+                            class="btn button confirm-button"
+                            [disabled]="!formGroup.valid  && !checked">Confirmar</button>
+                    </div>
+
                 </form>
             </mat-card>
 
-            <mat-card class="glass">
-                <footer class="footer flex-shrink-0 bg-light customized-footer">
+            <mat-card class="glass icon-group">
+                <footer class="footer flex-shrink-0 py-1 bg-light customized-footer">
                     <mat-label>
                         <p>Acesse nossas redes sociais </p>
                     </mat-label>
-                    <div class="d-flex flex-row justify-content-between align-self-center"
+
+
+                    <div class="d-flex flex-row justify-content-between align-self-center mt-1"
                         *ngFor="let data of formData; index as i">
 
-                        <div class="col" *ngIf="data.facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}">
-                        </div>
-                        <div class="col" *ngIf="data.instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}">
-                        </div>
-                        <div class="col" *ngIf="data.whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}">
-                        </div>
-                        <div class="col" *ngIf="data.telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}">
-                        </div>
-                        <div class="col" *ngIf="data.officialpage !== ''"><img src="{{SOCIAL_ICONS[4].IMAGE}}">
-                        </div>
+                        <div class="col" *ngIf="data.facebookgroup !== ''"><img src="{{SOCIAL_ICONS[0].IMAGE}}"></div>
+                        <div class="col" *ngIf="data.instagramgroup !== ''"><img src="{{SOCIAL_ICONS[1].IMAGE}}"></div>
+                        <div class="col" *ngIf="data.whatsappgroup !== ''"><img src="{{SOCIAL_ICONS[2].IMAGE}}"></div>
+                        <div class="col" *ngIf="data.telegramgroup !== ''"><img src="{{SOCIAL_ICONS[3].IMAGE}}"></div>
+                        <div class="col" *ngIf="data.officialpage !== ''"><img src="{{SOCIAL_ICONS[4].IMAGE}}"></div>
                         <div class="col" *ngIf="data.youtube !== ''"><img src="{{SOCIAL_ICONS[5].IMAGE}}"></div>
                         <div class="col" *ngIf="data.voucherpage !== ''"><img src="{{SOCIAL_ICONS[6].IMAGE}}"></div>
                     </div>
+
+
                 </footer>
             </mat-card>
         </div>

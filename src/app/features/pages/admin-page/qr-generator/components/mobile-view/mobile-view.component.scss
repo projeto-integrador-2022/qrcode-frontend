@@ -21,6 +21,7 @@
         border: 1px solid rgba(255, 255, 255, 0.18);
         overflow-wrap: break-word;
 
+
     }
 
     .mat-card-subtitle {
@@ -138,6 +139,10 @@
     //     /*outer ring color change*/ 
     // }
 
+    .mat-button.mat-primary .mat-button-focus-overlay {
+        background-color: transparent;
+    }
+
     .mat-radio-button {
         margin: 5px 0 20px 10px;
     }
@@ -189,17 +194,27 @@
         border-radius: 6px !important;
         height: 30px;
         width: 100%;
-        margin: 10px 0 0 0;
+        margin: 5px 0 0 0;
         padding: 0;
-        
 
+        
+    }
+
+    .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+        background-color:#673ab7 !important;
+        color: #ffffff !important;
+        border-color: #673ab7;
     }
 
     footer img {
-        transform: translateY(-1vw);
-        margin: 0.2vw;
+        margin: 5px 0 0 0;
         width: 30px;
         height: 30px;
+    }
+
+    .icon-group {
+        padding: 0 10px 0 10px;
+        height: 70px;
     }
 
 
@@ -217,11 +232,9 @@
 .customized-footer {
     background-color: transparent !important;
     z-index: 3;
-    width: 104%;
-    height: 6vh;
     font-size: 24px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 0.3;
     text-align: center;
 }
 
