@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/shared/models/account';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
-
 import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
@@ -18,13 +17,14 @@ export class LoginComponent implements OnInit {
   password: string = '';
   hide: boolean = true;
   isError!: boolean;
-  isLogedIn!: boolean;
+  LOGIN_SENTENCES: any;
 
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) {
+    this.LOGIN_SENTENCES = SENTENCES.LOGIN;
+  }
 
   ngOnInit(): void {
-    this.isLogedIn = false;
+
     this.username = history.state.username;
     this.password = history.state.password;
 
@@ -42,18 +42,16 @@ export class LoginComponent implements OnInit {
   onSubmit(value: any) {
     this.accountService.getAccounts().subscribe((data: any) => {
       data.forEach((account: Account) => {
-        if(account.login?.username === value.username && account.login?.password === value.password) {      
-        this.authService.login();
-        this.isLogedIn = true;
-        this.router.navigate(['/admin-page']);
-
+        if (account.login?.username === value.username && account.login?.password === value.password) {
+          this.authService.login();
+          this.router.navigate(['/admin-page']);
         } else {
           this.isError = true;
-          this.isLogedIn = false;
         }
       });
-    })    
+    });
   }
+
 
   createForm() {
     this.formGroup = this.formBuilder.group({

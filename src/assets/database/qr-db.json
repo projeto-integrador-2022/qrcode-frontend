@@ -1,0 +1,34 @@
+{
+  "qr": [
+    {
+      "name": "Cine Astro",
+      "cnpj": null,
+      "email": "cine.astro@gmail.com",
+      "officialpage": "www.cine-astro.com",
+      "whatsappgroup": "www.grupo-whatsapp.com",
+      "telegramgroup": "www.grupo-telegram.com",
+      "facebookgroup": "www.grupo-facebook.com",
+      "instagramgroup": "www.grupo-instagram.com",
+      "youtube": "www.pagina-youtube.com",
+      "voucherpage": "www.cine-astro.com/voucher",
+      "announcement": "O Melhor audio e video da america latina!",
+      "image": "",
+      "id": 1
+    },
+    {
+      "name": "Gráfica Jesus",
+      "cnpj": null,
+      "email": "grafica.jesus@gmail.com",
+      "officialpage": "www.grafica-jesus.com",
+      "whatsappgroup": "www.grupo-ws.com",
+      "telegramgroup": "www.grupo-tg.com",
+      "facebookgroup": "www.grupo-fb.com",
+      "instagramgroup": "www.grupo-ig.com",
+      "youtube": "www.youtube.com/grafica-jesus",
+      "voucherpage": "www.grafica-jesus.com/voucher",
+      "announcement": "Imprima seus folders e banners conosco! Se inscreva para ganhar um voucher promocional",
+      "image": "",
+      "id": 2
+    }
+  ]
+}

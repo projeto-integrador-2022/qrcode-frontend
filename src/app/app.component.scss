@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
 
-body, html {
+body,
+html {
   height: auto;
-
   position: relative;
   background-color: #f8f8f8;
-  margin:60px 0 0 0 !important;
-
-
+  margin: 60px 0 0 0 !important;
 }
 
 
@@ -38,7 +36,9 @@ body, html {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   width: 18rem;
 }
-.button, .btn {
+
+.button,
+.btn {
   font-family: "Spartan", sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -47,7 +47,8 @@ body, html {
 }
 
 .btn:hover {
-  color: rgb(255, 174, 0) !important;
+  background-image: linear-gradient(to bottom, #ffcc5e, #ffc751, #ffc144, #ffbc36, #ffb626, #ffb626, #ffb626, #ffb626, #ffbc36, #ffc144, #ffc751, #ffcc5e);
+  color: rgb(255, 255, 255) !important;
 }
 
 h1 {
@@ -71,3 +72,14 @@ h4 {
   cursor: default;
 }
 
+
+.mat-tooltip {
+  background-image: linear-gradient(to bottom, #ffcc5e, #ffc751, #ffc144, #ffbc36, #ffb626, #ffb626, #ffb626, #ffb626, #ffbc36, #ffc144, #ffc751, #ffcc5e);
+  min-width: max-content;
+  margin: 23px;
+  font-size: 14px !important;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}

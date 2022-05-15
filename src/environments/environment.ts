@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  dev: false,
+  images: {
+    nav_bar: "../../../assets/images/qr-code-color.png",
+    about: '../../../assets/images/qr-code-color.png',
+    us:'../../../assets/images/ppl-working-cropped.jpg',
+  }
 };
 
 /*

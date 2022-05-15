@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Account } from '../models/account';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+
+import { Account } from '../models/account';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class AccountService {
 
   endpoint = 'http://localhost:4201/account';
+  //endpoint = 'http://localhost:8080/administrator';
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +38,16 @@ export class AccountService {
         catchError(this.handleError)
       )
   }
-
+/*
+getAccounts(username: string, password: string): Observable<any> {
+  return this.http
+    .post<any>(this.endpoint, {username: username, password: password})
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+}
+*/
 
   getItem(id: number): Observable<Account> {
     return this.http

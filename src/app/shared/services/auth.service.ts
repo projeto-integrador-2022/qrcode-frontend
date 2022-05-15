@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
@@ -11,11 +11,14 @@ export class AuthService {
         this.isLoggedIn$ = new BehaviorSubject(isLoggedIn);
     }
 
-
     getAuthStatus() {
         if (this.isLoggedIn$.value) {
             return true;
         } else return false;
+    }
+    
+    getUser() {
+        return localStorage.getItem('user');
     }
 
     login() {
@@ -24,6 +27,17 @@ export class AuthService {
         this.isLoggedIn$.next(true);
     }
 
+/*
+login(jwt: string) {
+    if (jwt) {
+        localStorage.setItem('loggedIn', 'true');
+        this.isLoggedIn$.next(true);
+    } else {
+        localStorage.setItem('loggedIn', 'false');
+        this.isLoggedIn$.next(false);
+    }
+}
+*/
     logout() {
         // logic
         localStorage.setItem('loggedIn', 'false');

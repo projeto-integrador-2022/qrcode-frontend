@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import SENTENCES from '../../../../assets/lib/sentences.json';
 
 @Component({
@@ -7,14 +8,14 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
   styleUrls: ['./us.component.scss'],
 })
 export class UsComponent implements OnInit {
-  imageUrl: string = '../../../assets/images/ppl-working-cropped.jpg'; 
+  imageUrl: string = environment.images.us; 
   US_SENTENCES: any;
   size: number = 0;
   
   constructor() {
     this.US_SENTENCES = SENTENCES.US;
   }
-
+ 
   ngOnInit(): void {
     this.size = this.US_SENTENCES.length;
     window.scroll({

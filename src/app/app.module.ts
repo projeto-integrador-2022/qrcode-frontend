@@ -18,9 +18,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/shared/modules/material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminPageComponent } from './features/pages/admin-page/admin-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { StartingComponent } from './features/pages/admin-page/starting/starting.component';
+import { TabComponent } from './shared/components/tab/tab.component';
+import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
+import { MobileViewComponent } from './features/pages/admin-page/qr-generator/components/mobile-view/mobile-view.component';
+import { QrDialogComponent } from './features/pages/admin-page/qr-generator/components/qr-dialog/qr-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,12 @@ import { AuthGuard } from './shared/services/auth.guard';
     ContactUsFormComponent,
     PaymentMethodsComponent,
     AdminPageComponent,
+    StartingComponent,
+    TabComponent,
+    QrGeneratorComponent,
+    MobileViewComponent,
+    QrDialogComponent,
+    
   ],
   imports: [
     HttpClientModule,
@@ -52,4 +63,4 @@ import { AuthGuard } from './shared/services/auth.guard';
   providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

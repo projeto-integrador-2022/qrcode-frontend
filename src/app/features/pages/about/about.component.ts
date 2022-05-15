@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import SENTENCES from '../../../../assets/lib/sentences.json';
 @Component({
   selector: 'app-about',
@@ -7,7 +8,7 @@ import SENTENCES from '../../../../assets/lib/sentences.json';
 })
 export class AboutComponent implements OnInit {
   ABOUT_SENTENCES: any;
-  imageUrl: string = '../../../assets/images/qr-code-color.png';
+  imageUrl: string = environment.images.about;
   size: number = 0;
 
   constructor() {

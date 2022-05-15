@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="row spacing mb-5">
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <h1 class="display-4 mb-5 ">{{INTRO_SENTENCES[0].SUB_TITLE}}</h1>
+                <p>{{INTRO_SENTENCES[0].DESCRIPTION}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <form [formGroup]="formGroup" class="form">
+        <mat-card>
+            <div class="btn-toolbar mb-3">
+                <div class="input-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Selecione</mat-label>
+                        <mat-select [(value)]="selected">
+                            <mat-option value=""> - </mat-option>
+                            <div *ngFor="let qr of qrList">
+                                <mat-option value="{{qr.name}}" (click)="populateFields(qr)">{{qr.name}}</mat-option>
+                            </div>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="btn-group">
+                    <div class="col-sm" *ngIf="selected">
+                        <img src="{{ ADMIN_SENTENCES[3].IMAGE }}" class="icon image-responsive">
+                    </div>
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button mat-raised-button color="default" type="submit" class="button btn" (click)="update()">
+                            <div class="col">Salvar <div class="spinner-border spinner-border-sm" *ngIf="saveSpinner">
+                                    <span class="sr-only"></span></div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button mat-raised-button color="default" type="submit" class="button btn" (click)="delete()">
+                            <div class="col">Deletar <div class="spinner-border spinner-border-sm" *ngIf="delSpinner">
+                                    <span class="sr-only"></span></div>
+                            </div>
+
+
+                        </button>
+                    </div>
+
+                    <div class="col-sm" *ngIf="selected">
+                        <button mat-raised-button color="default" type="submit" class="button btn"
+                            (click)="openDialog()">Ver QR</button>
+                    </div>
+
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <img src="{{ ADMIN_SENTENCES[1].IMAGE }}" class="icon image-responsive">
+                    </div>
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <button mat-raised-button color="default" type="submit" class="button btn"
+                            [disabled]="!formGroup.valid" (click)="save()">Salvar
+                            <div class="spinner-border spinner-border-sm" *ngIf="saveSpinner"><span
+                                    class="sr-only"></span></div>
+
+                        </button>
+                    </div>
+
+                    <div class="col-sm" *ngIf="!selected">
+                        <button mat-raised-button color="default" type="submit" class="button btn"
+                            [disabled]="!selected && !isQrViewEnabled" (click)="openDialog()"> Ver QR </button>
+                    </div>
+
+                    <div class="col-sm">
+                        <button mat-raised-button mat-raised-button color="default" type="submit" class="button btn"
+                            (click)="clear()"> Limpar </button>
+                    </div>
+
+                </div>
+            </div>
+        </mat-card>
+
+        <div class="text-center mt-5 mb-5">
+            <p *ngIf="selected !== ''">Loja Selecionada {{selected}}</p>
+            <p *ngIf="selected === ''">Complete o Formulário</p>
+        </div>
+
+        <mat-card class="qr-container">
+            <div class="grid">
+
+                <div class="row">
+                    <div class="nested">
+                        <div class="item" *ngFor="let ITEM of GENERATOR_SENTENCES; index as i">
+                            <span>
+                                <mat-form-field class="form-element">
+                                    <input matInput placeholder="{{GENERATOR_SENTENCES[i].TITLE}}"
+                                        formControlName="{{GENERATOR_SENTENCES[i].FORM_NAME}}"
+                                        (keyup)="updateMobileView($event, GENERATOR_SENTENCES[i].FORM_NAME)">
+                                    <mat-icon matSuffix matTooltip="{{GENERATOR_SENTENCES[i].BALOON_TIP}}"
+                                        matTooltipPosition="left">help_outline</mat-icon>
+                                </mat-form-field>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="item text-center image-item-ajustment">
+                        <p class="mt-2 mb-2"> Visão do Freguês</p>
+                        <mobile-view [formData]="formData"></mobile-view>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </form>
+
+    <div class="row spacing mb-5">
+        <div class="col-sm-12">
+            <div class="jumbotron instruction-style">
+                <h1 class="display-4">{{INTRO_SENTENCES[0].INSTRUCTIONS}}</h1>
+                <div class="container" *ngFor="let SENTENCE of INTRO_SENTENCES; index as i">
+                    <div class="row" *ngIf="i >= 1">
+                        <div class="col-sm-3 ">
+                            <p class="lead">{{SENTENCE.TITLE}}</p>
+                        </div>
+                        <div class="col-sm-1 ">
+                            <mat-icon class="ml-1">perm_device_information</mat-icon>
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="lead"><i>{{SENTENCE.DESCRIPTION}}</i></p>
+                        </div>
+                    </div>
+                    <hr class="my">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

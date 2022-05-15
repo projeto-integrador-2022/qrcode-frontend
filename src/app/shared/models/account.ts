@@ -4,16 +4,15 @@ import { PaymentPlan } from './payment-plan';
 
 
 export interface Account {
-    id?: number;
-    name: string;
-    surname: string;
+    completeName: string;
     email: string;
     phone: string;
-    address: string;
-    city: string;
     stateDistrict: string;
+    city: string;
+    address: string;
 
-    paymentPlan?: PaymentPlan;
-    creditCard?: CreditCard;
-    login?: User
+    login: User
+    creditCard: CreditCard;
+
+    paymentPlan: PaymentPlan;   
 }

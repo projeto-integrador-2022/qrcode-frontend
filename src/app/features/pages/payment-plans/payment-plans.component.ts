@@ -24,6 +24,8 @@ export class PaymentPlansComponent implements OnInit {
   }
 
   navigateTo(index: number) {
+    console.log(index);
+    
     
     this.router.navigate(['/payment-methods'], { state: { index: `${index}` }});
     

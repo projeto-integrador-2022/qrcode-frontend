@@ -1,5 +1,4 @@
 export interface CreditCard {
-  id?: number;
   cardNumber: string;
   ownerName: string;
   cardFlag: string;
