@@ -10,7 +10,7 @@ import { Account } from '../models/account';
 })
 export class AccountService {
 
-  endpoint = 'http://localhost:4201/account';
+  endpoint = 'http://qrctbackend.herokuapp.com/authenticate';
   //endpoint = 'http://localhost:8080/administrator';
 
   constructor(private http: HttpClient) { }
@@ -21,6 +21,7 @@ export class AccountService {
     })
   }
 
+  
   createAccount(account : Account): Observable<Account> {
     return this.http
       .post<Account>(this.endpoint, JSON.stringify(account), this.httpOptions)
@@ -30,28 +31,9 @@ export class AccountService {
       )
   }
 
-  getAccounts(): Observable<Account> {
+  login(loginParams : any): Observable<Account> {
     return this.http
-      .get<Account>(this.endpoint)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
-/*
-getAccounts(username: string, password: string): Observable<any> {
-  return this.http
-    .post<any>(this.endpoint, {username: username, password: password})
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
-}
-*/
-
-  getItem(id: number): Observable<Account> {
-    return this.http
-      .get<Account>(this.endpoint + '/' + id)
+      .post<Account>(this.endpoint, JSON.stringify(loginParams), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -59,24 +41,41 @@ getAccounts(username: string, password: string): Observable<any> {
   }
 
 
+  // getAccounts(): Observable<Account> {
+  //   return this.http
+  //     .get<Account>(this.endpoint)
+  //     .pipe(
+  //       retry(2),
+  //       catchError(this.handleError)
+  //     )
+  // }
 
-  updateItem(id: number, item: Account): Observable<Account> {
-    return this.http
-      .put<Account>(this.endpoint + '/' + id, JSON.stringify(item), this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
+  // getItem(id: number): Observable<Account> {
+  //   return this.http
+  //     .get<Account>(this.endpoint + '/' + id)
+  //     .pipe(
+  //       retry(2),
+  //       catchError(this.handleError)
+  //     )
+  // }
 
-  deleteItem(id: number) {
-    return this.http
-      .delete<Account>(this.endpoint + '/' + id, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
+  // updateItem(id: number, item: Account): Observable<Account> {
+  //   return this.http
+  //     .put<Account>(this.endpoint + '/' + id, JSON.stringify(item), this.httpOptions)
+  //     .pipe(
+  //       retry(2),
+  //       catchError(this.handleError)
+  //     )
+  // }
+
+  // deleteItem(id: number) {
+  //   return this.http
+  //     .delete<Account>(this.endpoint + '/' + id, this.httpOptions)
+  //     .pipe(
+  //       retry(2),
+  //       catchError(this.handleError)
+  //     )
+  // }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

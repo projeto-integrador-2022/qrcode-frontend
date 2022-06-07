@@ -27,6 +27,14 @@ export class AuthService {
         this.isLoggedIn$.next(true);
     }
 
+    setToken(token: string) {
+        localStorage.setItem('token', token);
+    }
+
+    setUser(user: string) {
+        localStorage.setItem('user', user);
+    }
+
 /*
 login(jwt: string) {
     if (jwt) {

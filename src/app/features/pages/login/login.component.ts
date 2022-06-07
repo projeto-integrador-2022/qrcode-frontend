@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   hide: boolean = true;
   isError!: boolean;
   LOGIN_SENTENCES: any;
+  token: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) {
     this.LOGIN_SENTENCES = SENTENCES.LOGIN;
@@ -40,16 +41,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    this.accountService.getAccounts().subscribe((data: any) => {
-      data.forEach((account: Account) => {
-        if (account.login?.username === value.username && account.login?.password === value.password) {
-          this.authService.login();
-          this.router.navigate(['/admin-page']);
-        } else {
-          this.isError = true;
-        }
-      });
-    });
+    let loginParams = {name: value.username, password: value.password};
+    this.token = this.accountService.login(loginParams).subscribe((data: any) => {
+      this.authService.setToken(data.token);
+      this.authService.setUser(data.user);
+      this.authService.login();
+      this.router.navigate(['/admin-page']);
+    })
+    console.log(this.token);
+
   }
 
 
