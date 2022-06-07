@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    let loginParams = {name: value.username, password: value.password};
+    let loginParams = {username: value.username, password: value.password};
     this.token = this.accountService.login(loginParams).subscribe((data: any) => {
       this.authService.setToken(data.token);
       this.authService.setUser(data.user);
