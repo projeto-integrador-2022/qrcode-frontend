@@ -5,12 +5,12 @@ export interface Qr {
     cnpj: string;
     email: string;
     officialpage: string;
-    whatsappgroup: string;
-    telegramgroup: string;
-    facebookgroup: string;
-    instagramgroup: string;
+    whatsapp: string;
+    telegram: string;
+    facebook: string;
+    instagram: string;
     youtube: string;
-    voucherpage: string;
+    voucher_url: string;
     image?: string;
     username?: string;
 }

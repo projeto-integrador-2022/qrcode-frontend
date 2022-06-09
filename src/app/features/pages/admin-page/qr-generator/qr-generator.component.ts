@@ -56,12 +56,12 @@ export class QrGeneratorComponent implements OnInit {
         cnpj: '',
         email: '',
         officialpage: '',
-        whatsappgroup: '',
-        telegramgroup: '',
-        facebookgroup: '',
-        instagramgroup: '',
+        whatsapp: '',
+        telegram: '',
+        facebook: '',
+        instagram: '',
         youtube: '',
-        voucherpage: '',
+        voucher_url: '',
         announce: ''
       }
     ]
@@ -77,12 +77,12 @@ export class QrGeneratorComponent implements OnInit {
       'cnpj': [null, Validators.pattern(cnpj)],
       'email': [null, [Validators.required, Validators.pattern(emailregex)]],
       'officialpage': [null, Validators.pattern(url)],
-      'whatsappgroup': [null, Validators.pattern(url)],
-      'telegramgroup': [null, Validators.pattern(url)],
-      'facebookgroup': [null, Validators.pattern(url)],
-      'instagramgroup': [null, Validators.pattern(url)],
+      'whatsapp': [null, Validators.pattern(url)],
+      'telegram': [null, Validators.pattern(url)],
+      'facebook': [null, Validators.pattern(url)],
+      'instagram': [null, Validators.pattern(url)],
       'youtube': [null, Validators.pattern(url)],
-      'voucherpage': [null, Validators.pattern(url)],
+      'voucher_url': [null, Validators.pattern(url)],
       'announce': [null, Validators.required]
     });
 
@@ -101,46 +101,49 @@ export class QrGeneratorComponent implements OnInit {
           this.qrList.push(code);
         })
       });
+      console.log(this.qrList);
+      
   }
 
 
   populateFields(data: Qr) {
-
     this.formGroup.get("product").setValue(data.product);
     this.formGroup.get("cnpj").setValue(data.cnpj);
     this.formGroup.get("email").setValue(data.email);
     this.formGroup.get("officialpage").setValue(data.officialpage);
-    this.formGroup.get("whatsappgroup").setValue(data.whatsappgroup);
-    this.formGroup.get("telegramgroup").setValue(data.telegramgroup);
-    this.formGroup.get("facebookgroup").setValue(data.facebookgroup);
-    this.formGroup.get("instagramgroup").setValue(data.instagramgroup);
+    this.formGroup.get("whatsapp").setValue(data.whatsapp);
+    this.formGroup.get("telegram").setValue(data.telegram);
+    this.formGroup.get("facebook").setValue(data.facebook);
+    this.formGroup.get("instagram").setValue(data.instagram);
     this.formGroup.get("youtube").setValue(data.youtube);
-    this.formGroup.get("voucherpage").setValue(data.voucherpage);
+    this.formGroup.get("voucher_url").setValue(data.voucher_url);
     this.formGroup.get("announce").setValue(data.announce);
 
     this.formData[0]['product'] = data.product;
     this.formData[0]['cnpj'] = data.cnpj;
     this.formData[0]['email'] = data.email;
     this.formData[0]['officialpage'] = data.officialpage;
-    this.formData[0]['whatsappgroup'] = data.whatsappgroup;
-    this.formData[0]['telegramgroup'] = data.telegramgroup;
-    this.formData[0]['facebookgroup'] = data.facebookgroup;
-    this.formData[0]['instagramgroup'] = data.instagramgroup;
+    this.formData[0]['whatsapp'] = data.whatsapp;
+    this.formData[0]['telegram'] = data.telegram;
+    this.formData[0]['facebook'] = data.facebook;
+    this.formData[0]['instagram'] = data.instagram;
     this.formData[0]['youtube'] = data.youtube;
-    this.formData[0]['voucherpage'] = data.voucherpage;
+    this.formData[0]['voucher_url'] = data.voucher_url;
     this.formData[0]['announce'] = data.announce;
 
   }
 
   updateMobileView(event: any, formName: string) {
-
     if (this.formGroup.controls[formName].valid) {
       this.formData[0][formName] = event.target.value;
     }
 
-    if (this.formData[0]['product'].length > 20) {
-      this.formData[0]['product'] = this.formData[0][formName].substring(0, 20);
-    }
+    if (this.formData[0]['product']) {
+      if (this.formData[0]['product'].length > 20) {
+        this.formData[0]['product'] = this.formData[0][formName].substring(0, 20);
+      }
+    } 
+    
 
     // if (this.formData[0]['announce'].length > 137) {
     //   this.formData[0]['announce'] = this.formData[0][formName].substring(0, 137);
@@ -165,12 +168,12 @@ export class QrGeneratorComponent implements OnInit {
       cnpj: this.formGroup.get('cnpj').value,
       email: this.formGroup.get('email').value,
       officialpage: this.formGroup.get('officialpage').value,
-      whatsappgroup: this.formGroup.get('whatsappgroup').value,
-      telegramgroup: this.formGroup.get('telegramgroup').value,
-      facebookgroup: this.formGroup.get('facebookgroup').value,
-      instagramgroup: this.formGroup.get('instagramgroup').value,
+      whatsapp: this.formGroup.get('whatsapp').value,
+      telegram: this.formGroup.get('telegram').value,
+      facebook: this.formGroup.get('facebook').value,
+      instagram: this.formGroup.get('instagram').value,
       youtube: this.formGroup.get('youtube').value,
-      voucherpage: this.formGroup.get('voucherpage').value,
+      voucher_url: this.formGroup.get('voucher_url').value,
       announce: this.formGroup.get('announce').value,
       username: localStorage.getItem('user')?.toString() 
     }
@@ -178,6 +181,7 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   saveNewQr(newQr: Qr) {
+    debugger
     this.qrService.saveNewQr(newQr).subscribe(
       (response) => {
         this.showSpinner('save');

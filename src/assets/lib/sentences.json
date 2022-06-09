@@ -233,7 +233,7 @@
     ],
     "GENERATOR": [
         {
-            "FORM_NAME": "name",
+            "FORM_NAME": "product",
             "TITLE": "Produto / Loja",
             "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente."
         },
@@ -258,22 +258,22 @@
             "BALOON_TIP": "A página oficial do cliente ou de um produto específico"
         },
         {
-            "FORM_NAME": "whatsappgroup",
+            "FORM_NAME": "whatsapp",
             "TITLE": "Grupo de WhatsApp",
             "BALOON_TIP": "Grupo de WhatsApp, é opcional e irá direcionar ao link"
         },
         {
-            "FORM_NAME": "telegramgroup",
+            "FORM_NAME": "telegram",
             "TITLE": "Grupo de Telegram",
             "BALOON_TIP": "Grupo de Telegram, é opcional e irá direcionar ao link"
         },
         {
-            "FORM_NAME": "facebookgroup",
+            "FORM_NAME": "facebook",
             "TITLE": "Grupo de Facebook",
             "BALOON_TIP": "Grupo de Facebook, é opcional e irá direcionar ao link"
         },
         {
-            "FORM_NAME": "instagramgroup",
+            "FORM_NAME": "instagram",
             "TITLE": "Página do Instagram",
             "BALOON_TIP": "Página do Instagram, é opcional e irá direcionar ao link"
         },
@@ -283,7 +283,7 @@
             "BALOON_TIP": "Página do Youtube, é opcional e irá direcionar ao link"
         },
         {
-            "FORM_NAME": "voucherpage",
+            "FORM_NAME": "voucher_url",
             "TITLE": "Página do Voucher",
             "BALOON_TIP": "Página do Voucher ou Promoção, é opcional e irá direcionar a um link"
         }
