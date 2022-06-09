@@ -10,7 +10,7 @@ import { Account } from '../models/account';
 })
 export class AccountService {
 
-  endpoint = 'http://localhost:8081/authenticate';
+  endpoint = 'http://20.226.8.18/authenticate';
   //endpoint = 'http://localhost:8080/administrator';
 
   constructor(private http: HttpClient) { }

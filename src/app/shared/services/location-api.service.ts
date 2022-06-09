@@ -8,7 +8,7 @@ import { StateDistrict } from '../models/state-district.model';
   providedIn: 'root',
 })
 export class LocationService {
-  endpoint = 'http://localhost:4202/estados';
+  endpoint = 'http://20.226.8.18/states';
 
   constructor(private http: HttpClient) {}
 

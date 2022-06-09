@@ -23,8 +23,11 @@ export class AuthService {
 
     login() {
         // logic
-        localStorage.setItem('loggedIn', 'true');
-        this.isLoggedIn$.next(true);
+        const token = localStorage.getItem('token');
+        if(token){
+            localStorage.setItem('loggedIn', 'true');
+            this.isLoggedIn$.next(true);
+        }
     }
 
     setToken(token: string) {
