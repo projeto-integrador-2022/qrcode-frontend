@@ -134,7 +134,7 @@ export class PaymentMethodsComponent implements OnInit {
   populateStates() {
     this.locationService.getStates().subscribe(
       (data: any) => {
-        this.states = data;
+        this.states = data.estados;
       },
       (error: any) => {
         console.log(error);
