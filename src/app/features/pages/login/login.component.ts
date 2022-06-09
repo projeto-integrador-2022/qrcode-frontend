@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     let loginParams = {username: value.username, password: value.password};
     this.token = this.accountService.login(loginParams).subscribe((data: any) => {
       this.authService.setToken(data.jwttoken);
+      this.authService.setUser(data.user);
       this.authService.login();
       this.router.navigate(['/admin-page']);
     })

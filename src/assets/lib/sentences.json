@@ -238,7 +238,7 @@
             "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente."
         },
         {
-            "FORM_NAME": "announcement",
+            "FORM_NAME": "announce",
             "TITLE": "Anúncio",
             "BALOON_TIP": "Descreva brevemente seu negócio ou produto."
         },

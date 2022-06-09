@@ -52,7 +52,7 @@ export class QrGeneratorComponent implements OnInit {
   buildFormData() {
     this.formData = [
       {
-        name: '',
+        product: '',
         cnpj: '',
         email: '',
         officialpage: '',
@@ -62,7 +62,7 @@ export class QrGeneratorComponent implements OnInit {
         instagramgroup: '',
         youtube: '',
         voucherpage: '',
-        announcement: ''
+        announce: ''
       }
     ]
   }
@@ -73,7 +73,7 @@ export class QrGeneratorComponent implements OnInit {
     let url: RegExp = /(https?:\/\/(www\.)?|www\.)((\w-?\.?){2,}\.)([a-z]){2,6}\/?([a-z0-9]|&|\.|\?|=|-|_|\#|%|:|\/)*/;
 
     this.formGroup = this.formBuilder.group({
-      'name': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      'product': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       'cnpj': [null, Validators.pattern(cnpj)],
       'email': [null, [Validators.required, Validators.pattern(emailregex)]],
       'officialpage': [null, Validators.pattern(url)],
@@ -83,7 +83,7 @@ export class QrGeneratorComponent implements OnInit {
       'instagramgroup': [null, Validators.pattern(url)],
       'youtube': [null, Validators.pattern(url)],
       'voucherpage': [null, Validators.pattern(url)],
-      'announcement': [null, Validators.required]
+      'announce': [null, Validators.required]
     });
 
   }
@@ -106,7 +106,7 @@ export class QrGeneratorComponent implements OnInit {
 
   populateFields(data: Qr) {
 
-    this.formGroup.get("name").setValue(data.name);
+    this.formGroup.get("product").setValue(data.product);
     this.formGroup.get("cnpj").setValue(data.cnpj);
     this.formGroup.get("email").setValue(data.email);
     this.formGroup.get("officialpage").setValue(data.officialpage);
@@ -116,9 +116,9 @@ export class QrGeneratorComponent implements OnInit {
     this.formGroup.get("instagramgroup").setValue(data.instagramgroup);
     this.formGroup.get("youtube").setValue(data.youtube);
     this.formGroup.get("voucherpage").setValue(data.voucherpage);
-    this.formGroup.get("announcement").setValue(data.announcement);
+    this.formGroup.get("announce").setValue(data.announce);
 
-    this.formData[0]['name'] = data.name;
+    this.formData[0]['product'] = data.product;
     this.formData[0]['cnpj'] = data.cnpj;
     this.formData[0]['email'] = data.email;
     this.formData[0]['officialpage'] = data.officialpage;
@@ -128,7 +128,7 @@ export class QrGeneratorComponent implements OnInit {
     this.formData[0]['instagramgroup'] = data.instagramgroup;
     this.formData[0]['youtube'] = data.youtube;
     this.formData[0]['voucherpage'] = data.voucherpage;
-    this.formData[0]['announcement'] = data.announcement;
+    this.formData[0]['announce'] = data.announce;
 
   }
 
@@ -138,12 +138,12 @@ export class QrGeneratorComponent implements OnInit {
       this.formData[0][formName] = event.target.value;
     }
 
-    if (this.formData[0]['name'].length > 20) {
-      this.formData[0]['name'] = this.formData[0][formName].substring(0, 20);
+    if (this.formData[0]['product'].length > 20) {
+      this.formData[0]['product'] = this.formData[0][formName].substring(0, 20);
     }
 
-    // if (this.formData[0]['announcement'].length > 137) {
-    //   this.formData[0]['announcement'] = this.formData[0][formName].substring(0, 137);
+    // if (this.formData[0]['announce'].length > 137) {
+    //   this.formData[0]['announce'] = this.formData[0][formName].substring(0, 137);
     // }
   }
 
@@ -161,7 +161,7 @@ export class QrGeneratorComponent implements OnInit {
 
   getQrObject() {
     let newQr: Qr = {
-      name: this.formGroup.get('name').value,
+      product: this.formGroup.get('product').value,
       cnpj: this.formGroup.get('cnpj').value,
       email: this.formGroup.get('email').value,
       officialpage: this.formGroup.get('officialpage').value,
@@ -171,8 +171,8 @@ export class QrGeneratorComponent implements OnInit {
       instagramgroup: this.formGroup.get('instagramgroup').value,
       youtube: this.formGroup.get('youtube').value,
       voucherpage: this.formGroup.get('voucherpage').value,
-      announcement: this.formGroup.get('announcement').value,
-      image: ''
+      announce: this.formGroup.get('announce').value,
+      username: localStorage.getItem('user')?.toString() 
     }
     return newQr;
   }
@@ -187,7 +187,7 @@ export class QrGeneratorComponent implements OnInit {
     this.qrList = [];
     this.getQrList();
     this.qrList.forEach(element => {
-      if (element.name === newQr.name) {
+      if (element.product === newQr.product) {
         this.image = element.image;
       }
 
@@ -198,7 +198,7 @@ export class QrGeneratorComponent implements OnInit {
 
   delete() {
     this.qrList.forEach(element => {
-      if (element.name === this.selected) {
+      if (element.product === this.selected) {
         this.qrService.deleteQr(element.id!).subscribe(
           (response) => {
             this.buildFormData();
@@ -213,7 +213,7 @@ export class QrGeneratorComponent implements OnInit {
 
   update() {
     this.qrList.forEach(element => {
-      if (element.name === this.selected) {
+      if (element.product === this.selected) {
         this.qrService.updateQr(element.id!, this.getQrObject()).subscribe(
           (response) => {
             this.isQrViewEnabled = true;

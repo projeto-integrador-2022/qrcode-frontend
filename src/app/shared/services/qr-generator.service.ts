@@ -10,14 +10,15 @@ import { Qr } from '../models/qr';
 })
 export class QrGeneratorService {
 
-    endpoint = 'http://localhost:4203/qr';
+    endpoint = 'http://20.226.8.18/qrcode';
     //endpoint = 'http://localhost:8080/administrator';
 
     constructor(private http: HttpClient) { }
 
     httpOptions = {
         headers: new HttpHeaders({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         })
     }
 
@@ -32,7 +33,7 @@ export class QrGeneratorService {
 
     getQrList(): Observable<Qr> {
         return this.http
-            .get<Qr>(this.endpoint)
+            .get<Qr>(this.endpoint + '/all/' + localStorage.getItem('user'), this.httpOptions)
             .pipe(
                 retry(2),
                 catchError(this.handleError)
@@ -50,7 +51,7 @@ export class QrGeneratorService {
 
     updateQr(id: number, qr: Qr): Observable<Qr> {
         return this.http
-            .put<Qr>(this.endpoint + '/' + id, JSON.stringify(qr), this.httpOptions)
+            .put<Qr>(this.endpoint, JSON.stringify(qr), this.httpOptions)
             .pipe(
                 retry(2),
                 catchError(this.handleError)

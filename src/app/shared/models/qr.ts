@@ -1,7 +1,7 @@
 export interface Qr {
     id?: number;
-    name: string;
-    announcement: string;
+    product: string;
+    announce: string;
     cnpj: string;
     email: string;
     officialpage: string;
@@ -12,4 +12,5 @@ export interface Qr {
     youtube: string;
     voucherpage: string;
     image?: string;
+    username?: string;
 }

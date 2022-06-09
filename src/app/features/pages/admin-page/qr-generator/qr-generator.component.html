@@ -18,7 +18,7 @@
                         <mat-select [(value)]="selected">
                             <mat-option value=""> - </mat-option>
                             <div *ngFor="let qr of qrList">
-                                <mat-option value="{{qr.name}}" (click)="populateFields(qr)">{{qr.name}}</mat-option>
+                                <mat-option value="{{qr.product}}" (click)="populateFields(qr)">{{qr.product}}</mat-option>
                             </div>
                         </mat-select>
                     </mat-form-field>
