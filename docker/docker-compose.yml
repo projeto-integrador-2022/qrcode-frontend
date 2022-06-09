@@ -1,27 +1,11 @@
 version: '3.3'
 
 services:
-  postgres-qrcode:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: "123456789"
-      POSTGRES_DB: "qrcode"
-    ports:
-      - "5432:5432"
-    networks:
-      - qrcode-network
   qrcode-backend:
     image: piads2022/qrcode-backend:1.0
     container_name: qrcode_backend
     restart: unless-stopped
     environment:
-      PROFILE: docker
+      PROFILE: homolog
     ports:
-      - "8080:8080"
-    depends_on:
-      - postgres-qrcode
-    networks:
-      - qrcode-network
-networks:
-  qrcode-network:
-    driver: bridge
+      - "8081:8081"
