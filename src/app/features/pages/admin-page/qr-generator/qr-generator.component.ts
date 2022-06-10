@@ -34,7 +34,7 @@ export class QrGeneratorComponent implements OnInit {
 
   qrList = Array<Qr>();
   qr!: Qr;
-  image: any;
+  base64: any;
 
   constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
@@ -55,7 +55,7 @@ export class QrGeneratorComponent implements OnInit {
         product: '',
         cnpj: '',
         email: '',
-        officialpage: '',
+        site_url: '',
         whatsapp: '',
         telegram: '',
         facebook: '',
@@ -76,7 +76,7 @@ export class QrGeneratorComponent implements OnInit {
       'product': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       'cnpj': [null, Validators.pattern(cnpj)],
       'email': [null, [Validators.required, Validators.pattern(emailregex)]],
-      'officialpage': [null, Validators.pattern(url)],
+      'site_url': [null, Validators.pattern(url)],
       'whatsapp': [null, Validators.pattern(url)],
       'telegram': [null, Validators.pattern(url)],
       'facebook': [null, Validators.pattern(url)],
@@ -101,8 +101,8 @@ export class QrGeneratorComponent implements OnInit {
           this.qrList.push(code);
         })
       });
-      console.log(this.qrList);
-      
+    console.log(this.qrList);
+
   }
 
 
@@ -110,7 +110,7 @@ export class QrGeneratorComponent implements OnInit {
     this.formGroup.get("product").setValue(data.product);
     this.formGroup.get("cnpj").setValue(data.cnpj);
     this.formGroup.get("email").setValue(data.email);
-    this.formGroup.get("officialpage").setValue(data.officialpage);
+    this.formGroup.get("site_url").setValue(data.site_url);
     this.formGroup.get("whatsapp").setValue(data.whatsapp);
     this.formGroup.get("telegram").setValue(data.telegram);
     this.formGroup.get("facebook").setValue(data.facebook);
@@ -122,7 +122,7 @@ export class QrGeneratorComponent implements OnInit {
     this.formData[0]['product'] = data.product;
     this.formData[0]['cnpj'] = data.cnpj;
     this.formData[0]['email'] = data.email;
-    this.formData[0]['officialpage'] = data.officialpage;
+    this.formData[0]['site_url'] = data.site_url;
     this.formData[0]['whatsapp'] = data.whatsapp;
     this.formData[0]['telegram'] = data.telegram;
     this.formData[0]['facebook'] = data.facebook;
@@ -131,6 +131,9 @@ export class QrGeneratorComponent implements OnInit {
     this.formData[0]['voucher_url'] = data.voucher_url;
     this.formData[0]['announce'] = data.announce;
 
+    this.base64 = data.qrcode;
+    window.localStorage.setItem(`base64`, this.base64);
+    
   }
 
   updateMobileView(event: any, formName: string) {
@@ -142,8 +145,8 @@ export class QrGeneratorComponent implements OnInit {
       if (this.formData[0]['product'].length > 20) {
         this.formData[0]['product'] = this.formData[0][formName].substring(0, 20);
       }
-    } 
-    
+    }
+
 
     // if (this.formData[0]['announce'].length > 137) {
     //   this.formData[0]['announce'] = this.formData[0][formName].substring(0, 137);
@@ -167,7 +170,7 @@ export class QrGeneratorComponent implements OnInit {
       product: this.formGroup.get('product').value,
       cnpj: this.formGroup.get('cnpj').value,
       email: this.formGroup.get('email').value,
-      officialpage: this.formGroup.get('officialpage').value,
+      site_url: this.formGroup.get('site_url').value,
       whatsapp: this.formGroup.get('whatsapp').value,
       telegram: this.formGroup.get('telegram').value,
       facebook: this.formGroup.get('facebook').value,
@@ -175,28 +178,24 @@ export class QrGeneratorComponent implements OnInit {
       youtube: this.formGroup.get('youtube').value,
       voucher_url: this.formGroup.get('voucher_url').value,
       announce: this.formGroup.get('announce').value,
-      username: localStorage.getItem('user')?.toString() 
+      username: localStorage.getItem('user')?.toString(),
+      qrcode: this.base64
     }
     return newQr;
   }
 
   saveNewQr(newQr: Qr) {
-    debugger
     this.qrService.saveNewQr(newQr).subscribe(
       (response) => {
         this.showSpinner('save');
         this.populateSelector();
       });
-
+    window.localStorage.setItem(`base64`, newQr.qrcode);  
+    this.base64 = newQr.qrcode; 
     this.qrList = [];
     this.getQrList();
-    this.qrList.forEach(element => {
-      if (element.product === newQr.product) {
-        this.image = element.image;
-      }
 
-    });
-    console.log(newQr);
+
 
   }
 
@@ -230,9 +229,10 @@ export class QrGeneratorComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(QrDialogComponent, {
-      data: this.image,
-      width: '20vw',
-      height: '35vh',
+      data: this.base64,
+      width: 'auto',
+      height: 'auto',
+      panelClass: 'custom-dialog-container'
     });
   }
 

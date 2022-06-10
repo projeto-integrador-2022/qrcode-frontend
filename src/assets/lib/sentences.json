@@ -253,7 +253,7 @@
             "BALOON_TIP": "O e-mail do cliente ou de um produto específico, para envio de relatórios"
         },
         {
-            "FORM_NAME": "officialpage",
+            "FORM_NAME": "site_url",
             "TITLE": "Página",
             "BALOON_TIP": "A página oficial do cliente ou de um produto específico"
         },
@@ -315,7 +315,7 @@
             "IMAGE": "../../../assets/images/telegram.png"
         },
         {
-            "NAME": "officialpage",
+            "NAME": "site_url",
             "IMAGE": "../../../assets/images/web.png"
         },
         {

@@ -4,7 +4,7 @@ export interface Qr {
     announce: string;
     cnpj: string;
     email: string;
-    officialpage: string;
+    site_url: string;
     whatsapp: string;
     telegram: string;
     facebook: string;
@@ -13,4 +13,5 @@ export interface Qr {
     voucher_url: string;
     image?: string;
     username?: string;
+    qrcode: string;
 }

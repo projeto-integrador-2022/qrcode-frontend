@@ -83,3 +83,10 @@ h4 {
   outline: none;
   box-shadow: none;
 }
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 4px;
+  background-image: linear-gradient(to left, #c9c9c9, #cfcfcf, #d6d6d6, #dcdcdc, #e3e3e3, #e2e2e2, #e1e1e1, #e0e0e0, #d7d7d7, #cdcdcd, #c4c4c4, #bbbbbb);
+
+
+}
