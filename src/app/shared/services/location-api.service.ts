@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { StateDistrict } from '../models/state-district.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocationService {
-  endpoint = 'http://20.226.8.18/states';
+  endpoint = environment.baseUrl + '/states';
 
   constructor(private http: HttpClient) {}
 

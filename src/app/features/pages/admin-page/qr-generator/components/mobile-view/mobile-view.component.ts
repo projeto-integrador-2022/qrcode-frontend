@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import SENTENCES from '../../../../../../../assets/lib/sentences.json';
+import SENTENCES_PROD from '../../../../../../../assets/lib/sentences-prod.json';
 
 @Component({
   selector: 'mobile-view',
@@ -15,7 +17,12 @@ export class MobileViewComponent implements OnInit {
   checked = false;
 
   constructor(private formBuilder: FormBuilder) {
-    this.SOCIAL_ICONS = SENTENCES.SOCIAL_ICONS;
+    if(environment.production){
+      this.SOCIAL_ICONS = SENTENCES_PROD.SOCIAL_ICONS
+    }else{
+      this.SOCIAL_ICONS = SENTENCES.SOCIAL_ICONS;
+    }
+    
   }
 
   ngOnInit(): void {

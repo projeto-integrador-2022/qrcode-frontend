@@ -5,7 +5,8 @@ import { Account } from 'src/app/shared/models/account';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import SENTENCES from '../../../../assets/lib/sentences.json';
-
+import SENTENCES_PROD from '../../../../assets/lib/sentences-prod.json';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit {
   token: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private accountService: AccountService, public authService: AuthService) {
-    this.LOGIN_SENTENCES = SENTENCES.LOGIN;
+    if(environment.production){
+      this.LOGIN_SENTENCES = SENTENCES_PROD.LOGIN;
+    }else{
+      this.LOGIN_SENTENCES = SENTENCES.LOGIN;
+    }
   }
 
   ngOnInit(): void {

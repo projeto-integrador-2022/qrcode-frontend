@@ -40,6 +40,7 @@ export class AuthService {
 
     logout() {
         localStorage.setItem('loggedIn', 'false');
+        localStorage.clear();
         this.isLoggedIn$.next(false);
     }
 }

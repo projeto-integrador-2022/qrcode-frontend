@@ -4,13 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 import { Qr } from '../models/qr';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class QrGeneratorService {
 
-    endpoint = 'http://20.226.8.18/qrcode';
+    endpoint = environment.baseUrl + '/qrcode';
     //endpoint = 'http://localhost:8080/administrator';
 
     constructor(private http: HttpClient) { }

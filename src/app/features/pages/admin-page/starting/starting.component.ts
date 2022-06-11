@@ -1,5 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import SENTENCES from '../../../../../assets/lib/sentences.json'
+import SENTENCES_PROD from '../../../../../assets/lib/sentences-prod.json'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'starting-component',
@@ -12,7 +15,11 @@ export class StartingComponent implements OnInit {
   size: number = 0;
 
   constructor() {
-    this.ADMIN_PAGE_SENTENCES = SENTENCES.ADMIN_PAGE ;
+    if(environment.production){
+      this.ADMIN_PAGE_SENTENCES = SENTENCES_PROD.ADMIN_PAGE;
+    }else{
+      this.ADMIN_PAGE_SENTENCES = SENTENCES.ADMIN_PAGE;
+    }
   }
 
   ngOnInit(): void {

@@ -4,14 +4,15 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 import { Account } from '../models/account';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  authEndpoint = 'http://20.226.8.18/authenticate';
-  accountEndpoint = 'http://20.226.8.18/administrator';
+  authEndpoint = environment.baseUrl + '/authenticate';
+  accountEndpoint = environment.baseUrl + '/administrator';
 
   constructor(private http: HttpClient) { }
 
