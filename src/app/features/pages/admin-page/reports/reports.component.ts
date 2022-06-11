@@ -7,7 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./reports.component.scss'],
 })
 export class ReportsComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'storeName', 'name', 'email'];
+  displayedColumns: string[] = ['position', 'storeName', 'accessedPage', 'name', 'city', 'email', 'accessDate', 'sessionTime', 'os', 'browser'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   ngOnInit(): void {
@@ -20,18 +20,32 @@ export class ReportsComponent implements OnInit {
 }
 
 export interface PeriodicElement {
-  name: string;
+
   position: number;
   storeName: string;
+  accessedPage: string;
+  name: string;
+  city: string;
   email: string;
+  accessDate: string;
+  sessionTime: string;
+  os: string
+  browser: string;
+  
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
     position: 1, 
     storeName: 'Cine Astro', 
+    accessedPage: 'Voucher',
     name: 'John Doe', 
-    email: 'john.doe@gmail.com'
+    city: 'Goiânia',
+    email: 'john.doe@gmail.com',
+    accessDate: '05/05/2020 - 12:35:08',
+    sessionTime: '2m e 30s',
+    os: 'Apple Iphone Pro',
+    browser: 'Safari'
   },
 
 

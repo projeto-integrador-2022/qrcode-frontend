@@ -22,7 +22,6 @@ export class AuthService {
     }
 
     login() {
-        // logic
         const token = localStorage.getItem('token');
         if(token){
             localStorage.setItem('loggedIn', 'true');
@@ -38,19 +37,8 @@ export class AuthService {
         localStorage.setItem('user', user);
     }
 
-/*
-login(jwt: string) {
-    if (jwt) {
-        localStorage.setItem('loggedIn', 'true');
-        this.isLoggedIn$.next(true);
-    } else {
-        localStorage.setItem('loggedIn', 'false');
-        this.isLoggedIn$.next(false);
-    }
-}
-*/
+
     logout() {
-        // logic
         localStorage.setItem('loggedIn', 'false');
         this.isLoggedIn$.next(false);
     }

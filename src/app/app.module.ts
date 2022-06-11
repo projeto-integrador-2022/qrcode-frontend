@@ -26,6 +26,7 @@ import { TabComponent } from './shared/components/tab/tab.component';
 import { QrGeneratorComponent } from './features/pages/admin-page/qr-generator/qr-generator.component';
 import { MobileViewComponent } from './features/pages/admin-page/qr-generator/components/mobile-view/mobile-view.component';
 import { QrDialogComponent } from './features/pages/admin-page/qr-generator/components/qr-dialog/qr-dialog.component';
+import { ReportsComponent } from './features/pages/admin-page/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { QrDialogComponent } from './features/pages/admin-page/qr-generator/comp
     QrGeneratorComponent,
     MobileViewComponent,
     QrDialogComponent,
+    ReportsComponent,
     
   ],
   imports: [

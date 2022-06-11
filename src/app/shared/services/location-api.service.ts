@@ -21,14 +21,12 @@ export class LocationService {
   getStates(): Observable<StateDistrict[]> {
     return this.http.get<StateDistrict[]>(this.endpoint)
       .pipe(
-        retry(2),
         catchError(this.handleError))
   }
 
   getCities(state: string): Observable<StateDistrict> {
     return this.http.get<StateDistrict>(this.endpoint + '/?nome=' )
       .pipe(
-        retry(2),
         catchError(this.handleError))
   }
   

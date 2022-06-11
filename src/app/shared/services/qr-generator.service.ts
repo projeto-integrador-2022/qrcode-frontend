@@ -26,7 +26,6 @@ export class QrGeneratorService {
         return this.http
             .post<Qr>(this.endpoint, JSON.stringify(qr), this.httpOptions)
             .pipe(
-                retry(2),
                 catchError(this.handleError)
             );
     }
@@ -35,7 +34,6 @@ export class QrGeneratorService {
         return this.http
             .get<Qr>(this.endpoint + '/all/' + localStorage.getItem('user'), this.httpOptions)
             .pipe(
-                retry(2),
                 catchError(this.handleError)
             );
     }
@@ -44,7 +42,6 @@ export class QrGeneratorService {
         return this.http
             .get<Qr>(this.endpoint + '/' + id)
             .pipe(
-                retry(2),
                 catchError(this.handleError)
             );
     }
@@ -53,7 +50,6 @@ export class QrGeneratorService {
         return this.http
             .put<Qr>(this.endpoint, JSON.stringify(qr), this.httpOptions)
             .pipe(
-                retry(2),
                 catchError(this.handleError)
             );
     }
@@ -62,7 +58,6 @@ export class QrGeneratorService {
         return this.http
             .delete<Qr>(this.endpoint + '/' + id, this.httpOptions)
             .pipe(
-                retry(2),
                 catchError(this.handleError)
             );
     }

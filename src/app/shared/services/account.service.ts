@@ -26,7 +26,6 @@ export class AccountService {
     return this.http
       .post<Account>(this.accountEndpoint, JSON.stringify(account), this.httpOptions)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       )
   }
@@ -35,7 +34,6 @@ export class AccountService {
     return this.http
       .post<Account>(this.authEndpoint, JSON.stringify(loginParams), this.httpOptions)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       )
   }
