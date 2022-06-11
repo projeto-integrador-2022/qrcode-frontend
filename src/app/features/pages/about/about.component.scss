@@ -46,3 +46,15 @@ button {
     height: 160px !important;
   }
 }
+
+@media (max-width: 480px) {
+  .margin-fixture {
+    margin-top: 250px !important;
+    margin-bottom: 100px !important;
+  }
+
+  .my-4 {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+}

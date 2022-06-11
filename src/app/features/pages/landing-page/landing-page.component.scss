@@ -56,4 +56,21 @@ h1, h4 {
         max-height: 300px;
     }
 
+   
+
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 220px !important;
+      }
+    .img-responsive {
+        margin-top: 30px;
+        max-width: 88%;
+    }
+
+    .my-4 {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
 }
