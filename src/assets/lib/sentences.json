@@ -17,17 +17,17 @@
         {
             "TITLE": "Realidade Aumentada no seu negócio.",
             "DESCRIPTION": "Incremente seu negócio usando Q.R Code e fique sabendo mais sobre seu cliente!",
-            "IMAGE": "../../../assets/images/image-example.png"
+            "IMAGE": "../../../assets/images/augmented-reality.jpg"
         },
         {
             "TITLE": "Quem são seus clientes?",
             "DESCRIPTION": "Descubra os hábitos de consumo da sua clientela, onde e quando estiveram em sua loja. Saiba quem é seu freguês!",
-            "IMAGE": "../../../assets/images/image-example.png"
+            "IMAGE": "../../../assets/images/quem-sao-seus-clientes.jpg"
         },
         {
             "TITLE": "Donos de Gráficas",
             "DESCRIPTION": "Além de gerar o QR Code, agregue valor ao seu negócio e ofereça nosso serviço de rastreamento de clientela.",
-            "IMAGE": "../../../assets/images/image-example.png"
+            "IMAGE": "../../../assets/images/printers.jpg"
         }
     ],
     "LOGIN": [
