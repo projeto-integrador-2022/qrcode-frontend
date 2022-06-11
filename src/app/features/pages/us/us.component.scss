@@ -17,6 +17,9 @@
 }
 
 @media (max-width: 480px) {
+    .container {
+        margin-top: 68px !important;
+    }
     .my-4 {
         margin-top: 50px !important;
         margin-bottom: 50px !important;
