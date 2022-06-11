@@ -66,3 +66,9 @@ mat-card {
 
 }
 
+
+@media (max-width: 480px) {
+    .col-6 {
+      width: 100% !important;
+    }
+  }

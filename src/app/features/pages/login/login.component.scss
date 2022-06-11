@@ -85,3 +85,10 @@ mat-form-field {
     margin-top: 50px;
   }
 }
+
+
+@media (max-width: 480px) { 
+  .container {
+    margin-top: 185px;
+  }
+}

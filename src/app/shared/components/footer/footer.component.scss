@@ -36,3 +36,31 @@ small:hover {
     }
   }
 }
+
+@media (max-width: 480px) {
+  footer {
+    max-height: 80px;
+    padding: 5px;
+    
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+  .py-4 {
+    padding: 8px 20px 8px 20px !important;
+  }
+  .btn {
+    height: 36px;
+    margin: 4px 0 4px 0;
+
+    span {
+      font-size: 13px;
+    
+    }
+
+  }
+
+
+}

@@ -22,3 +22,9 @@
     position: fixed !important;
     width: 100% !important;
 }
+
+@media (max-width: 480px) {
+    .margin-fixture {
+      margin-top: 207px !important;
+    }
+  }

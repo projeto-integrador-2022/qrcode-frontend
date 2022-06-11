@@ -35,3 +35,23 @@ body {
 .mat-tab-body-content {
     overflow: hidden !important;
 }
+
+@media (max-width: 480px) {
+    
+    .container {
+
+        margin-top: 91px !important;
+    }
+    .container .jumbotron {
+        padding: 10px !important;
+    }
+
+    .container img {
+        max-height: 100%;
+    }
+
+    .my-4 {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+}
