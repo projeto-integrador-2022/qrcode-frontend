@@ -52,6 +52,7 @@ login(jwt: string) {
     logout() {
         // logic
         localStorage.setItem('loggedIn', 'false');
+        localStorage.clear();
         this.isLoggedIn$.next(false);
     }
 }

@@ -1,0 +1,330 @@
+{
+    "ABOUT": [
+        {
+            "TITLE": "Realidade Aumentada no seu negócio",
+            "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan, augue et consequat gravida, velit tellus porttitor felis, nec accumsan quam arcu at turpis. Aenean congue arcu ex, in elementum felis tristique quis. Sed in tortor in odio fringilla consequat. Duis finibus elementum euismod. Donec vestibulum scelerisque eros ac varius. Nulla venenatis dignissim risus, non vestibulum lectus tristique et. Phasellus porta ac urna quis vehicula. Maecenas eget bibendum tortor. Praesent laoreet, sem ac iaculis interdum, metus libero convallis nisl, non lacinia nibh augue nec neque. Curabitur condimentum sapien ut nisi consequat, a efficitur neque lacinia. Fusce accumsan, massa a vehicula luctus, metus mauris posuere metus, quis tempor augue lorem in orci. Nam in congue eros, et accumsan justo."
+        },
+        {
+            "TITLE": "Quem são seus clientes?",
+            "DESCRIPTION": "hasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu. Suspendisse potenti. Aliquam erat volutpat. Quisque sed rutrum lacus. Donec blandit tortor et consectetur dignissim. Phasellus porta, diam a tincidunt commodo, orci ligula dictum sapien, ac sollicitudin justo nulla vitae magna. Phasellus euismod suscipit dui nec pretium. Donec sed risus quis quam cursus semper eu non sem. Donec quis dolor at elit blandit luctus quis ac felis. Aenean ac lobortis ligula. Nullam nec metus arcu."
+        },
+        {
+            "TITLE": "Donos de Gráficas",
+            "DESCRIPTION": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget orci vitae, scelerisque hendrerit mauris. Fusce id condimentum dui. Nullam sed sapien vitae erat mattis iaculis. Aliquam interdum interdum iaculis. Aenean consequat sit amet odio vitae lobortis. Donec ullamcorper elit nec turpis egestas, vel laoreet quam vehicula. Quisque vel arcu interdum, pulvinar quam at, dignissim eros. Integer volutpat pulvinar nisi ac faucibus. Aliquam elit augue, pretium et lorem a, condimentum maximus eros."
+        }
+    ],
+    "LANDING_PAGE": [
+        {
+            "TITLE": "Realidade Aumentada no seu negócio.",
+            "DESCRIPTION": "Incremente seu negócio usando Q.R Code e fique sabendo mais sobre seu cliente!",
+            "IMAGE": "../../../qrcode-frontend/assets/images/image-example.png"
+        },
+        {
+            "TITLE": "Quem são seus clientes?",
+            "DESCRIPTION": "Descubra os hábitos de consumo da sua clientela, onde e quando estiveram em sua loja. Saiba quem é seu freguês!",
+            "IMAGE": "../../../qrcode-frontend/assets/images/image-example.png"
+        },
+        {
+            "TITLE": "Donos de Gráficas",
+            "DESCRIPTION": "Além de gerar o QR Code, agregue valor ao seu negócio e ofereça nosso serviço de rastreamento de clientela.",
+            "IMAGE": "../../../qrcode-frontend/assets/images/image-example.png"
+        }
+    ],
+    "LOGIN": [
+        {
+            "TITLE": "Bem Vindo!",
+            "IMAGE": "../../../qrcode-frontend/assets/images/qr-code-color.png",
+            "ALERT": "Você já está logado!",
+            "BUTTON_TEXT_REDIRECT": "Voltar para página de administrador",
+            "BUTTON_TEXT": "Entrar",
+            "PASSWORD_FORGOTTEN": "Esqueceu sua senha?",
+            "USERNAME": "Nome do Usuário",
+            "PASSWORD": "Senha"
+        }
+    ],
+    "PAYMENT_PLANS": [
+        {
+            "TITLE": "Starter",
+            "REPORTS": "Relatórios Mensais",
+            "USERS": "Até 2 Usuários",
+            "THIRD_PARTYS": "Até 10 Clientes",
+            "PRICE": "R$ 350,00 /mês"
+        },
+        {
+            "TITLE": "Professional",
+            "REPORTS": "Relatórios em Tempo Real",
+            "USERS": "Multiplos Usuários",
+            "THIRD_PARTYS": "Até 20 Clientes",
+            "PRICE": "R$ 750,00 /mês"
+        },
+        {
+            "TITLE": "Enterprise",
+            "REPORTS": "Relatórios em Tempo Real",
+            "USERS": "Até 2 Usuários",
+            "THIRD_PARTYS": "Quantidade Fixa de Clientes",
+            "PRICE": "R$ 150,00 /mês /usuário"
+        }
+    ],
+    "FAQ": [
+        {
+            "TITLE": "Quais cartões de créditos aceitos?",
+            "DESCRIPTION": "Nullam mauris nulla, placerat egestas elit et, venenatis porttitor nisl. Nulla vel velit eu lectus bibendum blandit eu molestie nisl. Mauris sed cursus sem. "
+        },
+        {
+            "TITLE": "Posso pagar por Pix?",
+            "DESCRIPTION": "Vivamus venenatis erat ullamcorper auctor congue. Nunc varius, odio id maximus congue, velit diam elementum dolor, at eleifend est dui non nisl."
+        },
+        {
+            "TITLE": "Posso cancelar a qualquer momento?",
+            "DESCRIPTION": "Sed neque tellus, finibus sed rhoncus a, vehicula eu enim. Cras condimentum lorem vel nisl interdum, ac placerat augue semper. Quisque iaculis dictum ex."
+        },
+        {
+            "TITLE": "Posso dividir minha assinatura?",
+            "DESCRIPTION": "Nunc a pretium massa. Donec nulla turpis, rutrum eget metus ultricies, eleifend sagittis diam. Donec fringilla erat enim. Integer luctus nisl tortor, at lacinia."
+        },
+        {
+            "TITLE": "Posso trocar o plano?",
+            "DESCRIPTION": "lectus cursus tincidunt. Nullam lobortis ornare commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        },
+        {
+            "TITLE": "Como são entregues os relatórios mensais? E como funciona os Relatórios em Tempo Real?",
+            "DESCRIPTION": "Quisque suscipit aliquet egestas. Etiam euismod placerat quam et rhoncus. Nunc mollis dolor at mi gravida ornare. Sed hendrerit egestas ultrices."
+        }
+    ],
+    "US": [
+        {
+            "TITLE": "A Big Hiccups Soluções",
+            "TEXT1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur",
+            "TEXT2": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT3": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu."
+        },
+        {
+            "TITLE": "Nossa Equipe",
+            "TEXT1": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur.",
+            "TEXT3": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu."
+        },
+        {
+            "TITLE": "Fale Conosco!",
+            "TEXT1": "Phasellus ullamcorper porttitor eleifend. In in ante quis libero convallis tempor nec quis arcu.",
+            "TEXT2": "Pellentesque tristique ipsum a venenatis auctor. Duis metus turpis, fermentum eget  orci  vitae.",
+            "TEXT3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tortor et consectetur."
+        }
+    ],
+    "REGISTER": [
+        {
+            "USERNAME": "Nome do Usuário",
+            "NAME": "Nome",
+            "SOBRENOME": "Sobrenome",
+            "ADDRESS": "Endereço",
+            "STATE": "Estado",
+            "CITY": "Cidade",
+            "EMAIL": "E-mail",
+            "PHONE": "Telefone",
+            "PAYMENT_METHOD": "Método de Pagamento",
+            "PASSWORD": "Senha",
+            "CONFIRMATION": "Confirmação de Senha"
+        }
+    ],
+    "CREDIT_CARD": [
+        {
+            "TITLE": "Dados do Cartão de Crédito",
+            "NUMBER": "Número do Cartão",
+            "NAME": "Nome do Titular",
+            "EXPIRATION": "Validade",
+            "CVC": "Código de Segurança",
+            "TAG": "Bandeira do Cartão",
+            "TAG1": "Visa",
+            "TAG2": "Mastercard",
+            "TAG3": "American Express",
+            "TAG4": "Diners Club",
+            "TAG5": "Elo",
+            "VALUE": "Valor a Pagar: R$",
+            "BUTTON_TEXT": "Confirmar"
+        }
+    ],
+    "PROCESSING_SOLICITATION": [
+        {
+            "PROCESSING_PAYMENT": "Sua compra está sendo processada junto ao banco, aguarde um momento...",
+            "CREDIT_CARD_ACCEPTED": "Solicitação aceita pela administradora do cartão",
+            "CREDIT_CARD_NOT_ACCEPTED": "Solicitação rejeitada pela administradora do cartão",
+            "CREATING_ACCOUNT": "Sua conta está sendo criada, aguarde um momento...",
+            "OK": "Conta criada com sucesso! Redirecionando...."
+        }
+    ],
+    "FORM_ERROR": [
+        {
+            "REQUIRED": "Preenchimento necessário",
+            "NAME_IN_USE": "Este nome já está sendo usado",
+            "FILL_CRITERIA": "Nome deve conter mais de 3 letras",
+            "INVALID_NAME": "Nome inválido",
+            "INVALID_EMAIL": "E-mail inválido",
+            "EMAIL_IN_USE": "Este e-mail já está sendo usado",
+            "CVC_NOT_VALID": "Código de segurança inválido",
+            "CARD_NUMBER_NOT_VALID": "Número do cartão inválido",
+            "CARD_EXPIRATION_NOT_VALID": "Data inválida, precisa estar em formato mm/aa",
+            "PHONE_NOT_VALID": "Não é um número de telefone válido",
+            "PASSWORD_NOT_VALID": "A senha precisa ter no mínimo 8 digitos, pelo menos uma letra maiúscula e um número",
+            "PASSWORD_NOT_MATCH": "As senhas não conferem",
+            "USERNAME_OR_PASSWORD_NOT_VALID": "Usuário ou senha inválidos"
+        }
+    ],
+    "ADMIN_PAGE": [
+        {
+            "TITLE": "Início",
+            "SUB_TITLE": "Bem Vindo!",
+            "DESCRIPTION": "Esse serviço oferece para empresas a possibilidade de gerar Códigos QR personalizados para si mesma ou para seus clientes. Quando os códigos são lidos, o freguês é redirecionado para uma página personalizada, oferecendo vários recursos de redirecionamento. O administrador poderá gerar e gerenciar Códigos QR personalizados e também ver relatórios.  Veja abaixo para saber mais detalhes sobre cada componente desse sistema.",
+            "IMAGE": ""
+        },
+        {
+            "TITLE": "Gerador",
+            "SUB_TITLE": "Gerador de Códigos QR",
+            "DESCRIPTION": "Complete os campos, gere e visualize o Código QR, veja uma prévia do ponto de vista do freguês. O sistema é totalmente customizável, você pode definir o título, anúncio, redirecionamento para páginas sociais, banner, voucher promocionais. ",
+            "IMAGE": "../../../qrcode-frontend/assets/images/manufacturing.png"
+        },
+        {
+            "TITLE": "Relatórios",
+            "SUB_TITLE": "Relatórios dos fregueses",
+            "DESCRIPTION": "Quem são os freguêses dos seu cliente? Visualize as dados sobre os fregueses que fizeram a leitura de um código, fique sabendo sobre seus hábitos de consumo e estatísticas. Envie o relatório diretamente para seu cliente",
+            "IMAGE": "../../../qrcode-frontend/assets/images/report.png"
+        },
+        {
+            "TITLE": "Gerência",
+            "SUB_TITLE": "Gerência de Códigos QR",
+            "DESCRIPTION": "Aréa dedicada a edição de Códigos QR previamente criados, selecionando o produto, é possível alterar os dados que serão exibidos para o freguês após a leitura do código. Também é possível deletar seu conteúdo ou todo o código.",
+            "IMAGE": "../../../qrcode-frontend/assets/images/management.png"
+        }
+    ],
+    "QR_GENERATOR_INFO": [
+        {
+            "SUB_TITLE": "Gerador de Códigos QR",
+            "DESCRIPTION": "Para gerar um Código Qr eficiente, adicione o máximo de campos que puder, alguns não são obrigatórios, mas ainda assim, é importante que sejam preenchidos. Lembre-se que, ao ler o código, será apresentado ao freguês uma página semelhante à 'Visão do Freguês'. Nesse momento ela é apenas uma visualização, assim é mais facil prever como a página vai se apresentar após a leitura do código. ",
+            "INSTRUCTIONS": "Instruções Adicionais"
+        },
+        {
+            "TITLE": "Nome ou Produto",
+            "DESCRIPTION": "Deve ser adicionado o nome do seu cliente ou produto, servirá como um título que será exibido após a leitura do código."
+        },       
+        {
+            "TITLE": "Anúncio",
+            "DESCRIPTION": "Deve ser adicionado um anúncio que será exibido como uma descrição, podendo conter um slogan, um anúncio, ou algo que chame a atenção do freguês."
+        },
+        {
+            "TITLE": "Voucher",
+            "DESCRIPTION": "Aqui pode ser disponibilizado um voucher que quando o cliente se inscrever com seu nome, email e confirmar, um icone de voucher deverá surgir, este deve ser um redirecionamento para uma página contendo o código que será apresentado pelo freguês no estabelecimento."
+        },
+        {
+            "TITLE": "Redes Sociais",
+            "DESCRIPTION": "Os demais campos devem ser preenchidos com os links para as páginas sociais do seu cliente, podendo ser adicionado um link para o Facebook, Instagram, Youtube etc."
+        },
+        {
+            "TITLE": "CNPJ",
+            "DESCRIPTION": "Incluindo o CNPJ, é possível que varios produtos sejam associados a uma mesma empresa, facilitando o cruzamento de dados em relatório."
+        },
+        {
+            "TITLE": "Armazenamento",
+            "DESCRIPTION": "Ao inserir as informações e efetuar o salvamento, os dados serão armazenados em nossos bancos de dados. Escolhendo uma loja ou produto previamente criado, é possível editar ou até mesmo deleta-lo da base de dados."
+        },
+        {
+            "TITLE": "Códigos QR",
+            "DESCRIPTION": "Códigos poderão ser visualizados após o salvamento, assim, surgirá opções de impressão e download. O Código não irá se alterar quando editado, apenas seus dados poderão ser trocados, mas pode ser completamente excluido da base de dados."
+        }
+
+    ],
+    "GENERATOR": [
+        {
+            "FORM_NAME": "product",
+            "TITLE": "Produto / Loja",
+            "BALOON_TIP": "Um nome para identificar o produto, uma loja, ou um cliente."
+        },
+        {
+            "FORM_NAME": "announce",
+            "TITLE": "Anúncio",
+            "BALOON_TIP": "Descreva brevemente seu negócio ou produto."
+        },
+        {
+            "FORM_NAME": "cnpj",
+            "TITLE": "CNPJ",
+            "BALOON_TIP": "CNPJ da empresa"
+        },
+        {
+            "FORM_NAME": "email",
+            "TITLE": "Email",
+            "BALOON_TIP": "O e-mail do cliente ou de um produto específico, para envio de relatórios"
+        },
+        {
+            "FORM_NAME": "site_url",
+            "TITLE": "Página",
+            "BALOON_TIP": "A página oficial do cliente ou de um produto específico"
+        },
+        {
+            "FORM_NAME": "whatsapp",
+            "TITLE": "Grupo de WhatsApp",
+            "BALOON_TIP": "Grupo de WhatsApp, é opcional e irá direcionar ao link"
+        },
+        {
+            "FORM_NAME": "telegram",
+            "TITLE": "Grupo de Telegram",
+            "BALOON_TIP": "Grupo de Telegram, é opcional e irá direcionar ao link"
+        },
+        {
+            "FORM_NAME": "facebook",
+            "TITLE": "Grupo de Facebook",
+            "BALOON_TIP": "Grupo de Facebook, é opcional e irá direcionar ao link"
+        },
+        {
+            "FORM_NAME": "instagram",
+            "TITLE": "Página do Instagram",
+            "BALOON_TIP": "Página do Instagram, é opcional e irá direcionar ao link"
+        },
+        {
+            "FORM_NAME": "youtube",
+            "TITLE": "Página do Youtube",
+            "BALOON_TIP": "Página do Youtube, é opcional e irá direcionar ao link"
+        },
+        {
+            "FORM_NAME": "voucher_url",
+            "TITLE": "Página do Voucher",
+            "BALOON_TIP": "Página do Voucher ou Promoção, é opcional e irá direcionar a um link"
+        }
+    ],
+    "MOBILE": [
+        {
+            "TITLE": "",
+            "SUB_TITLE": "",
+            "DESCRIPTION": "",
+            "FOOTER_TEXT": "",
+            "IMAGE": "../../../qrcode-frontend/assets/images/mobile.png"
+        }
+    ],
+    "SOCIAL_ICONS": [
+        {
+            "NAME": "facebook",
+            "IMAGE": "../../../qrcode-frontend/assets/images/facebook.png"
+        },
+        {
+            "NAME": "instagram",
+            "IMAGE": "../../../qrcode-frontend/assets/images/instagram.png"
+        },
+        {
+            "NAME": "whatsapp",
+            "IMAGE": "../../../qrcode-frontend/assets/images/whatsapp.png"
+        },
+        {
+            "NAME": "telegram",
+            "IMAGE": "../../../qrcode-frontend/assets/images/telegram.png"
+        },
+        {
+            "NAME": "site_url",
+            "IMAGE": "../../../qrcode-frontend/assets/images/web.png"
+        },
+        {
+            "NAME": "youtube",
+            "IMAGE": "../../../qrcode-frontend/assets/images/youtube.png"
+        },
+        {
+            "NAME": "voucher",
+            "IMAGE": "../../../qrcode-frontend/assets/images/voucher.png"
+        }
+    ]
+}

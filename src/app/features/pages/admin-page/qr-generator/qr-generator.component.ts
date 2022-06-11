@@ -9,6 +9,8 @@ import { QrGeneratorService } from 'src/app/shared/services/qr-generator.service
 import { Qr } from '../../../../shared/models/qr';
 
 import SENTENCES from '../../../../../assets/lib/sentences.json'
+import SENTENCES_PROD from '../../../../../assets/lib/sentences-prod.json'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'qr-generator',
@@ -38,7 +40,11 @@ export class QrGeneratorComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
-    this.IMAGE = SENTENCES.MOBILE;
+    if(environment.production){
+      this.IMAGE = SENTENCES_PROD.MOBILE;
+    }else{
+      this.IMAGE = SENTENCES.MOBILE;
+    }
     this.ADMIN_SENTENCES = SENTENCES.ADMIN_PAGE;
     this.INTRO_SENTENCES = SENTENCES.QR_GENERATOR_INFO;
     this.buildFormData();

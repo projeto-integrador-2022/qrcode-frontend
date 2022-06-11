@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import SENTENCES from '../../../../assets/lib/sentences.json';
+import SENTENCES_PROD from '../../../../assets/lib/sentences-prod.json';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,7 +14,11 @@ export class LandingPageComponent implements OnInit {
   size!:number;
 
   constructor(private router: Router) {
-    this.LANDING_PAGE_SENTENCES = SENTENCES.LANDING_PAGE;
+    if(environment.production){
+      this.LANDING_PAGE_SENTENCES = SENTENCES_PROD.LANDING_PAGE
+    }else{
+      this.LANDING_PAGE_SENTENCES = SENTENCES.LANDING_PAGE;
+    }
   }
 
   ngOnInit(): void {  

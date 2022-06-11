@@ -10,7 +10,7 @@ export const environment = {
     about: '../../../assets/images/qr-code-color.png',
     us:'../../../assets/images/ppl-working-cropped.jpg',
   },
-  baseUrl: 'http://20.226.8.18'
+  baseUrl: 'https://20.226.8.18'
 };
 
 /*
