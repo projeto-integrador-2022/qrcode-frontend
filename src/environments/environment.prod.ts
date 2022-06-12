@@ -6,5 +6,5 @@ export const environment = {
     about: '../../../qrcode-frontend/assets/images/qr-code-color.png',
     us: '../../../qrcode-frontend/assets/images/ppl-working-cropped.jpg',
   },
-  baseUrl: 'https://20.226.8.18'
+  baseUrl: 'http://20.226.8.18'
 };
