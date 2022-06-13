@@ -221,9 +221,12 @@ export class QrGeneratorComponent implements OnInit {
   }
 
   update() {
+    let obj =  this.getQrObject();
     this.qrList.forEach(element => {
+
       if (element.product === this.selected) {
-        this.qrService.updateQr(element.id!, this.getQrObject()).subscribe(
+        let aux = { ...obj, id: element.id };
+        this.qrService.updateQr(aux).subscribe(
           (response) => {
             this.isQrViewEnabled = true;
             this.showSpinner('save');
