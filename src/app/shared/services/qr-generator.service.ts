@@ -47,9 +47,9 @@ export class QrGeneratorService {
             );
     }
 
-    updateQr(id: number, qr: Qr): Observable<Qr> {
+    updateQr(obj : any): Observable<Qr> {
         return this.http
-            .put<Qr>(this.endpoint, JSON.stringify(qr), this.httpOptions)
+            .put<Qr>(this.endpoint, JSON.stringify(obj), this.httpOptions)
             .pipe(
                 catchError(this.handleError)
             );
