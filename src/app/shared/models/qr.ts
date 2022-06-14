@@ -14,4 +14,5 @@ export interface Qr {
     image?: string;
     username?: string;
     qrcode: string;
+    uuid: any;
 }

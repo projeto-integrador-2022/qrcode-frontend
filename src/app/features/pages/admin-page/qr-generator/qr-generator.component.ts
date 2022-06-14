@@ -37,6 +37,7 @@ export class QrGeneratorComponent implements OnInit {
   qrList = Array<Qr>();
   qr!: Qr;
   base64: any;
+  uuid: any;
 
   constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private qrService: QrGeneratorService, private router: Router, private el: ElementRef) {
     this.GENERATOR_SENTENCES = SENTENCES.GENERATOR;
@@ -138,6 +139,7 @@ export class QrGeneratorComponent implements OnInit {
     this.formData[0]['announce'] = data.announce;
 
     this.base64 = data.qrcode;
+    this.uuid = data.uuid;
     window.localStorage.setItem(`base64`, this.base64);
     
   }
@@ -185,7 +187,8 @@ export class QrGeneratorComponent implements OnInit {
       voucher_url: this.formGroup.get('voucher_url').value,
       announce: this.formGroup.get('announce').value,
       username: localStorage.getItem('user')?.toString(),
-      qrcode: this.base64
+      qrcode: this.base64,
+      uuid: this.uuid
     }
     return newQr;
   }
