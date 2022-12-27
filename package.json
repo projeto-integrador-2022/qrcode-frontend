@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "build": "ng build",
     "start": "ng serve --o",
     "dev": "yarn run compose-up &&  yarn run start",
     "drop-n-go": "yarn run postgresql-down && yarn run compose-down && yarn run compose-up &&  yarn run start",
